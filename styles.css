@@ -267,7 +267,7 @@ table { border-collapse: collapse; width: 100%; }
 .utility-bar a, .utility-bar button { color: #A9C0DC; background: none; border: none; cursor: pointer; font: inherit; }
 .utility-bar a:hover, .utility-bar button:hover { color: var(--white); text-decoration: none; }
 
-.navbar { background: var(--gov-navy); box-shadow: var(--shadow-md); position: sticky; top: 0; z-index: 40; }
+.navbar { background: var(--gov-navy); box-shadow: var(--shadow-md); position: sticky; top: 0; z-index: 40; padding-block: var(--space-3); }
 .navbar-brand { display: flex; align-items: center; gap: var(--space-3); color: var(--white); }
 .navbar-brand:hover { text-decoration: none; }
 .navbar-brand-mark { width: 46px; height: 46px; border-radius: var(--radius-md); background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.18); display: flex; align-items: center; justify-content: center; color: var(--gov-gold); font-size: var(--fs-xl); }
@@ -287,24 +287,66 @@ table { border-collapse: collapse; width: 100%; }
 .nav-toggle { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: var(--radius-sm); color: var(--white); background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15); cursor: pointer; }
 @media (min-width: 900px) { .nav-toggle { display: none; } }
 
-.navbar-row { display: flex; align-items: center; justify-content: space-between; gap: var(--space-6); padding-block: var(--space-4); flex-wrap: wrap; }
+.navbar-row {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--space-6); flex-wrap: wrap;
+  padding: var(--space-2) var(--space-4);
+  background: linear-gradient(90deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: var(--radius-full);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
+}
+@media (max-width: 640px) { .navbar-row { border-radius: var(--radius-xl); } }
 
 /* =====================================================================
    FOOTER
    ===================================================================== */
 
-.site-footer { background: var(--gov-navy); color: #A9C0DC; margin-top: var(--space-12); }
-.site-footer h2 { font-size: var(--fs-xs); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--white); margin-bottom: var(--space-3); }
+.site-footer {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--gov-navy) 0%, #0A2C52 55%, #0F3868 100%);
+  color: #A9C0DC;
+  margin-top: var(--space-12);
+}
+.site-footer::before {
+  content: '';
+  position: absolute; inset: 0 0 auto auto; right: -60px; top: 0; width: 560px; height: 100%;
+  background-image: url('images/hero-parliament.webp');
+  background-size: cover; background-position: top center;
+  opacity: .12;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 40%);
+  mask-image: linear-gradient(90deg, transparent 0%, black 40%);
+  pointer-events: none;
+}
+.site-footer::after {
+  content: '';
+  position: absolute; right: 0; bottom: 0; width: min(560px, 60%); height: 130px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 130'><path d='M0,70 C150,20 450,120 600,60 L600,130 L0,130 Z' fill='%23FF9933' opacity='0.5'/><path d='M0,85 C150,35 450,135 600,75 L600,130 L0,130 Z' fill='%23FFFFFF' opacity='0.45'/><path d='M0,100 C150,50 450,150 600,90 L600,130 L0,130 Z' fill='%23138808' opacity='0.5'/></svg>");
+  background-repeat: no-repeat; background-position: bottom right; background-size: contain;
+  opacity: .5;
+  pointer-events: none;
+}
+.site-footer > * { position: relative; z-index: 1; }
+.site-footer h2 { display: flex; align-items: center; gap: var(--space-2); font-size: var(--fs-xs); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--white); margin-bottom: var(--space-3); }
+.site-footer h2 i { width: 22px; height: 22px; border-radius: 50%; border: 1px solid rgba(255,255,255,.25); display: inline-flex; align-items: center; justify-content: center; font-size: 11px; color: var(--gov-gold); flex-shrink: 0; }
 .site-footer a { color: #A9C0DC; }
 .site-footer a:hover { color: var(--gov-gold); text-decoration: underline; }
+.footer-divider { display: block; width: 40px; height: 2px; background: var(--gov-gold); border-radius: var(--radius-full); margin-block: var(--space-4); }
+@media (min-width: 700px) { .footer-grid > div:not(:first-child) { border-left: 1px solid rgba(255,255,255,.1); padding-left: var(--space-6); } }
 .footer-grid { display: grid; gap: var(--space-8); padding-block: var(--space-12); grid-template-columns: 1fr; }
 @media (min-width: 700px) { .footer-grid { grid-template-columns: 1.4fr 1fr 1fr 1fr; } }
 .footer-links { display: flex; flex-direction: column; gap: var(--space-2); font-size: var(--fs-sm); }
+.footer-links a { display: inline-flex; align-items: center; gap: 6px; transition: transform var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease); }
+.footer-links a::before { content: '\276F'; font-size: 10px; color: var(--gov-gold); }
+.footer-links a:hover { transform: translateX(3px); }
 .footer-bottom { border-top: 1px solid rgba(255,255,255,.1); font-size: var(--fs-xs); color: #7E97B8; }
 .footer-bottom-inner { display: flex; flex-direction: column; gap: var(--space-2); padding-block: var(--space-4); text-align: center; }
 @media (min-width: 700px) { .footer-bottom-inner { flex-direction: row; justify-content: space-between; text-align: left; } }
 .footer-bottom a { color: #7E97B8; }
 .footer-bottom a:hover { color: var(--gov-gold); }
+.footer-bottom-inner p { display: flex; align-items: center; gap: var(--space-2); justify-content: center; }
+@media (min-width: 700px) { .footer-bottom-inner p { justify-content: flex-start; } }
+.footer-bottom-inner i { color: var(--gov-gold); }
 
 /* =====================================================================
    FORM CONTROLS
