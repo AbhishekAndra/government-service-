@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services — Citizen Services Portal (Demo)</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="assets/shared.css">
+</head>
+<body class="bg-[var(--gov-bg)] text-slate-800">
+
+<a href="#main-content" class="skip-link focus-ring bg-white text-[var(--gov-blue)] px-4 py-2 rounded shadow font-semibold">Skip to main content</a>
+<div id="site-header" data-active="services"></div>
+
+<main id="main-content" class="max-w-7xl mx-auto px-4 sm:px-6 py-8">
+  <nav aria-label="Breadcrumb" class="text-xs text-slate-500 mb-4">
+    <a href="index.html" class="hover:underline">Home</a> <span class="mx-1">/</span> <span class="text-slate-700 font-medium">Services</span>
+  </nav>
+
+  <h1 class="text-2xl font-bold text-slate-800 mb-1">Service Catalog</h1>
+  <p class="text-sm text-slate-500 mb-6">42 government services across 8 departments — search or filter to find yours in seconds.</p>
+
+  <div class="bg-white rounded-xl border border-slate-200 p-4 mb-6 flex flex-col sm:flex-row gap-3">
+    <div class="relative flex-1">
+      <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      <input id="search" type="text" placeholder="Search services…" class="focus-ring w-full h-11 pl-9 pr-3 border border-slate-300 rounded-lg text-sm"/>
+    </div>
+    <select id="catFilter" class="focus-ring h-11 border border-slate-300 rounded-lg text-sm px-3 bg-white sm:w-56">
+      <option value="all">All categories</option>
+      <option value="certificates">Certificates</option>
+      <option value="permits">Permits &amp; Licenses</option>
+      <option value="tax">Tax &amp; Payments</option>
+      <option value="records">Public Records</option>
+    </select>
+  </div>
+
+  <p id="resultCount" class="text-sm text-slate-500 mb-4"></p>
+  <div id="grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+  <div id="emptyState" hidden class="text-center py-16 text-slate-400">No services match your search.</div>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="assets/shared.js"></script>
+<script>
+  const SERVICES = [
+    { name: 'Income Certificate', cat: 'certificates', dept: 'Revenue Department', desc: 'Proof of annual family income for scholarships, subsidies and welfare schemes.', fee: '₹30', time: '5–7 working days', slug: 'income-certificate' },
+    { name: 'Domicile Certificate', cat: 'certificates', dept: 'Revenue Department', desc: 'Proof of residency for education and employment purposes.', fee: '₹30', time: '7 working days', slug: 'domicile-certificate' },
+    { name: 'Caste Certificate', cat: 'certificates', dept: 'Revenue Department', desc: 'Official proof of caste category for reservations and scholarships.', fee: '₹30', time: '10 working days', slug: 'caste-certificate' },
+    { name: 'Birth Certificate', cat: 'certificates', dept: 'Municipal Corporation', desc: 'Official record of birth registration.', fee: '₹20', time: '3 working days', slug: 'birth-certificate' },
+    { name: 'Trade License', cat: 'permits', dept: 'Municipal Corporation', desc: 'Permit required to legally operate a shop or trade establishment.', fee: '₹500', time: '15 working days', slug: 'trade-license' },
+    { name: 'Building Permit', cat: 'permits', dept: 'Urban Development', desc: 'Approval for new construction or renovation within municipal limits.', fee: '₹2,000', time: '30 working days', slug: 'building-permit' },
+    { name: 'Driving-related NOC', cat: 'permits', dept: 'Transport Department', desc: 'No-objection certificate for vehicle registration transfer.', fee: '₹200', time: '5 working days', slug: 'noc-transport' },
+    { name: 'Property Tax Payment', cat: 'tax', dept: 'Municipal Corporation', desc: 'Pay your annual property tax online and download the receipt instantly.', fee: 'Varies', time: 'Instant', slug: 'property-tax' },
+    { name: 'Water Bill Payment', cat: 'tax', dept: 'Water Board', desc: 'View and pay your quarterly water usage bill.', fee: 'Varies', time: 'Instant', slug: 'water-bill' },
+    { name: 'Professional Tax', cat: 'tax', dept: 'Revenue Department', desc: 'Annual professional tax payment for salaried and self-employed citizens.', fee: 'Varies', time: 'Instant', slug: 'professional-tax' },
+    { name: 'Land Record (7/12 Extract)', cat: 'records', dept: 'Land Records Department', desc: 'Download certified land ownership and cultivation records.', fee: '₹15', time: 'Instant', slug: 'land-record' },
+    { name: 'Voter ID Search', cat: 'records', dept: 'Election Commission', desc: 'Search and verify your entry in the electoral roll.', fee: 'Free', time: 'Instant', slug: 'voter-search' },
+  ];
+
+  const params = new URLSearchParams(window.location.search);
+  const searchInput = document.getElementById('search');
+  const catFilter = document.getElementById('catFilter');
+  if (params.get('q')) searchInput.value = params.get('q');
+  if (params.get('cat')) catFilter.value = params.get('cat');
+
+  function render() {
+    const q = searchInput.value.trim().toLowerCase();
+    const cat = catFilter.value;
+    const list = SERVICES.filter(s =>
+      (cat === 'all' || s.cat === cat) &&
+      (!q || s.name.toLowerCase().includes(q) || s.desc.toLowerCase().includes(q) || s.dept.toLowerCase().includes(q))
+    );
+    document.getElementById('resultCount').textContent = `${list.length} service${list.length === 1 ? '' : 's'} found`;
+    document.getElementById('emptyState').hidden = list.length !== 0;
+    document.getElementById('grid').innerHTML = list.map(s => `
+      <article class="bg-white rounded-xl border border-slate-200 p-5 flex flex-col">
+        <span class="inline-block text-[10px] font-semibold uppercase tracking-wide text-[var(--gov-blue)] bg-blue-50 rounded-full px-2 py-0.5 w-fit">${s.dept}</span>
+        <h2 class="mt-3 font-semibold text-slate-800">${s.name}</h2>
+        <p class="mt-1 text-sm text-slate-500 flex-1">${s.desc}</p>
+        <div class="mt-3 flex items-center gap-4 text-xs text-slate-400">
+          <span>Fee: <strong class="text-slate-600">${s.fee}</strong></span>
+          <span>Processing: <strong class="text-slate-600">${s.time}</strong></span>
+        </div>
+        <a href="apply.html?service=${s.slug}" class="focus-ring mt-4 inline-flex justify-center items-center gap-1 bg-[var(--gov-blue)] hover:bg-blue-800 text-white text-sm font-semibold rounded-lg py-2.5">
+          Apply Now
+          <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </article>
+    `).join('');
+  }
+  searchInput.addEventListener('input', render);
+  catFilter.addEventListener('change', render);
+  render();
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "gov-portal",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["--yes", "serve", "gov-portal", "-l", "5177"],
+      "port": 5177
+    },
+    {
+      "name": "citizen-portal",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["--yes", "serve", ".", "-l", "5178"],
+      "port": 5178
+    },
+    {
+      "name": "vanilla-homepage",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["--yes", "serve", "vanilla-homepage", "-l", "5179"],
+      "port": 5179
+    }
+  ]
+}

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travel &amp; Tourism | Citizen Services Portal</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<div class="utility-bar">
+  <div class="container-gov flex items-center justify-between gap-4" style="height:36px">
+    <div class="flex items-center gap-3">
+      <button id="a11yToggle" type="button" aria-expanded="false" aria-controls="a11yPanel" class="flex items-center gap-2"><i class="fa-solid fa-universal-access"></i> Accessibility</button>
+      <span class="divider-v" aria-hidden="true"></span>
+      <button type="button" class="flex items-center gap-2"><i class="fa-solid fa-globe"></i> English <i class="fa-solid fa-chevron-down"></i></button>
+    </div>
+    <div class="flex items-center gap-3">
+      <a href="staff-login.html"><i class="fa-solid fa-id-badge"></i> Staff Login</a>
+      <span class="divider-v" aria-hidden="true"></span>
+      <a id="headerSearch" href="services.html?focus=search" class="flex items-center gap-2"><i class="fa-solid fa-magnifying-glass"></i> Search</a>
+    </div>
+  </div>
+  <div id="a11yPanel" hidden class="a11y-panel">
+    <div class="container-gov flex flex-wrap items-center gap-4" style="padding-block:var(--space-3)">
+      <span class="text-xs font-semibold" style="text-transform:uppercase; letter-spacing:.05em; color:#7E97B8">Text size</span>
+      <span class="flex items-center gap-1" role="group" aria-label="Text size">
+        <button type="button" data-fontsize="dec" class="a11y-size-btn" aria-label="Decrease text size">A-</button>
+        <button type="button" data-fontsize="reset" class="a11y-size-btn" aria-label="Reset text size">A</button>
+        <button type="button" data-fontsize="inc" class="a11y-size-btn" aria-label="Increase text size">A+</button>
+      </span>
+      <a href="about.html#accessibility" class="text-sm font-semibold" style="color:var(--gov-gold); margin-left:auto">Full accessibility statement &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<header class="navbar">
+  <div class="container-gov navbar-row">
+    <a href="home.html" class="navbar-brand">
+      <img src="images/stackly-logo-white.webp" alt="Stackly" class="navbar-brand-logo">
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primaryNav"><i class="fa-solid fa-bars"></i></button>
+    <nav id="primaryNav" aria-label="Primary" class="primary-nav">
+      <a href="home.html" class="nav-link">Home</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="application-status.html" class="nav-link">Track application</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="help.html" class="nav-link">Help</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" style="min-height:280px; display:flex; align-items:flex-end">
+  <img src="images/tourism-tajmahal.webp" alt="The Taj Mahal, Agra" class="hero-bg-image" loading="eager">
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="hero-inner container-gov" style="padding-top:var(--space-16); padding-bottom:var(--space-8)">
+    <nav class="breadcrumb on-navy" aria-label="Breadcrumb"><a href="home.html">Home</a><span class="sep">/</span><span class="current">Travel &amp; Tourism</span></nav>
+    <h1 class="mt-3" data-aos="fade-up">Visiting India</h1>
+    <p class="lead mt-2" data-aos="fade-up" data-aos-delay="80">Monuments, wildlife, and heritage sites across the country &mdash; plus what you'll need to travel.</p>
+  </div>
+</section>
+
+<main id="main-content" class="container-gov" style="padding-block:var(--space-10)">
+  <div class="listing-layout">
+
+    <div>
+      <div class="card mb-6" data-aos="fade-up">
+        <label for="destinationSearch" class="form-label">Search destinations</label>
+        <div class="relative">
+          <i class="fa-solid fa-magnifying-glass" style="position:absolute; left:1rem; top:50%; transform:translateY(-50%); color:var(--gray-400)"></i>
+          <input id="destinationSearch" type="search" class="form-control" style="padding-left:2.5rem" placeholder="Try Agra, backwaters, heritage…">
+        </div>
+        <p class="text-xs font-semibold mt-4 mb-2" style="text-transform:uppercase; letter-spacing:.04em; color:var(--gray-500)">Filter by type</p>
+        <div id="destinationFilters" class="filter-bar" role="group" aria-label="Filter destinations by type">
+          <button type="button" class="filter-chip" data-filter="All" aria-pressed="true">All</button>
+          <button type="button" class="filter-chip" data-filter="Heritage" aria-pressed="false">Heritage</button>
+          <button type="button" class="filter-chip" data-filter="Nature" aria-pressed="false">Nature</button>
+          <button type="button" class="filter-chip" data-filter="Culture" aria-pressed="false">Culture</button>
+          <button type="button" class="filter-chip" data-filter="Adventure" aria-pressed="false">Adventure</button>
+        </div>
+      </div>
+
+      <section aria-labelledby="destinations-heading">
+        <div class="flex items-center justify-between mb-4">
+          <h2 id="destinations-heading">Popular destinations</h2>
+          <span id="destinationCount" class="listing-meta">6 destinations</span>
+        </div>
+        <div id="destinationsGrid" class="grid-auto-sm">
+          <div data-category="Heritage" class="listing-card card card-hover" data-aos="fade-up">
+            <span class="card-icon"><i class="fa-solid fa-mosque"></i></span>
+            <h3 class="card-title mt-3">Taj Mahal, Agra</h3>
+            <p class="card-text mt-1">A UNESCO World Heritage monument, best seen at sunrise.</p>
+          </div>
+          <div data-category="Heritage" class="listing-card card card-hover" data-aos="fade-up">
+            <span class="card-icon" style="background:var(--warning-bg); color:var(--warning)"><i class="fa-solid fa-chess-rook"></i></span>
+            <h3 class="card-title mt-3">Jaipur, Rajasthan</h3>
+            <p class="card-text mt-1">Palaces, forts, and the historic Pink City.</p>
+          </div>
+          <div data-category="Nature" class="listing-card card card-hover" data-aos="fade-up">
+            <span class="card-icon" style="background:var(--info-bg); color:var(--info)"><i class="fa-solid fa-water"></i></span>
+            <h3 class="card-title mt-3">Kerala Backwaters</h3>
+            <p class="card-text mt-1">Houseboat cruises through calm coastal canals.</p>
+          </div>
+          <div data-category="Culture" class="listing-card card card-hover" data-aos="fade-up">
+            <span class="card-icon" style="background:#F1EAFB; color:#7C3AED"><i class="fa-solid fa-dharmachakra"></i></span>
+            <h3 class="card-title mt-3">Varanasi, Uttar Pradesh</h3>
+            <p class="card-text mt-1">One of the world's oldest continuously inhabited cities.</p>
+          </div>
+          <div data-category="Nature" class="listing-card card card-hover" data-aos="fade-up">
+            <span class="card-icon" style="background:var(--success-bg); color:var(--success)"><i class="fa-solid fa-umbrella-beach"></i></span>
+            <h3 class="card-title mt-3">Goa Beaches</h3>
+            <p class="card-text mt-1">Sun, sand and Portuguese-era heritage along the west coast.</p>
+          </div>
+          <div data-category="Adventure" class="listing-card card card-hover" data-aos="fade-up">
+            <span class="card-icon navy"><i class="fa-solid fa-mountain"></i></span>
+            <h3 class="card-title mt-3">Leh-Ladakh</h3>
+            <p class="card-text mt-1">High-altitude passes, monasteries, and mountain lakes.</p>
+          </div>
+        </div>
+        <p id="destinationEmpty" hidden class="empty-state"><i class="fa-solid fa-magnifying-glass"></i> No destinations match your search or filter.</p>
+        <nav id="destinationPagination" class="pagination" aria-label="Destinations pages"></nav>
+      </section>
+
+      <section aria-labelledby="parks-heading" class="mt-12">
+        <h2 id="parks-heading" class="mb-4">National parks &amp; wildlife</h2>
+        <div class="grid-auto-md">
+          <div class="card tile" data-aos="fade-up">
+            <span class="card-icon sm" style="background:var(--success-bg); color:var(--success)"><i class="fa-solid fa-paw"></i></span>
+            <div><h3 class="card-title" style="font-size:var(--fs-base)">Jim Corbett National Park</h3><p class="card-text mt-1">Uttarakhand &middot; India's oldest national park, known for Bengal tigers.</p></div>
+          </div>
+          <div class="card tile" data-aos="fade-up" data-aos-delay="60">
+            <span class="card-icon sm" style="background:var(--success-bg); color:var(--success)"><i class="fa-solid fa-paw"></i></span>
+            <div><h3 class="card-title" style="font-size:var(--fs-base)">Kaziranga National Park</h3><p class="card-text mt-1">Assam &middot; Home to the majority of the world's one-horned rhinos.</p></div>
+          </div>
+          <div class="card tile" data-aos="fade-up" data-aos-delay="120">
+            <span class="card-icon sm" style="background:var(--success-bg); color:var(--success)"><i class="fa-solid fa-paw"></i></span>
+            <div><h3 class="card-title" style="font-size:var(--fs-base)">Ranthambore National Park</h3><p class="card-text mt-1">Rajasthan &middot; Tiger reserve set around a historic fort.</p></div>
+          </div>
+        </div>
+        <p class="mt-3 text-xs" style="color:var(--gray-500)">Entry permits and safari bookings are managed by each state's forest department.</p>
+      </section>
+
+      <section aria-labelledby="prepare-heading" class="mt-12">
+        <h2 id="prepare-heading" class="mb-4">Before you travel</h2>
+        <ul class="card flex flex-col gap-3">
+          <li class="flex gap-2 text-sm card-text"><i class="fa-solid fa-circle-check" style="color:var(--gov-blue)"></i> International visitors: check visa requirements well ahead of travel.</li>
+          <li class="flex gap-2 text-sm card-text"><i class="fa-solid fa-circle-check" style="color:var(--gov-blue)"></i> Domestic travellers: carry a valid photo ID for hotel check-ins and monument entry.</li>
+          <li class="flex gap-2 text-sm card-text"><i class="fa-solid fa-circle-check" style="color:var(--gov-blue)"></i> Some heritage sites require advance online ticket booking, especially on weekends.</li>
+          <li class="flex gap-2 text-sm card-text"><i class="fa-solid fa-circle-check" style="color:var(--gov-blue)"></i> Wildlife park safaris are limited in number per day &mdash; book early.</li>
+        </ul>
+      </section>
+    </div>
+
+    <aside>
+      <div class="sidebar-card" data-aos="fade-up">
+        <h2>Quick links</h2>
+        <div class="sidebar-links">
+          <a href="services.html"><i class="fa-solid fa-passport"></i> Passport &amp; travel documents</a>
+          <a href="services.html"><i class="fa-solid fa-grip"></i> Browse all services</a>
+          <a href="application-status.html"><i class="fa-solid fa-list-check"></i> Track an application</a>
+        </div>
+      </div>
+      <div class="sidebar-card" data-aos="fade-up" data-aos-delay="80">
+        <h2>Related</h2>
+        <div class="sidebar-links">
+          <a href="schemes.html"><i class="fa-solid fa-hand-holding-dollar"></i> Government schemes</a>
+          <a href="representatives.html"><i class="fa-solid fa-people-group"></i> My representatives</a>
+        </div>
+      </div>
+      <div class="sidebar-card help-card" data-aos="fade-up" data-aos-delay="160">
+        <h2>Need a passport first?</h2>
+        <p>Apply for a new passport or renewal through the Services page before booking international travel.</p>
+        <a href="services.html" class="btn btn-gold btn-sm mt-3"><i class="fa-solid fa-passport"></i> Passport services</a>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container-gov footer-grid">
+    <div>
+      <div class="flex items-center"><img src="images/stackly-logo-white.webp" alt="Stackly" class="footer-brand-logo"></div>
+      <p class="mt-3 text-sm" style="line-height:var(--lh-normal)">A single place to apply for, track, and manage government services online.</p>
+      <p class="mt-4 text-sm font-semibold" style="color:#fff">Helpline: 1800 123 4567</p>
+      <p class="text-xs" style="color:var(--gov-gold)">Monday&ndash;Friday, 9:00 AM&ndash;5:30 PM</p>
+      <div class="footer-social" role="group" aria-label="Social media">
+        <a href="404.html" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="404.html" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="404.html" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="404.html" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+    </div>
+    <div><h2>Explore</h2><ul class="footer-links"><li><a href="home.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="application-status.html">Track application</a></li><li><a href="about.html">About</a></li><li><a href="help.html">Help</a></li></ul></div>
+    <div><h2>More</h2><ul class="footer-links"><li><a href="schemes.html">Government schemes</a></li><li><a href="jobs.html">Jobs in government</a></li><li><a href="representatives.html">My representatives</a></li><li><a href="tourism.html">Travel &amp; tourism</a></li><li><a href="document-verification.html">Document verification</a></li></ul></div>
+    <div><h2>Account &amp; support</h2><ul class="footer-links"><li><a href="staff-login.html">Staff login</a></li><li><a href="about.html#accessibility">Accessibility statement</a></li><li><a href="help.html">Contact support</a></li><li><a href="help.html">Report an issue</a></li></ul></div>
+  </div>
+  <div style="border-top:1px solid rgba(255,255,255,.1)"><div class="container-gov text-xs" style="padding-block:var(--space-4); color:var(--gov-gold)">Photo: Taj Mahal, Agra by Yann (edited by King of Hearts), <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license">CC BY-SA 4.0</a>, via Wikimedia Commons.</div></div>
+  <div class="footer-bottom"><div class="container-gov footer-bottom-inner"><p>Citizen Services Portal is a demonstration project built for practice purposes &mdash; not an official government website.</p><p>Last updated: September 2026</p></div></div>
+</footer>
+
+<script src="listing-common.js"></script>
+<script>
+  initListing({
+    gridSelector: '#destinationsGrid', cardSelector: '.listing-card', searchInputSelector: '#destinationSearch',
+    filterBarSelector: '#destinationFilters', countSelector: '#destinationCount', emptyStateSelector: '#destinationEmpty',
+    paginationSelector: '#destinationPagination', pageSize: 4, itemLabel: 'destination',
+  });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>AOS.init({ duration: 500, once: true, offset: 60, disable: window.matchMedia('(prefers-reduced-motion: reduce)').matches });</script>
+<script src="portal-common.js"></script>
+</body>
+</html>

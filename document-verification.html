@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document Verification | Citizen Services Portal</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body style="background:var(--gray-100)">
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<div class="utility-bar">
+  <div class="dash-container flex items-center justify-between gap-4" style="height:36px">
+    <a href="home.html" class="flex items-center gap-2"><i class="fa-solid fa-arrow-left"></i> Back to Citizen Services Portal</a>
+    <nav aria-label="Utility" class="flex items-center gap-3">
+      <a href="about.html#accessibility">Screen Reader Access</a>
+      <span class="divider-v" aria-hidden="true"></span>
+      <span class="flex items-center gap-1" role="group" aria-label="Text size">
+        <button type="button" data-fontsize="dec" aria-label="Decrease text size">A-</button>
+        <button type="button" data-fontsize="reset" aria-label="Reset text size">A</button>
+        <button type="button" data-fontsize="inc" aria-label="Increase text size">A+</button>
+      </span>
+      <span class="divider-v" aria-hidden="true"></span>
+      <button type="button" class="flex items-center gap-1">English <i class="fa-solid fa-chevron-down"></i></button>
+    </nav>
+  </div>
+</div>
+
+<header class="dash-header">
+  <div class="dash-container flex items-center justify-between gap-4 flex-wrap" style="padding-block:var(--space-3)">
+    <div class="flex items-center gap-3">
+      <span class="icon-avatar square" style="background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2)"><i class="fa-solid fa-shield-halved"></i></span>
+      <div>
+        <p class="text-xs" style="text-transform:uppercase; letter-spacing:.05em; color:#B9CCE4">Officer Dashboard</p>
+        <h1 style="font-size:var(--fs-lg); color:#fff">Document Verification</h1>
+      </div>
+    </div>
+    <div class="flex items-center gap-3 text-sm">
+      <span style="color:#B9CCE4">Officer: <strong id="officerName" style="color:#fff">A. Sharma</strong> &middot; ID #<span id="officerIdLabel">OF-2291</span></span>
+      <button id="logoutBtn" class="btn btn-sm" style="background:rgba(255,255,255,.1); color:#fff; border:1px solid rgba(255,255,255,.2)">Log out</button>
+    </div>
+  </div>
+</header>
+
+<main id="main-content" class="dash-container" style="padding-block:var(--space-6)">
+  <nav class="breadcrumb mb-4" aria-label="Breadcrumb"><a href="home.html">Home</a><span class="sep">/</span><a href="services.html">Services</a><span class="sep">/</span><span class="current">Document Verification</span></nav>
+
+  <section aria-label="Summary" class="dash-kpi-grid mb-6">
+    <div class="dash-kpi-card">
+      <span class="dash-kpi-icon" style="background:var(--gov-blue-light); color:var(--gov-blue)"><i class="fa-solid fa-folder-open"></i></span>
+      <div><p class="dash-kpi-value" id="kpiTotal">&mdash;</p><p class="dash-kpi-label">Total submissions</p></div>
+    </div>
+    <div class="dash-kpi-card">
+      <span class="dash-kpi-icon" style="background:var(--warning-bg); color:var(--warning)"><i class="fa-solid fa-hourglass-half"></i></span>
+      <div><p class="dash-kpi-value" id="kpiPending">&mdash;</p><p class="dash-kpi-label">Pending &amp; under review</p></div>
+    </div>
+    <div class="dash-kpi-card">
+      <span class="dash-kpi-icon" style="background:var(--success-bg); color:var(--success)"><i class="fa-solid fa-circle-check"></i></span>
+      <div><p class="dash-kpi-value" id="kpiApproved">&mdash;</p><p class="dash-kpi-label">Approved</p></div>
+    </div>
+    <div class="dash-kpi-card">
+      <span class="dash-kpi-icon" style="background:var(--danger-bg); color:var(--danger)"><i class="fa-solid fa-circle-xmark"></i></span>
+      <div><p class="dash-kpi-value" id="kpiRejected">&mdash;</p><p class="dash-kpi-label">Rejected</p></div>
+    </div>
+    <div class="dash-kpi-card">
+      <span class="dash-kpi-icon" style="background:var(--gov-gold-light); color:var(--gov-gold-dark)"><i class="fa-solid fa-gauge-high"></i></span>
+      <div><p class="dash-kpi-value">2.4 days</p><p class="dash-kpi-label">Avg. time to decision</p></div>
+    </div>
+  </section>
+
+  <section aria-label="Filters and search" class="card mb-6">
+    <div class="flex flex-wrap items-end justify-between gap-4">
+      <div class="flex flex-wrap gap-4" style="flex:1">
+        <div class="flex-1" style="min-width:220px">
+          <label for="search" class="form-label">Search</label>
+          <div class="relative">
+            <i class="fa-solid fa-magnifying-glass" style="position:absolute; left:1rem; top:50%; transform:translateY(-50%); color:var(--gray-400)"></i>
+            <input id="search" type="text" placeholder="Applicant name or Application ID…" class="form-control" style="padding-left:2.5rem"/>
+          </div>
+        </div>
+        <div style="width:100%; max-width:14rem">
+          <label for="statusFilter" class="form-label">Status</label>
+          <select id="statusFilter" class="form-control">
+            <option value="all">All statuses</option>
+            <option value="Pending">Pending</option>
+            <option value="Under Review">Under Review</option>
+            <option value="Approved">Approved</option>
+            <option value="Rejected">Rejected</option>
+          </select>
+        </div>
+        <div style="width:100%; max-width:14rem">
+          <label for="sortBy" class="form-label">Sort by</label>
+          <select id="sortBy" class="form-control">
+            <option value="date-desc">Date (newest first)</option>
+            <option value="date-asc">Date (oldest first)</option>
+            <option value="status">Status</option>
+            <option value="applicant">Applicant name (A&ndash;Z)</option>
+          </select>
+        </div>
+      </div>
+      <span id="resultCount" class="listing-meta">&mdash; results</span>
+    </div>
+
+    <div id="bulkBar" hidden class="bulk-bar mt-4">
+      <span id="bulkCount" class="text-sm font-semibold" style="color:var(--gov-navy)">0 selected</span>
+      <div style="flex:1"></div>
+      <button data-bulk="approve" class="btn" style="background:var(--success); color:#fff"><i class="fa-solid fa-check"></i> Approve selected</button>
+      <button data-bulk="reject" class="btn" style="background:var(--danger); color:#fff"><i class="fa-solid fa-xmark"></i> Reject selected</button>
+      <button data-bulk="clear" class="btn btn-outline">Clear</button>
+    </div>
+  </section>
+
+  <div class="dash-grid" id="dashGrid">
+    <section aria-label="Submitted documents" class="card card-flush" style="overflow:hidden">
+      <div class="table-scroll">
+        <table class="verify-table" id="docsTable">
+          <caption class="sr-only">List of submitted documents pending verification</caption>
+          <thead>
+            <tr>
+              <th style="width:2.5rem"><input type="checkbox" id="selectAll" aria-label="Select all documents on this page" style="width:16px;height:16px;accent-color:var(--gov-blue)"/></th>
+              <th>Applicant</th>
+              <th>Document type</th>
+              <th>Submitted</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="docsBody"></tbody>
+        </table>
+      </div>
+      <div id="emptyState" hidden class="text-center" style="padding:var(--space-10); color:var(--gray-500)">
+        <p class="font-semibold">No documents match your filters.</p>
+        <p class="text-sm mt-1">Try clearing the search or changing the status filter.</p>
+      </div>
+      <div class="flex items-center justify-between gap-3 flex-wrap" style="border-top:1px solid var(--gray-200); padding:var(--space-3) var(--space-4)">
+        <p id="pageInfo" class="text-sm" style="color:var(--gray-500)">Showing 1&ndash;10 of 0</p>
+        <nav aria-label="Pagination" class="flex items-center gap-1">
+          <button id="prevPage" class="pagination-btn">&lsaquo; Prev</button>
+          <span id="pageNumbers" class="flex items-center gap-1"></span>
+          <button id="nextPage" class="pagination-btn">Next &rsaquo;</button>
+        </nav>
+      </div>
+    </section>
+
+    <aside id="detailsPanel" aria-label="Document details and verification">
+      <div id="detailsPlaceholder" class="card" style="text-align:center; padding:var(--space-10); border-style:dashed; color:var(--gray-400)">
+        <i class="fa-solid fa-file-lines" style="font-size:var(--fs-3xl); display:block; margin-bottom:var(--space-3)"></i>
+        <p class="font-semibold" style="color:var(--gray-500)">Select "View &amp; Verify" on a document</p>
+        <p class="text-sm mt-1">Details, preview and verification actions will appear here.</p>
+      </div>
+
+      <div id="detailsCard" hidden class="card card-flush" style="overflow:hidden">
+        <div class="details-panel-header">
+          <h2 class="font-semibold" style="color:var(--gray-800)">Verify Document</h2>
+          <button id="closePanel" class="icon-btn" aria-label="Close details panel"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+
+        <div style="max-height:calc(100vh - 11rem); overflow-y:auto; padding:var(--space-4); display:flex; flex-direction:column; gap:var(--space-5)">
+
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-xs font-semibold" style="text-transform:uppercase; color:var(--gray-500)">Document preview</h3>
+              <div class="flex items-center gap-1">
+                <button id="zoomOut" title="Zoom out" class="icon-btn"><i class="fa-solid fa-magnifying-glass-minus"></i></button>
+                <button id="zoomIn" title="Zoom in" class="icon-btn"><i class="fa-solid fa-magnifying-glass-plus"></i></button>
+                <button id="rotateBtn" title="Rotate" class="icon-btn"><i class="fa-solid fa-rotate"></i></button>
+                <button id="fullscreenBtn" title="Full screen" class="icon-btn"><i class="fa-solid fa-expand"></i></button>
+              </div>
+            </div>
+            <div class="doc-preview-box">
+              <img id="previewImg" src="" alt="Preview of submitted document"/>
+              <span id="zoomLabel" class="zoom-label">100%</span>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-xs font-semibold mb-2" style="text-transform:uppercase; color:var(--gray-500)">Document info</h3>
+            <dl class="grid" style="grid-template-columns:1fr 1fr; gap:var(--space-2) var(--space-3); font-size:var(--fs-sm)">
+              <div><dt style="color:var(--gray-400)">Applicant</dt><dd id="infoApplicant" class="font-semibold" style="color:var(--gray-800)">&mdash;</dd></div>
+              <div><dt style="color:var(--gray-400)">Document type</dt><dd id="infoType" class="font-semibold" style="color:var(--gray-800)">&mdash;</dd></div>
+              <div><dt style="color:var(--gray-400)">Submitted date</dt><dd id="infoDate" class="font-semibold" style="color:var(--gray-800)">&mdash;</dd></div>
+              <div><dt style="color:var(--gray-400)">Submitted by (User ID)</dt><dd id="infoUser" class="font-semibold" style="color:var(--gray-800)">&mdash;</dd></div>
+              <div><dt style="color:var(--gray-400)">File size</dt><dd id="infoSize" class="font-semibold" style="color:var(--gray-800)">&mdash;</dd></div>
+              <div><dt style="color:var(--gray-400)">Format</dt><dd id="infoFormat" class="font-semibold" style="color:var(--gray-800)">&mdash;</dd></div>
+            </dl>
+            <button id="compareBtn" class="mt-3 text-sm font-semibold flex items-center gap-1" style="background:none;border:none;color:var(--gov-blue);cursor:pointer" hidden><i class="fa-solid fa-code-compare"></i> Compare with previous submission</button>
+          </div>
+
+          <div style="border-top:1px solid var(--gray-200); padding-top:var(--space-4)">
+            <h3 class="text-xs font-semibold mb-2" style="text-transform:uppercase; color:var(--gray-500)">Verification</h3>
+            <label for="statusSelect" class="form-label">Change status</label>
+            <select id="statusSelect" class="form-control mb-3">
+              <option>Pending</option><option>Under Review</option><option>Approved</option><option>Rejected</option>
+            </select>
+            <label for="remarks" class="form-label">Officer remarks</label>
+            <textarea id="remarks" rows="3" placeholder="Add verification notes…" class="form-control mb-3"></textarea>
+            <p class="text-xs font-semibold mb-2" style="color:var(--gray-600)">Verification checklist</p>
+            <ul id="checklist" class="mb-4" style="display:flex; flex-direction:column; gap:var(--space-2)">
+              <li class="checklist-item"><input type="checkbox" id="chk1"/><label for="chk1" class="text-sm" style="color:var(--gray-700)">Document is clear and readable</label></li>
+              <li class="checklist-item"><input type="checkbox" id="chk2"/><label for="chk2" class="text-sm" style="color:var(--gray-700)">Information matches application</label></li>
+              <li class="checklist-item"><input type="checkbox" id="chk3"/><label for="chk3" class="text-sm" style="color:var(--gray-700)">Document is not expired</label></li>
+              <li class="checklist-item"><input type="checkbox" id="chk4"/><label for="chk4" class="text-sm" style="color:var(--gray-700)">No obvious forgery signs</label></li>
+            </ul>
+            <div class="grid-auto-sm">
+              <button id="approveBtn" class="btn" style="background:var(--success); color:#fff" title="Ctrl+A to approve"><i class="fa-solid fa-check"></i> Approve</button>
+              <button id="changesBtn" class="btn" style="background:var(--warning); color:#fff" title="Ctrl+Shift+C to request changes"><i class="fa-solid fa-pen"></i> Request Changes</button>
+              <button id="rejectBtn" class="btn" style="background:var(--danger); color:#fff" title="Ctrl+R to reject"><i class="fa-solid fa-xmark"></i> Reject</button>
+            </div>
+            <p class="text-xs mt-2" style="color:var(--gray-400)">Shortcuts: <span class="kbd">Ctrl+A</span> Approve &middot; <span class="kbd">Ctrl+Shift+C</span> Request changes &middot; <span class="kbd">Ctrl+R</span> Reject</p>
+          </div>
+
+          <div style="border-top:1px solid var(--gray-200); padding-top:var(--space-4)">
+            <button id="exportBtn" class="btn btn-outline btn-block"><i class="fa-solid fa-download"></i> Export verification report (PDF)</button>
+          </div>
+
+          <div style="border-top:1px solid var(--gray-200); padding-top:var(--space-4)">
+            <button id="auditToggle" class="flex items-center justify-between" style="width:100%; background:none; border:none; cursor:pointer" aria-expanded="false" aria-controls="auditBody">
+              <h3 class="text-xs font-semibold" style="text-transform:uppercase; color:var(--gray-500)">History / Audit trail</h3>
+              <i id="auditChevron" class="fa-solid fa-chevron-down" style="color:var(--gray-400); transition:transform var(--dur-base) var(--ease)"></i>
+            </button>
+            <div id="auditBody" hidden class="mt-3">
+              <div class="flex items-center justify-between mb-2">
+                <p class="text-xs" style="color:var(--gray-500)">All actions are logged with officer ID and timestamp.</p>
+                <button id="undoBtn" class="text-xs font-semibold flex items-center gap-1" style="background:none;border:none;color:var(--gov-blue);cursor:pointer" hidden><i class="fa-solid fa-rotate-left"></i> Undo last action</button>
+              </div>
+              <div class="table-scroll" style="border:1px solid var(--gray-200); border-radius:var(--radius-md)">
+                <table class="data-table" style="font-size:var(--fs-xs)">
+                  <thead><tr><th>Date</th><th>Officer</th><th>Action</th><th>Remarks</th></tr></thead>
+                  <tbody id="auditRows"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<div id="fullscreenOverlay" hidden class="fullscreen-overlay">
+  <button id="closeFullscreen" class="icon-btn" style="position:absolute; top:var(--space-4); right:var(--space-4); background:rgba(255,255,255,.1); color:#fff; border-color:rgba(255,255,255,.2)" aria-label="Close full screen view"><i class="fa-solid fa-xmark"></i></button>
+  <img id="fullscreenImg" src="" alt="Full screen document preview"/>
+</div>
+
+<div id="toast" role="status" aria-live="polite" class="toast-host"></div>
+
+<script>
+(function () {
+  const DOCS = [
+    { id: 'APP-10231', applicant: 'Ravi Kumar', type: 'ID Proof (Aadhaar)', date: '2026-09-08', user: 'USR-4471', size: '1.2 MB', format: 'JPG', status: 'Pending', resubmitted: false },
+    { id: 'APP-10232', applicant: 'Sunita Verma', type: 'Income Certificate', date: '2026-09-07', user: 'USR-4472', size: '842 KB', format: 'PDF', status: 'Under Review', resubmitted: true },
+    { id: 'APP-10233', applicant: 'Mohammed Ali', type: 'PAN Card', date: '2026-09-07', user: 'USR-4473', size: '450 KB', format: 'PNG', status: 'Approved', resubmitted: false },
+    { id: 'APP-10234', applicant: 'Priya Nair', type: 'Address Proof', date: '2026-09-06', user: 'USR-4474', size: '2.1 MB', format: 'PDF', status: 'Rejected', resubmitted: false },
+    { id: 'APP-10235', applicant: 'Arjun Singh', type: 'Income Certificate', date: '2026-09-06', user: 'USR-4475', size: '980 KB', format: 'PDF', status: 'Pending', resubmitted: false },
+    { id: 'APP-10236', applicant: 'Meena Iyer', type: 'ID Proof (Passport)', date: '2026-09-05', user: 'USR-4476', size: '1.5 MB', format: 'JPG', status: 'Under Review', resubmitted: false },
+    { id: 'APP-10237', applicant: 'Karan Mehta', type: 'Bank Statement', date: '2026-09-05', user: 'USR-4477', size: '3.4 MB', format: 'PDF', status: 'Pending', resubmitted: false },
+    { id: 'APP-10238', applicant: 'Divya Reddy', type: 'PAN Card', date: '2026-09-04', user: 'USR-4478', size: '390 KB', format: 'PNG', status: 'Approved', resubmitted: false },
+    { id: 'APP-10239', applicant: 'Vikram Rao', type: 'Income Certificate', date: '2026-09-04', user: 'USR-4479', size: '760 KB', format: 'PDF', status: 'Rejected', resubmitted: true },
+    { id: 'APP-10240', applicant: 'Anjali Gupta', type: 'Address Proof', date: '2026-09-03', user: 'USR-4480', size: '1.1 MB', format: 'PDF', status: 'Pending', resubmitted: false },
+    { id: 'APP-10241', applicant: 'Sanjay Joshi', type: 'ID Proof (Aadhaar)', date: '2026-09-03', user: 'USR-4481', size: '1.3 MB', format: 'JPG', status: 'Under Review', resubmitted: false },
+    { id: 'APP-10242', applicant: 'Neha Kapoor', type: 'Bank Statement', date: '2026-09-02', user: 'USR-4482', size: '2.8 MB', format: 'PDF', status: 'Pending', resubmitted: false },
+    { id: 'APP-10243', applicant: 'Rahul Desai', type: 'PAN Card', date: '2026-09-02', user: 'USR-4483', size: '410 KB', format: 'PNG', status: 'Approved', resubmitted: false },
+    { id: 'APP-10244', applicant: 'Pooja Malhotra', type: 'Income Certificate', date: '2026-09-01', user: 'USR-4484', size: '890 KB', format: 'PDF', status: 'Rejected', resubmitted: false },
+    { id: 'APP-10245', applicant: 'Amit Bose', type: 'Address Proof', date: '2026-09-01', user: 'USR-4485', size: '1.0 MB', format: 'PDF', status: 'Pending', resubmitted: false },
+  ];
+
+  const AUDIT = {
+    'APP-10232': [{ date: '2026-09-07 10:12', officer: 'A. Sharma (OF-2291)', action: 'Status → Under Review', remarks: 'Awaiting clearer scan of page 2.' }],
+    'APP-10234': [{ date: '2026-09-06 15:40', officer: 'R. Nambiar (OF-1187)', action: 'Status → Rejected', remarks: 'Address proof expired (>6 months old).' }],
+  };
+
+  const PLACEHOLDER_IMG = 'data:image/svg+xml;utf8,' + encodeURIComponent(
+    `<svg xmlns="http://www.w3.org/2000/svg" width="500" height="650" viewBox="0 0 500 650">
+      <rect width="500" height="650" fill="#f8fafc"/>
+      <rect x="20" y="20" width="460" height="610" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+      <rect x="50" y="50" width="180" height="24" fill="#001F3F"/>
+      <rect x="50" y="100" width="400" height="14" fill="#e2e8f0"/>
+      <rect x="50" y="124" width="400" height="14" fill="#e2e8f0"/>
+      <rect x="50" y="148" width="260" height="14" fill="#e2e8f0"/>
+      <rect x="50" y="200" width="150" height="150" fill="#dbeafe" stroke="#93c5fd"/>
+      <rect x="220" y="200" width="230" height="14" fill="#e2e8f0"/>
+      <rect x="220" y="224" width="230" height="14" fill="#e2e8f0"/>
+      <rect x="220" y="248" width="180" height="14" fill="#e2e8f0"/>
+      <rect x="50" y="400" width="400" height="14" fill="#e2e8f0"/>
+      <rect x="50" y="424" width="400" height="14" fill="#e2e8f0"/>
+      <rect x="50" y="448" width="320" height="14" fill="#e2e8f0"/>
+      <rect x="320" y="560" width="130" height="40" fill="none" stroke="#94a3b8" stroke-dasharray="4"/>
+      <text x="250" y="620" font-family="sans-serif" font-size="14" fill="#94a3b8" text-anchor="middle">Sample document preview</text>
+    </svg>`
+  );
+
+  const STATUS_CLASS = { 'Pending': 'status-pending', 'Under Review': 'status-review', 'Approved': 'status-approved', 'Rejected': 'status-rejected' };
+  const STATUS_ICON = { 'Pending': 'fa-hourglass-half', 'Under Review': 'fa-magnifying-glass', 'Approved': 'fa-circle-check', 'Rejected': 'fa-circle-xmark' };
+
+  let state = { search: '', status: 'all', sort: 'date-desc', page: 1, perPage: 10, selected: new Set(), activeDocId: null, zoom: 100, rotation: 0, lastAction: null };
+
+  function statusBadge(status) {
+    return `<span class="status-pill ${STATUS_CLASS[status]}"><i class="fa-solid ${STATUS_ICON[status]}" aria-hidden="true"></i> ${status}</span>`;
+  }
+  function formatDateLong(d) {
+    const dt = new Date(d + 'T00:00:00');
+    return dt.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' });
+  }
+  function toast(message, tone = 'default') {
+    const el = document.createElement('div');
+    el.className = `toast tone-${tone}`;
+    el.textContent = message;
+    document.getElementById('toast').appendChild(el);
+    setTimeout(() => { el.style.opacity = '0'; el.style.transition = 'opacity .3s'; setTimeout(() => el.remove(), 300); }, 3500);
+  }
+
+  function getFilteredSorted() {
+    let list = DOCS.filter(d => {
+      const matchesStatus = state.status === 'all' || d.status === state.status;
+      const q = state.search.trim().toLowerCase();
+      const matchesSearch = !q || d.applicant.toLowerCase().includes(q) || d.id.toLowerCase().includes(q);
+      return matchesStatus && matchesSearch;
+    });
+    list.sort((a, b) => {
+      switch (state.sort) {
+        case 'date-asc': return a.date.localeCompare(b.date);
+        case 'date-desc': return b.date.localeCompare(a.date);
+        case 'status': return a.status.localeCompare(b.status);
+        case 'applicant': return a.applicant.localeCompare(b.applicant);
+        default: return 0;
+      }
+    });
+    return list;
+  }
+
+  function renderKpis() {
+    const total = DOCS.length;
+    const pending = DOCS.filter(d => d.status === 'Pending' || d.status === 'Under Review').length;
+    const approved = DOCS.filter(d => d.status === 'Approved').length;
+    const rejected = DOCS.filter(d => d.status === 'Rejected').length;
+    document.getElementById('kpiTotal').textContent = total;
+    document.getElementById('kpiPending').textContent = pending;
+    document.getElementById('kpiApproved').textContent = approved;
+    document.getElementById('kpiRejected').textContent = rejected;
+  }
+
+  function renderTable() {
+    renderKpis();
+    const list = getFilteredSorted();
+    const total = list.length;
+    const totalPages = Math.max(1, Math.ceil(total / state.perPage));
+    if (state.page > totalPages) state.page = totalPages;
+    const start = (state.page - 1) * state.perPage;
+    const pageItems = list.slice(start, start + state.perPage);
+
+    const tbody = document.getElementById('docsBody');
+    const emptyState = document.getElementById('emptyState');
+    document.getElementById('resultCount').textContent = `${total} result${total === 1 ? '' : 's'}`;
+
+    if (pageItems.length === 0) {
+      tbody.innerHTML = '';
+      emptyState.hidden = false;
+    } else {
+      emptyState.hidden = true;
+      tbody.innerHTML = pageItems.map(d => `
+        <tr class="${state.activeDocId === d.id ? 'active-row' : ''}">
+          <td><input type="checkbox" data-select="${d.id}" ${state.selected.has(d.id) ? 'checked' : ''} aria-label="Select document ${d.id} for ${d.applicant}" style="width:16px;height:16px;accent-color:var(--gov-blue)"/></td>
+          <td><p class="font-semibold" style="color:var(--gray-800)">${d.applicant}</p><p class="text-xs" style="color:var(--gray-400)">${d.id}${d.resubmitted ? ' &middot; <span style="color:var(--warning); font-weight:600">Resubmitted</span>' : ''}</p></td>
+          <td>${d.type}</td>
+          <td>${formatDateLong(d.date)}</td>
+          <td>${statusBadge(d.status)}</td>
+          <td><button data-view="${d.id}" class="btn btn-primary btn-sm">View &amp; Verify</button></td>
+        </tr>
+      `).join('');
+    }
+
+    document.getElementById('pageInfo').textContent = total === 0 ? 'Showing 0 of 0' : `Showing ${start + 1}–${Math.min(start + state.perPage, total)} of ${total}`;
+    document.getElementById('prevPage').disabled = state.page <= 1;
+    document.getElementById('nextPage').disabled = state.page >= totalPages;
+
+    const pageNumbers = document.getElementById('pageNumbers');
+    let btns = '';
+    for (let p = 1; p <= totalPages; p++) {
+      btns += `<button data-page="${p}" ${p === state.page ? 'aria-current="page"' : ''} class="pagination-btn">${p}</button>`;
+    }
+    pageNumbers.innerHTML = btns;
+
+    updateSelectAllState(pageItems);
+    updateBulkBar();
+  }
+
+  function updateSelectAllState(pageItems) {
+    const selectAll = document.getElementById('selectAll');
+    if (pageItems.length === 0) { selectAll.checked = false; selectAll.indeterminate = false; return; }
+    const selectedOnPage = pageItems.filter(d => state.selected.has(d.id)).length;
+    selectAll.checked = selectedOnPage === pageItems.length;
+    selectAll.indeterminate = selectedOnPage > 0 && selectedOnPage < pageItems.length;
+  }
+
+  function updateBulkBar() {
+    const bar = document.getElementById('bulkBar');
+    bar.hidden = state.selected.size === 0;
+    document.getElementById('bulkCount').textContent = `${state.selected.size} selected`;
+  }
+
+  function openDetails(id) {
+    const doc = DOCS.find(d => d.id === id);
+    if (!doc) return;
+    state.activeDocId = id; state.zoom = 100; state.rotation = 0;
+    document.getElementById('detailsPlaceholder').hidden = true;
+    document.getElementById('detailsCard').hidden = false;
+    document.getElementById('previewImg').src = PLACEHOLDER_IMG;
+    applyPreviewTransform();
+    document.getElementById('infoApplicant').textContent = doc.applicant;
+    document.getElementById('infoType').textContent = doc.type;
+    document.getElementById('infoDate').textContent = formatDateLong(doc.date);
+    document.getElementById('infoUser').textContent = doc.user;
+    document.getElementById('infoSize').textContent = doc.size;
+    document.getElementById('infoFormat').textContent = doc.format;
+    document.getElementById('compareBtn').hidden = !doc.resubmitted;
+    document.getElementById('statusSelect').value = doc.status;
+    document.getElementById('remarks').value = '';
+    ['chk1','chk2','chk3','chk4'].forEach(cid => document.getElementById(cid).checked = false);
+    renderAudit(id);
+    renderTable();
+    document.getElementById('detailsCard').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  function closeDetails() {
+    state.activeDocId = null;
+    document.getElementById('detailsCard').hidden = true;
+    document.getElementById('detailsPlaceholder').hidden = false;
+    renderTable();
+  }
+
+  function applyPreviewTransform() {
+    const img = document.getElementById('previewImg');
+    img.style.transform = `scale(${state.zoom / 100}) rotate(${state.rotation}deg)`;
+    document.getElementById('zoomLabel').textContent = `${state.zoom}%`;
+  }
+
+  function renderAudit(id) {
+    const entries = AUDIT[id] || [];
+    const tbody = document.getElementById('auditRows');
+    tbody.innerHTML = entries.length === 0
+      ? `<tr><td colspan="4" style="text-align:center; color:var(--gray-400)">No history yet for this document.</td></tr>`
+      : entries.map(e => `<tr><td>${e.date}</td><td>${e.officer}</td><td class="font-semibold" style="color:var(--gray-700)">${e.action}</td><td>${e.remarks}</td></tr>`).join('');
+    document.getElementById('undoBtn').hidden = !state.lastAction || state.lastAction.docId !== id;
+  }
+
+  function logAudit(id, action, remarks) {
+    if (!AUDIT[id]) AUDIT[id] = [];
+    AUDIT[id].push({ date: new Date().toISOString().slice(0,16).replace('T', ' '), officer: 'A. Sharma (OF-2291)', action, remarks: remarks || '—' });
+  }
+
+  function applyStatusChange(id, newStatus, remarks, actionLabel) {
+    const doc = DOCS.find(d => d.id === id);
+    if (!doc) return;
+    const previousStatus = doc.status;
+    doc.status = newStatus;
+    logAudit(id, actionLabel, remarks);
+    state.lastAction = { docId: id, previousStatus };
+    renderTable();
+    if (state.activeDocId === id) { document.getElementById('statusSelect').value = newStatus; renderAudit(id); }
+  }
+
+  document.getElementById('search').addEventListener('input', e => { state.search = e.target.value; state.page = 1; renderTable(); });
+  document.getElementById('statusFilter').addEventListener('change', e => { state.status = e.target.value; state.page = 1; renderTable(); });
+  document.getElementById('sortBy').addEventListener('change', e => { state.sort = e.target.value; renderTable(); });
+
+  document.getElementById('docsBody').addEventListener('click', e => {
+    const viewBtn = e.target.closest('[data-view]');
+    if (viewBtn) openDetails(viewBtn.dataset.view);
+  });
+  document.getElementById('docsBody').addEventListener('change', e => {
+    const cb = e.target.closest('[data-select]');
+    if (cb) {
+      if (cb.checked) state.selected.add(cb.dataset.select); else state.selected.delete(cb.dataset.select);
+      updateBulkBar();
+      const pageItems = getFilteredSorted().slice((state.page - 1) * state.perPage, state.page * state.perPage);
+      updateSelectAllState(pageItems);
+    }
+  });
+  document.getElementById('selectAll').addEventListener('change', e => {
+    const pageItems = getFilteredSorted().slice((state.page - 1) * state.perPage, state.page * state.perPage);
+    pageItems.forEach(d => e.target.checked ? state.selected.add(d.id) : state.selected.delete(d.id));
+    renderTable();
+  });
+
+  document.getElementById('prevPage').addEventListener('click', () => { state.page--; renderTable(); });
+  document.getElementById('nextPage').addEventListener('click', () => { state.page++; renderTable(); });
+  document.getElementById('pageNumbers').addEventListener('click', e => {
+    const btn = e.target.closest('[data-page]');
+    if (btn) { state.page = Number(btn.dataset.page); renderTable(); }
+  });
+
+  document.getElementById('bulkBar').addEventListener('click', e => {
+    const btn = e.target.closest('[data-bulk]');
+    if (!btn) return;
+    const action = btn.dataset.bulk;
+    if (action === 'clear') { state.selected.clear(); renderTable(); return; }
+    const targetStatus = action === 'approve' ? 'Approved' : 'Rejected';
+    const label = action === 'approve' ? 'Bulk approved' : 'Bulk rejected';
+    state.selected.forEach(id => applyStatusChange(id, targetStatus, 'Bulk action by officer', label));
+    toast(`${state.selected.size} document(s) ${action === 'approve' ? 'approved' : 'rejected'}.`, action === 'approve' ? 'success' : 'danger');
+    state.selected.clear();
+    renderTable();
+  });
+
+  document.getElementById('closePanel').addEventListener('click', closeDetails);
+  document.getElementById('zoomIn').addEventListener('click', () => { state.zoom = Math.min(200, state.zoom + 20); applyPreviewTransform(); });
+  document.getElementById('zoomOut').addEventListener('click', () => { state.zoom = Math.max(40, state.zoom - 20); applyPreviewTransform(); });
+  document.getElementById('rotateBtn').addEventListener('click', () => { state.rotation = (state.rotation + 90) % 360; applyPreviewTransform(); });
+
+  document.getElementById('fullscreenBtn').addEventListener('click', () => {
+    document.getElementById('fullscreenImg').src = document.getElementById('previewImg').src;
+    document.getElementById('fullscreenImg').style.transform = `rotate(${state.rotation}deg)`;
+    document.getElementById('fullscreenOverlay').hidden = false;
+  });
+  document.getElementById('closeFullscreen').addEventListener('click', () => { document.getElementById('fullscreenOverlay').hidden = true; });
+  document.getElementById('fullscreenOverlay').addEventListener('click', e => { if (e.target.id === 'fullscreenOverlay') e.currentTarget.hidden = true; });
+
+  document.getElementById('statusSelect').addEventListener('change', e => {
+    if (!state.activeDocId) return;
+    applyStatusChange(state.activeDocId, e.target.value, document.getElementById('remarks').value, `Status → ${e.target.value}`);
+    toast(`Status updated to "${e.target.value}".`);
+  });
+
+  function requireChecklist() {
+    const all = ['chk1','chk2','chk3','chk4'].every(id => document.getElementById(id).checked);
+    if (!all) { toast('Please complete the verification checklist before finalizing.', 'warning'); return false; }
+    return true;
+  }
+
+  document.getElementById('approveBtn').addEventListener('click', () => {
+    if (!state.activeDocId || !requireChecklist()) return;
+    applyStatusChange(state.activeDocId, 'Approved', document.getElementById('remarks').value, 'Approved');
+    toast('Document approved.', 'success');
+  });
+  document.getElementById('changesBtn').addEventListener('click', () => {
+    if (!state.activeDocId) return;
+    const remarks = document.getElementById('remarks').value;
+    if (!remarks.trim()) { toast('Add a remark describing the requested changes.', 'warning'); return; }
+    applyStatusChange(state.activeDocId, 'Pending', remarks, 'Requested changes');
+    toast('Changes requested; applicant will be notified.', 'warning');
+  });
+  document.getElementById('rejectBtn').addEventListener('click', () => {
+    if (!state.activeDocId) return;
+    const remarks = document.getElementById('remarks').value;
+    if (!remarks.trim()) { toast('Add a remark explaining the rejection reason.', 'warning'); return; }
+    applyStatusChange(state.activeDocId, 'Rejected', remarks, 'Rejected');
+    toast('Document rejected.', 'danger');
+  });
+
+  document.getElementById('undoBtn').addEventListener('click', () => {
+    if (!state.lastAction) return;
+    const { docId, previousStatus } = state.lastAction;
+    const doc = DOCS.find(d => d.id === docId);
+    if (doc) { doc.status = previousStatus; logAudit(docId, `Reverted to ${previousStatus}`, 'Undo by officer'); toast('Last action undone.'); }
+    state.lastAction = null;
+    renderTable();
+    if (state.activeDocId === docId) { document.getElementById('statusSelect').value = previousStatus; renderAudit(docId); }
+  });
+
+  document.getElementById('auditToggle').addEventListener('click', () => {
+    const body = document.getElementById('auditBody');
+    const expanded = !body.hidden;
+    body.hidden = expanded;
+    document.getElementById('auditToggle').setAttribute('aria-expanded', String(!expanded));
+    document.getElementById('auditChevron').style.transform = expanded ? '' : 'rotate(180deg)';
+  });
+
+  document.getElementById('exportBtn').addEventListener('click', () => { if (state.activeDocId) toast('Verification report export started (PDF).'); });
+  document.getElementById('compareBtn').addEventListener('click', () => toast('Opening comparison with previous submission…'));
+
+  document.addEventListener('keydown', e => {
+    if (!state.activeDocId) return;
+    const tag = (e.target.tagName || '').toLowerCase();
+    if (tag === 'textarea' || tag === 'input') return;
+    if (e.ctrlKey && !e.shiftKey && e.key.toLowerCase() === 'a') { e.preventDefault(); document.getElementById('approveBtn').click(); }
+    if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'c') { e.preventDefault(); document.getElementById('changesBtn').click(); }
+    if (e.ctrlKey && !e.shiftKey && e.key.toLowerCase() === 'r') { e.preventDefault(); document.getElementById('rejectBtn').click(); }
+  });
+
+  renderTable();
+
+  try {
+    const savedId = sessionStorage.getItem('staffOfficerId');
+    if (savedId) { document.getElementById('officerIdLabel').textContent = savedId; document.getElementById('officerName').textContent = 'Duty Officer'; }
+  } catch (e) {}
+
+  document.getElementById('logoutBtn').addEventListener('click', () => {
+    try { sessionStorage.removeItem('staffOfficerId'); sessionStorage.removeItem('staffRole'); } catch (e) {}
+    window.location.href = 'staff-login.html';
+  });
+})();
+</script>
+<script src="portal-common.js"></script>
+</body>
+</html>

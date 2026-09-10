@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apply for a Service — Citizen Services Portal (Demo)</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="assets/shared.css">
+</head>
+<body class="bg-[var(--gov-bg)] text-slate-800">
+
+<a href="#main-content" class="skip-link focus-ring bg-white text-[var(--gov-blue)] px-4 py-2 rounded shadow font-semibold">Skip to main content</a>
+<div id="site-header" data-active="services"></div>
+
+<main id="main-content" class="max-w-3xl mx-auto px-4 sm:px-6 py-8">
+  <nav aria-label="Breadcrumb" class="text-xs text-slate-500 mb-3">
+    <a href="index.html" class="hover:underline">Home</a> <span class="mx-1">/</span>
+    <a href="services.html" class="hover:underline">Services</a> <span class="mx-1">/</span>
+    <span id="crumbService" class="text-slate-700 font-medium">Apply</span>
+  </nav>
+
+  <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-5 sm:p-8">
+    <div class="flex items-center justify-between flex-wrap gap-2 mb-6">
+      <h1 id="formTitle" class="text-xl font-bold text-slate-800">Apply — Income Certificate</h1>
+      <button id="saveDraftBtn" class="focus-ring text-xs font-semibold text-[var(--gov-blue)] border border-blue-200 bg-blue-50 hover:bg-blue-100 rounded-lg px-3 py-2">💾 Save draft</button>
+    </div>
+
+    <!-- Step indicator -->
+    <ol class="flex items-center justify-between mb-8" aria-label="Application steps">
+      <li class="flex flex-col items-center flex-1"><span id="wd1" class="wizard-step-dot active">1</span><span class="text-[11px] mt-1 text-slate-500 text-center">Applicant<br/>Details</span></li>
+      <li class="flex-1 h-0.5 bg-slate-200 -mt-4"></li>
+      <li class="flex flex-col items-center flex-1"><span id="wd2" class="wizard-step-dot">2</span><span class="text-[11px] mt-1 text-slate-500 text-center">Document<br/>Upload</span></li>
+      <li class="flex-1 h-0.5 bg-slate-200 -mt-4"></li>
+      <li class="flex flex-col items-center flex-1"><span id="wd3" class="wizard-step-dot">3</span><span class="text-[11px] mt-1 text-slate-500 text-center">Review &amp;<br/>Declaration</span></li>
+      <li class="flex-1 h-0.5 bg-slate-200 -mt-4"></li>
+      <li class="flex flex-col items-center flex-1"><span id="wd4" class="wizard-step-dot">4</span><span class="text-[11px] mt-1 text-slate-500 text-center">Payment</span></li>
+      <li class="flex-1 h-0.5 bg-slate-200 -mt-4"></li>
+      <li class="flex flex-col items-center flex-1"><span id="wd5" class="wizard-step-dot">5</span><span class="text-[11px] mt-1 text-slate-500 text-center">Confirmation</span></li>
+    </ol>
+
+    <!-- STEP 1 -->
+    <section id="ws1">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label for="fname" class="block text-sm font-medium text-slate-700 mb-1">Full name *</label>
+          <input id="fname" required class="focus-ring w-full border border-slate-300 rounded-lg px-3 py-2.5 text-sm" placeholder="As per Aadhaar"/>
+        </div>
+        <div>
+          <label for="dob" class="block text-sm font-medium text-slate-700 mb-1">Date of birth *</label>
+          <input id="dob" type="date" required class="focus-ring w-full border border-slate-300 rounded-lg px-3 py-2.5 text-sm"/>
+        </div>
+        <div>
+          <label for="aadhaar" class="block text-sm font-medium text-slate-700 mb-1">Aadhaar number *</label>
+          <input id="aadhaar" required inputmode="numeric" maxlength="12" class="focus-ring w-full border border-slate-300 rounded-lg px-3 py-2.5 text-sm" placeholder="12-digit number"/>
+        </div>
+        <div>
+          <label for="mobile" class="block text-sm font-medium text-slate-700 mb-1">Mobile number *</label>
+          <input id="mobile" required inputmode="numeric" maxlength="10" class="focus-ring w-full border border-slate-300 rounded-lg px-3 py-2.5 text-sm" placeholder="10-digit number"/>
+        </div>
+        <div class="sm:col-span-2">
+          <label for="address" class="block text-sm font-medium text-slate-700 mb-1">Residential address *</label>
+          <textarea id="address" required rows="3" class="focus-ring w-full border border-slate-300 rounded-lg px-3 py-2.5 text-sm"></textarea>
+        </div>
+      </div>
+      <div class="flex justify-end mt-6">
+        <button data-next="2" class="focus-ring bg-[var(--gov-blue)] hover:bg-blue-800 text-white text-sm font-semibold rounded-lg px-5 py-2.5">Next: Document upload →</button>
+      </div>
+    </section>
+
+    <!-- STEP 2 -->
+    <section id="ws2" hidden>
+      <p class="text-sm text-slate-500 mb-4">Upload clear scans or photos (PDF, JPG, PNG — max 5 MB each). Files are automatically virus-scanned before storage.</p>
+      <div class="space-y-3">
+        <div class="upload-row border border-dashed border-slate-300 rounded-lg p-4 flex items-center justify-between gap-3 flex-wrap">
+          <div class="flex items-center gap-3">
+            <svg class="w-6 h-6 text-slate-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 3v4a1 1 0 0 1-1 1H4"/><path d="M20 21H8a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8l6 6v10a2 2 0 0 1-2 2Z"/></svg>
+            <div><p class="text-sm font-medium">Identity proof (Aadhaar / Voter ID)</p><p class="text-xs text-slate-400">Required</p></div>
+          </div>
+          <label class="focus-ring cursor-pointer text-xs font-semibold text-[var(--gov-blue)] border border-blue-200 bg-blue-50 hover:bg-blue-100 rounded-lg px-3 py-2">
+            Choose file <input type="file" class="sr-only" data-doc="identity" accept=".pdf,.jpg,.jpeg,.png"/>
+          </label>
+          <span class="doc-status text-xs text-slate-400" data-doc-status="identity">No file selected</span>
+        </div>
+        <div class="upload-row border border-dashed border-slate-300 rounded-lg p-4 flex items-center justify-between gap-3 flex-wrap">
+          <div class="flex items-center gap-3">
+            <svg class="w-6 h-6 text-slate-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 3v4a1 1 0 0 1-1 1H4"/><path d="M20 21H8a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8l6 6v10a2 2 0 0 1-2 2Z"/></svg>
+            <div><p class="text-sm font-medium">Address proof</p><p class="text-xs text-slate-400">Required</p></div>
+          </div>
+          <label class="focus-ring cursor-pointer text-xs font-semibold text-[var(--gov-blue)] border border-blue-200 bg-blue-50 hover:bg-blue-100 rounded-lg px-3 py-2">
+            Choose file <input type="file" class="sr-only" data-doc="address" accept=".pdf,.jpg,.jpeg,.png"/>
+          </label>
+          <span class="doc-status text-xs text-slate-400" data-doc-status="address">No file selected</span>
+        </div>
+        <div class="upload-row border border-dashed border-slate-300 rounded-lg p-4 flex items-center justify-between gap-3 flex-wrap">
+          <div class="flex items-center gap-3">
+            <svg class="w-6 h-6 text-slate-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 3v4a1 1 0 0 1-1 1H4"/><path d="M20 21H8a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8l6 6v10a2 2 0 0 1-2 2Z"/></svg>
+            <div><p class="text-sm font-medium">Income proof (salary slip / affidavit)</p><p class="text-xs text-slate-400">Optional</p></div>
+          </div>
+          <label class="focus-ring cursor-pointer text-xs font-semibold text-[var(--gov-blue)] border border-blue-200 bg-blue-50 hover:bg-blue-100 rounded-lg px-3 py-2">
+            Choose file <input type="file" class="sr-only" data-doc="income" accept=".pdf,.jpg,.jpeg,.png"/>
+          </label>
+          <span class="doc-status text-xs text-slate-400" data-doc-status="income">No file selected</span>
+        </div>
+      </div>
+      <div class="flex justify-between mt-6">
+        <button data-back="1" class="focus-ring border border-slate-300 rounded-lg px-5 py-2.5 text-sm font-semibold text-slate-600 hover:bg-slate-50">← Back</button>
+        <button data-next="3" class="focus-ring bg-[var(--gov-blue)] hover:bg-blue-800 text-white text-sm font-semibold rounded-lg px-5 py-2.5">Next: Review →</button>
+      </div>
+    </section>
+
+    <!-- STEP 3 -->
+    <section id="ws3" hidden>
+      <h2 class="font-semibold text-slate-800 mb-3">Review your application</h2>
+      <dl id="reviewList" class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 text-sm bg-slate-50 rounded-lg p-4"></dl>
+      <label class="flex items-start gap-2 mt-5 text-sm">
+        <input id="declareChk" type="checkbox" class="focus-ring mt-1 w-4 h-4 accent-blue-700"/>
+        <span>I declare that the information provided is true to the best of my knowledge, and I understand that furnishing false information is a punishable offence.</span>
+      </label>
+      <div class="flex justify-between mt-6">
+        <button data-back="2" class="focus-ring border border-slate-300 rounded-lg px-5 py-2.5 text-sm font-semibold text-slate-600 hover:bg-slate-50">← Back</button>
+        <button id="toPaymentBtn" class="focus-ring bg-[var(--gov-blue)] hover:bg-blue-800 text-white text-sm font-semibold rounded-lg px-5 py-2.5">Next: Payment →</button>
+      </div>
+    </section>
+
+    <!-- STEP 4 -->
+    <section id="ws4" hidden>
+      <h2 class="font-semibold text-slate-800 mb-1">Application fee</h2>
+      <p class="text-sm text-slate-500 mb-4">A one-time processing fee of <strong class="text-slate-700">₹30</strong> applies.</p>
+      <div class="grid grid-cols-3 gap-2 mb-4" role="tablist" aria-label="Payment method">
+        <button data-pm="upi" class="pm-btn focus-ring border border-slate-300 rounded-lg py-2.5 text-sm font-semibold">UPI</button>
+        <button data-pm="card" class="pm-btn focus-ring border border-slate-300 rounded-lg py-2.5 text-sm font-semibold">Card</button>
+        <button data-pm="netbanking" class="pm-btn focus-ring border border-slate-300 rounded-lg py-2.5 text-sm font-semibold">Net Banking</button>
+      </div>
+      <div id="pmFields" class="bg-slate-50 rounded-lg p-4 text-sm text-slate-500">Select a payment method above.</div>
+      <div class="flex justify-between mt-6">
+        <button data-back="3" class="focus-ring border border-slate-300 rounded-lg px-5 py-2.5 text-sm font-semibold text-slate-600 hover:bg-slate-50">← Back</button>
+        <button id="payNowBtn" class="focus-ring bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold rounded-lg px-5 py-2.5">Pay ₹30 &amp; Submit</button>
+      </div>
+    </section>
+
+    <!-- STEP 5 -->
+    <section id="ws5" hidden class="text-center py-6">
+      <svg class="w-16 h-16 mx-auto text-emerald-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></svg>
+      <h2 class="mt-4 text-lg font-bold text-slate-800">Application submitted successfully</h2>
+      <p class="mt-1 text-sm text-slate-500">Your application ID is</p>
+      <p id="newAppId" class="text-2xl font-bold text-[var(--gov-blue)] mt-1"></p>
+      <p class="text-xs text-slate-400 mt-1">A confirmation SMS/email has been sent (simulated). Estimated processing time: 5–7 working days.</p>
+      <div class="flex flex-wrap justify-center gap-3 mt-6">
+        <a id="trackLink" href="track.html" class="focus-ring bg-[var(--gov-blue)] hover:bg-blue-800 text-white text-sm font-semibold rounded-lg px-5 py-2.5">Track this application</a>
+        <a href="dashboard.html" class="focus-ring border border-slate-300 rounded-lg px-5 py-2.5 text-sm font-semibold text-slate-600 hover:bg-slate-50">Go to dashboard</a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="assets/shared.js"></script>
+<script>
+  const SERVICE_NAMES = {
+    'income-certificate': ['Income Certificate', 'Revenue Department'],
+    'domicile-certificate': ['Domicile Certificate', 'Revenue Department'],
+    'caste-certificate': ['Caste Certificate', 'Revenue Department'],
+    'birth-certificate': ['Birth Certificate', 'Municipal Corporation'],
+    'trade-license': ['Trade License', 'Municipal Corporation'],
+    'building-permit': ['Building Permit', 'Urban Development'],
+    'noc-transport': ['Transport NOC', 'Transport Department'],
+    'property-tax': ['Property Tax Payment', 'Municipal Corporation'],
+    'water-bill': ['Water Bill Payment', 'Water Board'],
+    'professional-tax': ['Professional Tax', 'Revenue Department'],
+    'land-record': ['Land Record (7/12 Extract)', 'Land Records Department'],
+    'voter-search': ['Voter ID Search', 'Election Commission'],
+  };
+  const slug = new URLSearchParams(location.search).get('service') || 'income-certificate';
+  const [serviceName, dept] = SERVICE_NAMES[slug] || ['General Service', 'Citizen Services'];
+  document.getElementById('formTitle').textContent = `Apply — ${serviceName}`;
+  document.getElementById('crumbService').textContent = serviceName;
+
+  const DRAFT_KEY = 'gov_portal_draft_' + slug;
+  const steps = [1,2,3,4,5];
+  function showStep(n) {
+    steps.forEach(i => document.getElementById('ws'+i).hidden = i !== n);
+    steps.forEach(i => {
+      const dot = document.getElementById('wd'+i);
+      dot.classList.remove('active','done');
+      if (i < n) dot.classList.add('done'); else if (i === n) dot.classList.add('active');
+    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  document.querySelectorAll('[data-next]').forEach(btn => btn.addEventListener('click', () => {
+    const n = Number(btn.dataset.next);
+    if (n === 2 && !validateStep1()) return;
+    if (n === 3) buildReview();
+    showStep(n);
+  }));
+  document.querySelectorAll('[data-back]').forEach(btn => btn.addEventListener('click', () => showStep(Number(btn.dataset.back))));
+
+  function validateStep1() {
+    const required = ['fname','dob','aadhaar','mobile','address'];
+    for (const id of required) {
+      if (!document.getElementById(id).value.trim()) { GOV.toast('Please fill all required fields.', 'warning'); document.getElementById(id).focus(); return false; }
+    }
+    return true;
+  }
+
+  document.querySelectorAll('[data-doc]').forEach(input => {
+    input.addEventListener('change', () => {
+      const status = document.querySelector(`[data-doc-status="${input.dataset.doc}"]`);
+      if (input.files[0]) {
+        status.textContent = `⏳ Scanning "${input.files[0].name}"…`;
+        setTimeout(() => { status.textContent = `✅ ${input.files[0].name} — clean, uploaded`; status.classList.add('text-emerald-600'); }, 700);
+      }
+    });
+  });
+
+  document.getElementById('saveDraftBtn').addEventListener('click', () => {
+    const draft = { fname: val('fname'), dob: val('dob'), aadhaar: val('aadhaar'), mobile: val('mobile'), address: val('address') };
+    localStorage.setItem(DRAFT_KEY, JSON.stringify(draft));
+    GOV.toast('Draft saved. You can resume this application anytime.', 'success');
+  });
+  function val(id) { return document.getElementById(id).value; }
+  (function restoreDraft() {
+    try {
+      const d = JSON.parse(localStorage.getItem(DRAFT_KEY));
+      if (!d) return;
+      Object.keys(d).forEach(k => { const el = document.getElementById(k); if (el) el.value = d[k]; });
+      GOV.toast('Restored your saved draft.', 'default');
+    } catch {}
+  })();
+
+  function buildReview() {
+    const rows = [
+      ['Full name', val('fname')], ['Date of birth', val('dob')], ['Aadhaar number', val('aadhaar').replace(/\d(?=\d{4})/g, '•')],
+      ['Mobile number', val('mobile')], ['Address', val('address')], ['Service', serviceName], ['Department', dept],
+    ];
+    document.getElementById('reviewList').innerHTML = rows.map(([k,v]) => `<div><dt class="text-slate-400 text-xs">${k}</dt><dd class="font-medium text-slate-700">${v || '—'}</dd></div>`).join('');
+  }
+
+  document.getElementById('toPaymentBtn').addEventListener('click', () => {
+    if (!document.getElementById('declareChk').checked) { GOV.toast('Please accept the declaration to continue.', 'warning'); return; }
+    showStep(4);
+  });
+
+  let selectedPM = null;
+  document.querySelectorAll('.pm-btn').forEach(btn => btn.addEventListener('click', () => {
+    document.querySelectorAll('.pm-btn').forEach(b => b.classList.remove('border-[var(--gov-blue)]','bg-blue-50','text-[var(--gov-blue)]'));
+    btn.classList.add('border-[var(--gov-blue)]','bg-blue-50','text-[var(--gov-blue)]');
+    selectedPM = btn.dataset.pm;
+    const fields = document.getElementById('pmFields');
+    if (selectedPM === 'upi') fields.innerHTML = `<label class="block text-xs font-medium text-slate-600 mb-1">UPI ID</label><input class="focus-ring w-full border border-slate-300 rounded-lg px-3 py-2 text-sm" placeholder="yourname@upi"/>`;
+    if (selectedPM === 'card') fields.innerHTML = `<label class="block text-xs font-medium text-slate-600 mb-1">Card number</label><input class="focus-ring w-full border border-slate-300 rounded-lg px-3 py-2 text-sm mb-2" placeholder="•••• •••• •••• ••••"/><div class="grid grid-cols-2 gap-2"><input class="focus-ring border border-slate-300 rounded-lg px-3 py-2 text-sm" placeholder="MM/YY"/><input class="focus-ring border border-slate-300 rounded-lg px-3 py-2 text-sm" placeholder="CVV"/></div>`;
+    if (selectedPM === 'netbanking') fields.innerHTML = `<label class="block text-xs font-medium text-slate-600 mb-1">Select your bank</label><select class="focus-ring w-full border border-slate-300 rounded-lg px-3 py-2 text-sm"><option>State Bank</option><option>National Bank</option><option>Union Bank</option></select>`;
+  }));
+
+  document.getElementById('payNowBtn').addEventListener('click', () => {
+    if (!selectedPM) { GOV.toast('Please choose a payment method.', 'warning'); return; }
+    const id = GOV.genId('APP');
+    GOV.addApplication({
+      id, service: serviceName, applicant: val('fname') || 'Demo Citizen', date: new Date().toISOString().slice(0,10),
+      status: 'Pending', dept,
+      timeline: [{ date: new Date().toISOString().slice(0,16).replace('T',' '), label: 'Application submitted & fee paid', by: 'Citizen' }],
+    });
+    localStorage.removeItem(DRAFT_KEY);
+    document.getElementById('newAppId').textContent = id;
+    document.getElementById('trackLink').href = `track.html?id=${id}`;
+    showStep(5);
+    GOV.toast('Payment successful. Application submitted.', 'success');
+  });
+
+  showStep(1);
+</script>
+</body>
+</html>

@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home | Government Services Portal</title>
+<meta name="description" content="A single window to apply for certificates, licenses and government schemes online.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <p><i class="fa-solid fa-circle-check" aria-hidden="true"></i> A demonstration project &mdash; not an official government website</p>
+      <div class="topbar-links">
+        <a href="#"><i class="fa-solid fa-globe" aria-hidden="true"></i> English</a>
+        <a href="#"><i class="fa-solid fa-id-badge" aria-hidden="true"></i> Staff Login</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container navbar">
+    <a href="#main-content" class="brand">
+      <span class="brand-mark" aria-hidden="true"><i class="fa-solid fa-landmark"></i></span>
+      <span class="brand-text">
+        <span class="brand-title">Government Services Portal</span>
+        <span class="brand-sub">Apply. Track. Receive. All in one place.</span>
+      </span>
+    </a>
+
+    <button id="navToggle" class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primaryNav">
+      <i class="fa-solid fa-bars" aria-hidden="true"></i>
+    </button>
+
+    <nav id="primaryNav" class="primary-nav" aria-label="Primary">
+      <a href="#services">Services</a>
+      <a href="#schemes">Schemes</a>
+      <a href="#jobs">Jobs</a>
+      <a href="#faq">FAQ</a>
+      <a href="#help" class="nav-cta">Get Help</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="container hero-inner">
+      <span class="hero-emblem" aria-hidden="true"><i class="fa-solid fa-landmark"></i></span>
+      <p class="eyebrow">Digital Governance, Simplified</p>
+      <h1>One portal for every government service you need</h1>
+      <p class="hero-lead">Apply for certificates, licenses and welfare schemes, pay dues, and track every application &mdash; without visiting an office.</p>
+
+      <form class="search-form" id="searchForm" role="search" aria-label="Search government services">
+        <label for="serviceSearch" class="sr-only">Search services, forms or schemes</label>
+        <i class="fa-solid fa-magnifying-glass search-icon" aria-hidden="true"></i>
+        <input type="text" id="serviceSearch" placeholder="Search services — e.g. birth certificate, passport, PAN card…" autocomplete="off">
+        <button type="submit" class="btn btn-gold">Search</button>
+      </form>
+      <p class="hero-hint">Popular: <button type="button" class="chip" data-query="Passport">Passport</button><button type="button" class="chip" data-query="Birth Certificate">Birth Certificate</button><button type="button" class="chip" data-query="Driving Licence">Driving Licence</button><button type="button" class="chip" data-query="PAN Card">PAN Card</button></p>
+    </div>
+  </section>
+
+  <!-- ============ ANNOUNCEMENT TICKER ============ -->
+  <section class="ticker-section" aria-label="Latest announcements">
+    <div class="container ticker-bar">
+      <span class="ticker-label"><i class="fa-solid fa-bullhorn" aria-hidden="true"></i> Latest</span>
+      <div class="ticker-viewport">
+        <ul class="ticker-track" id="tickerTrack">
+          <li>Disability Support Allowance now accepting applications &mdash; apply before 30 Sep 2026.</li>
+          <li>Income certificate turnaround reduced to 5 working days.</li>
+          <li>6 new government job openings posted across departments.</li>
+          <li>Portal maintenance scheduled 14 Sep, 1:00&ndash;3:00 AM.</li>
+          <li>Property tax assessment review window closes 10 Oct 2026.</li>
+        </ul>
+      </div>
+      <button type="button" id="tickerToggle" class="ticker-toggle" aria-label="Pause announcements">
+        <i class="fa-solid fa-pause" aria-hidden="true"></i>
+      </button>
+    </div>
+  </section>
+
+  <!-- ============ POPULAR SERVICES ============ -->
+  <section id="services" class="section" aria-labelledby="services-heading">
+    <div class="container">
+      <div class="section-heading">
+        <p class="eyebrow">Most requested</p>
+        <h2 id="services-heading">Popular Services</h2>
+        <p class="section-sub">Search above, or browse the full catalogue below.</p>
+      </div>
+
+      <div class="grid grid-4" id="servicesGrid">
+        <a href="#" class="card service-card" data-name="Birth Certificate">
+          <span class="card-icon"><i class="fa-solid fa-baby" aria-hidden="true"></i></span>
+          <h3>Birth Certificate</h3>
+          <p>Register a birth or download an existing certificate.</p>
+          <span class="card-link">Apply now <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+        </a>
+        <a href="#" class="card service-card" data-name="Death Certificate">
+          <span class="card-icon"><i class="fa-solid fa-file-lines" aria-hidden="true"></i></span>
+          <h3>Death Certificate</h3>
+          <p>Register a death and request an official certificate.</p>
+          <span class="card-link">Apply now <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+        </a>
+        <a href="#" class="card service-card" data-name="Income Certificate">
+          <span class="card-icon"><i class="fa-solid fa-file-invoice-dollar" aria-hidden="true"></i></span>
+          <h3>Income Certificate</h3>
+          <p>Proof of annual income for scholarships and welfare schemes.</p>
+          <span class="card-link">Apply now <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+        </a>
+        <a href="#" class="card service-card" data-name="Passport Application">
+          <span class="card-icon"><i class="fa-solid fa-passport" aria-hidden="true"></i></span>
+          <h3>Passport</h3>
+          <p>Apply for a new passport or renew an existing one.</p>
+          <span class="card-link">Apply now <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+        </a>
+        <a href="#" class="card service-card" data-name="Driving Licence">
+          <span class="card-icon"><i class="fa-solid fa-id-card" aria-hidden="true"></i></span>
+          <h3>Driving Licence</h3>
+          <p>Apply for a learner's permit or renew your licence.</p>
+          <span class="card-link">Apply now <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+        </a>
+        <a href="#" class="card service-card" data-name="PAN Card">
+          <span class="card-icon"><i class="fa-solid fa-address-card" aria-hidden="true"></i></span>
+          <h3>PAN Card</h3>
+          <p>Apply for a new PAN or update existing card details.</p>
+          <span class="card-link">Apply now <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+        </a>
+        <a href="#" class="card service-card" data-name="Voter ID Card">
+          <span class="card-icon"><i class="fa-solid fa-check-to-slot" aria-hidden="true"></i></span>
+          <h3>Voter ID Card</h3>
+          <p>Register to vote or update your electoral roll details.</p>
+          <span class="card-link">Apply now <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+        </a>
+        <a href="#" class="card service-card" data-name="Aadhaar Update">
+          <span class="card-icon"><i class="fa-solid fa-fingerprint" aria-hidden="true"></i></span>
+          <h3>Aadhaar Update</h3>
+          <p>Update your address, mobile number or biometric details.</p>
+          <span class="card-link">Apply now <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+        </a>
+      </div>
+
+      <p id="noResults" class="no-results" hidden>No services match "<span id="noResultsQuery"></span>". Try a different search term, or <button type="button" id="clearSearch" class="link-btn">clear the search</button>.</p>
+    </div>
+  </section>
+
+  <!-- ============ GOVERNMENT SCHEMES ============ -->
+  <section id="schemes" class="section section-tint" aria-labelledby="schemes-heading">
+    <div class="container">
+      <div class="section-heading">
+        <p class="eyebrow">Welfare &amp; benefits</p>
+        <h2 id="schemes-heading">Government Schemes</h2>
+        <p class="section-sub">Explore programs you may be eligible for.</p>
+      </div>
+
+      <div class="grid grid-3">
+        <article class="card scheme-card">
+          <span class="badge badge-gold">Popular</span>
+          <span class="card-icon navy"><i class="fa-solid fa-house-chimney" aria-hidden="true"></i></span>
+          <h3>Housing for All Scheme</h3>
+          <p>Financial assistance for building or purchasing a first home.</p>
+          <a href="#" class="card-link">Check eligibility <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+        </article>
+        <article class="card scheme-card">
+          <span class="badge badge-success">New</span>
+          <span class="card-icon navy"><i class="fa-solid fa-notes-medical" aria-hidden="true"></i></span>
+          <h3>Health Coverage Scheme</h3>
+          <p>Cashless treatment up to &#8377;5 lakh per family, per year.</p>
+          <a href="#" class="card-link">Check eligibility <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+        </article>
+        <article class="card scheme-card">
+          <span class="card-icon navy"><i class="fa-solid fa-seedling" aria-hidden="true"></i></span>
+          <h3>Farmer Income Support</h3>
+          <p>Direct income support of &#8377;6,000/year for eligible farmers.</p>
+          <a href="#" class="card-link">Check eligibility <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+        </article>
+        <article class="card scheme-card">
+          <span class="card-icon navy"><i class="fa-solid fa-piggy-bank" aria-hidden="true"></i></span>
+          <h3>Girl Child Savings Scheme</h3>
+          <p>A high-interest savings account for a girl child's future.</p>
+          <a href="#" class="card-link">Check eligibility <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+        </article>
+        <article class="card scheme-card">
+          <span class="card-icon navy"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i></span>
+          <h3>Skill Development Program</h3>
+          <p>Free vocational training and certification for job seekers.</p>
+          <a href="#" class="card-link">Check eligibility <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+        </article>
+        <article class="card scheme-card">
+          <span class="card-icon navy"><i class="fa-solid fa-wifi" aria-hidden="true"></i></span>
+          <h3>Digital Access Initiative</h3>
+          <p>Subsidised devices and internet access for rural households.</p>
+          <a href="#" class="card-link">Check eligibility <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+        </article>
+      </div>
+      <div class="section-cta">
+        <a href="#" class="btn btn-outline">View all schemes <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STATISTICS ============ -->
+  <section class="stats" aria-labelledby="stats-heading">
+    <div class="container">
+      <h2 id="stats-heading" class="sr-only">Portal statistics</h2>
+      <div class="grid grid-4 stats-grid">
+        <div class="stat" data-target="5000000" data-suffix="+">
+          <p class="stat-number"><span class="counter">0</span></p>
+          <p class="stat-label">Citizens Served</p>
+        </div>
+        <div class="stat" data-target="1200" data-suffix="+">
+          <p class="stat-number"><span class="counter">0</span></p>
+          <p class="stat-label">Services Digitised</p>
+        </div>
+        <div class="stat" data-target="28" data-suffix="">
+          <p class="stat-number"><span class="counter">0</span></p>
+          <p class="stat-label">States Covered</p>
+        </div>
+        <div class="stat" data-target="99" data-suffix=".9%">
+          <p class="stat-number"><span class="counter">0</span></p>
+          <p class="stat-label">Platform Uptime</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HOW IT WORKS ============ -->
+  <section class="section" aria-labelledby="how-heading">
+    <div class="container">
+      <div class="section-heading">
+        <p class="eyebrow">Getting started</p>
+        <h2 id="how-heading">How It Works</h2>
+        <p class="section-sub">Four simple steps from application to approval.</p>
+      </div>
+      <ol class="steps">
+        <li class="step">
+          <span class="step-number">1</span>
+          <i class="fa-solid fa-magnifying-glass step-icon" aria-hidden="true"></i>
+          <h3>Find your service</h3>
+          <p>Search or browse the catalogue to find the right form.</p>
+        </li>
+        <li class="step">
+          <span class="step-number">2</span>
+          <i class="fa-solid fa-pen-to-square step-icon" aria-hidden="true"></i>
+          <h3>Fill the application</h3>
+          <p>Complete the online form with your details.</p>
+        </li>
+        <li class="step">
+          <span class="step-number">3</span>
+          <i class="fa-solid fa-file-arrow-up step-icon" aria-hidden="true"></i>
+          <h3>Upload documents</h3>
+          <p>Attach clear scans or photos as supporting proof.</p>
+        </li>
+        <li class="step step-final">
+          <span class="step-number">4</span>
+          <i class="fa-solid fa-circle-check step-icon" aria-hidden="true"></i>
+          <h3>Track &amp; receive</h3>
+          <p>Follow live status and download your certificate.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ GOVERNMENT JOBS ============ -->
+  <section id="jobs" class="section section-tint" aria-labelledby="jobs-heading">
+    <div class="container">
+      <div class="section-heading">
+        <p class="eyebrow">Careers</p>
+        <h2 id="jobs-heading">Government Jobs</h2>
+        <p class="section-sub">Current openings across departments.</p>
+      </div>
+
+      <div class="jobs-list">
+        <article class="job-row">
+          <div class="job-icon"><i class="fa-solid fa-briefcase" aria-hidden="true"></i></div>
+          <div class="job-info">
+            <h3>Junior Revenue Officer</h3>
+            <p><i class="fa-solid fa-building" aria-hidden="true"></i> Revenue Department &nbsp;&middot;&nbsp; <i class="fa-solid fa-location-dot" aria-hidden="true"></i> Multiple locations</p>
+          </div>
+          <div class="job-meta">
+            <span class="badge badge-info">42 vacancies</span>
+            <span class="job-deadline">Closes 20 Sep 2026</span>
+          </div>
+          <a href="#" class="btn btn-outline btn-sm">View &amp; Apply</a>
+        </article>
+        <article class="job-row">
+          <div class="job-icon"><i class="fa-solid fa-briefcase" aria-hidden="true"></i></div>
+          <div class="job-info">
+            <h3>Public Health Inspector</h3>
+            <p><i class="fa-solid fa-building" aria-hidden="true"></i> Health Department &nbsp;&middot;&nbsp; <i class="fa-solid fa-location-dot" aria-hidden="true"></i> District offices</p>
+          </div>
+          <div class="job-meta">
+            <span class="badge badge-info">18 vacancies</span>
+            <span class="job-deadline">Closes 25 Sep 2026</span>
+          </div>
+          <a href="#" class="btn btn-outline btn-sm">View &amp; Apply</a>
+        </article>
+        <article class="job-row">
+          <div class="job-icon"><i class="fa-solid fa-briefcase" aria-hidden="true"></i></div>
+          <div class="job-info">
+            <h3>Digital Services Associate</h3>
+            <p><i class="fa-solid fa-building" aria-hidden="true"></i> Department of Digital Services &nbsp;&middot;&nbsp; <i class="fa-solid fa-location-dot" aria-hidden="true"></i> State Capital</p>
+          </div>
+          <div class="job-meta">
+            <span class="badge badge-info">10 vacancies</span>
+            <span class="job-deadline">Closes 30 Sep 2026</span>
+          </div>
+          <a href="#" class="btn btn-outline btn-sm">View &amp; Apply</a>
+        </article>
+        <article class="job-row">
+          <div class="job-icon"><i class="fa-solid fa-briefcase" aria-hidden="true"></i></div>
+          <div class="job-info">
+            <h3>Public Works Engineer</h3>
+            <p><i class="fa-solid fa-building" aria-hidden="true"></i> Public Works Department &nbsp;&middot;&nbsp; <i class="fa-solid fa-location-dot" aria-hidden="true"></i> Multiple locations</p>
+          </div>
+          <div class="job-meta">
+            <span class="badge badge-info">7 vacancies</span>
+            <span class="job-deadline">Closes 05 Oct 2026</span>
+          </div>
+          <a href="#" class="btn btn-outline btn-sm">View &amp; Apply</a>
+        </article>
+      </div>
+      <div class="section-cta">
+        <a href="#" class="btn btn-primary">View all openings <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section id="faq" class="section" aria-labelledby="faq-heading">
+    <div class="container container-narrow">
+      <div class="section-heading">
+        <p class="eyebrow">Need clarity?</p>
+        <h2 id="faq-heading">Frequently Asked Questions</h2>
+      </div>
+
+      <div class="accordion" id="faqAccordion">
+        <div class="accordion-item">
+          <h3>
+            <button type="button" class="accordion-trigger" aria-expanded="true" aria-controls="faq-panel-1" id="faq-btn-1">
+              How do I track my application?
+              <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+            </button>
+          </h3>
+          <div id="faq-panel-1" class="accordion-panel" role="region" aria-labelledby="faq-btn-1">
+            <p>Every application gets a reference number on submission. Enter it on the Track Application page to see a full status timeline, from submission to approval.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h3>
+            <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="faq-panel-2" id="faq-btn-2">
+              What documents can I upload?
+              <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+            </button>
+          </h3>
+          <div id="faq-panel-2" class="accordion-panel" hidden role="region" aria-labelledby="faq-btn-2">
+            <p>PDF, JPG or PNG files up to 5 MB each. Make sure scans are clear and all four corners of the document are visible.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h3>
+            <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="faq-panel-3" id="faq-btn-3">
+              Is there a fee to use this portal?
+              <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+            </button>
+          </h3>
+          <div id="faq-panel-3" class="accordion-panel" hidden role="region" aria-labelledby="faq-btn-3">
+            <p>The portal itself is free to use. Some services carry a standard government processing fee, shown before you submit an application.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h3>
+            <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="faq-panel-4" id="faq-btn-4">
+              How long does verification take?
+              <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+            </button>
+          </h3>
+          <div id="faq-panel-4" class="accordion-panel" hidden role="region" aria-labelledby="faq-btn-4">
+            <p>Most certificates are verified within 5&ndash;7 working days. You'll be notified immediately if anything additional is needed.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h3>
+            <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="faq-panel-5" id="faq-btn-5">
+              Can I use this without a smartphone?
+              <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+            </button>
+          </h3>
+          <div id="faq-panel-5" class="accordion-panel" hidden role="region" aria-labelledby="faq-btn-5">
+            <p>Yes — visit any Citizen Service Centre, where staff can help you apply, upload documents, and check status in person.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HELP / SUPPORT CTA ============ -->
+  <section id="help" class="help-cta">
+    <div class="container help-cta-inner">
+      <div>
+        <p class="eyebrow on-navy">Still need a hand?</p>
+        <h2>Our support team is here for you</h2>
+        <p>Call our helpline, or start a conversation with a support officer &mdash; Monday to Friday, 9:00 AM to 5:30 PM.</p>
+      </div>
+      <div class="help-actions">
+        <a href="tel:1800XXXXXXX" class="btn btn-white btn-lg"><i class="fa-solid fa-phone" aria-hidden="true"></i> Call 1800-XXX-XXXX</a>
+        <a href="#" class="btn btn-outline-white btn-lg"><i class="fa-solid fa-comments" aria-hidden="true"></i> Chat with support</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"><i class="fa-solid fa-landmark"></i></span>
+        <span class="brand-title">Government Services Portal</span>
+      </div>
+      <p>A single place to apply for, track, and manage government services online.</p>
+      <div class="footer-social" aria-label="Social media links">
+        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+        <a href="#" aria-label="Twitter / X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+        <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+      </div>
+    </div>
+    <div>
+      <h2>Quick Links</h2>
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#schemes">Schemes</a></li>
+        <li><a href="#jobs">Jobs</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Popular Services</h2>
+      <ul>
+        <li><a href="#services">Birth Certificate</a></li>
+        <li><a href="#services">Passport</a></li>
+        <li><a href="#services">Driving Licence</a></li>
+        <li><a href="#services">PAN Card</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Contact</h2>
+      <ul>
+        <li><i class="fa-solid fa-phone" aria-hidden="true"></i> 1800-XXX-XXXX (toll-free)</li>
+        <li><i class="fa-solid fa-envelope" aria-hidden="true"></i> help@example-gov-demo.in</li>
+        <li><i class="fa-solid fa-clock" aria-hidden="true"></i> Mon&ndash;Fri, 9:00 AM&ndash;5:30 PM</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <p>&copy; <span id="year"></span> Government Services Portal. This is a demonstration project built for practice purposes &mdash; not an official government website.</p>
+      <p><a href="#">Privacy Policy</a> &middot; <a href="#">Terms of Use</a> &middot; <a href="#">Accessibility</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

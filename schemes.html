@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Government Schemes | Citizen Services Portal</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<div class="utility-bar">
+  <div class="container-gov flex items-center justify-between gap-4" style="height:36px">
+    <div class="flex items-center gap-3">
+      <button id="a11yToggle" type="button" aria-expanded="false" aria-controls="a11yPanel" class="flex items-center gap-2"><i class="fa-solid fa-universal-access"></i> Accessibility</button>
+      <span class="divider-v" aria-hidden="true"></span>
+      <button type="button" class="flex items-center gap-2"><i class="fa-solid fa-globe"></i> English <i class="fa-solid fa-chevron-down"></i></button>
+    </div>
+    <div class="flex items-center gap-3">
+      <a href="staff-login.html"><i class="fa-solid fa-id-badge"></i> Staff Login</a>
+      <span class="divider-v" aria-hidden="true"></span>
+      <a id="headerSearch" href="services.html?focus=search" class="flex items-center gap-2"><i class="fa-solid fa-magnifying-glass"></i> Search</a>
+    </div>
+  </div>
+  <div id="a11yPanel" hidden class="a11y-panel">
+    <div class="container-gov flex flex-wrap items-center gap-4" style="padding-block:var(--space-3)">
+      <span class="text-xs font-semibold" style="text-transform:uppercase; letter-spacing:.05em; color:#7E97B8">Text size</span>
+      <span class="flex items-center gap-1" role="group" aria-label="Text size">
+        <button type="button" data-fontsize="dec" class="a11y-size-btn" aria-label="Decrease text size">A-</button>
+        <button type="button" data-fontsize="reset" class="a11y-size-btn" aria-label="Reset text size">A</button>
+        <button type="button" data-fontsize="inc" class="a11y-size-btn" aria-label="Increase text size">A+</button>
+      </span>
+      <a href="about.html#accessibility" class="text-sm font-semibold" style="color:var(--gov-gold); margin-left:auto">Full accessibility statement &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<header class="navbar">
+  <div class="container-gov navbar-row">
+    <a href="home.html" class="navbar-brand">
+      <img src="images/stackly-logo-white.webp" alt="Stackly" class="navbar-brand-logo">
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primaryNav"><i class="fa-solid fa-bars"></i></button>
+    <nav id="primaryNav" aria-label="Primary" class="primary-nav">
+      <a href="home.html" class="nav-link">Home</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="application-status.html" class="nav-link">Track application</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="help.html" class="nav-link">Help</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container-gov">
+    <nav class="breadcrumb on-navy" aria-label="Breadcrumb"><a href="home.html">Home</a><span class="sep">/</span><span class="current">Government Schemes</span></nav>
+    <p class="eyebrow on-navy" data-aos="fade-up">Benefits &amp; welfare</p>
+    <h1 data-aos="fade-up" data-aos-delay="60">Discover benefits you may be eligible for</h1>
+    <p class="lead mt-2" data-aos="fade-up" data-aos-delay="120">Explore welfare schemes, financial assistance, education programs, healthcare benefits, employment opportunities, and social security initiatives &mdash; sample listings for this demo portal.</p>
+  </div>
+</section>
+
+<main id="main-content" class="container-gov" style="padding-block:var(--space-10)">
+  <div class="listing-layout">
+
+    <div>
+      <div class="card mb-6" data-aos="fade-up">
+        <label for="schemeSearch" class="form-label">Search schemes</label>
+        <div class="relative">
+          <i class="fa-solid fa-magnifying-glass" style="position:absolute; left:1rem; top:50%; transform:translateY(-50%); color:var(--gray-400)"></i>
+          <input id="schemeSearch" type="search" class="form-control" style="padding-left:2.5rem" placeholder="Try pension, scholarship, health…">
+        </div>
+        <p class="text-xs font-semibold mt-4 mb-2" style="text-transform:uppercase; letter-spacing:.04em; color:var(--gray-500)">Filter by category</p>
+        <div id="schemeFilters" class="filter-bar" role="group" aria-label="Filter schemes by category">
+          <button type="button" class="filter-chip" data-filter="All" aria-pressed="true">All</button>
+          <button type="button" class="filter-chip" data-filter="Welfare" aria-pressed="false">Welfare</button>
+          <button type="button" class="filter-chip" data-filter="Financial Assistance" aria-pressed="false">Financial Assistance</button>
+          <button type="button" class="filter-chip" data-filter="Education" aria-pressed="false">Education</button>
+          <button type="button" class="filter-chip" data-filter="Healthcare" aria-pressed="false">Healthcare</button>
+          <button type="button" class="filter-chip" data-filter="Employment" aria-pressed="false">Employment</button>
+          <button type="button" class="filter-chip" data-filter="Social Security" aria-pressed="false">Social Security</button>
+        </div>
+      </div>
+
+      <div class="card mb-6" data-aos="fade-up" id="eligibilityWidget">
+        <div class="flex items-start gap-3 mb-4">
+          <span class="card-icon gold"><i class="fa-solid fa-clipboard-question"></i></span>
+          <div><h2 style="margin:0">Check your eligibility</h2><p class="card-text mt-1">Answer a few quick questions and we'll suggest schemes that may apply to you.</p></div>
+        </div>
+        <form id="eligibilityForm">
+          <div class="grid-auto-sm">
+            <div class="eligibility-question">
+              <label for="eqAge" class="form-label">Age group</label>
+              <select id="eqAge" class="form-control">
+                <option value="under18">Under 18</option>
+                <option value="18-59" selected>18&ndash;59</option>
+                <option value="60plus">60 and above</option>
+              </select>
+            </div>
+            <div class="eligibility-question">
+              <label for="eqEmployment" class="form-label">Employment status</label>
+              <select id="eqEmployment" class="form-control">
+                <option value="student">Student</option>
+                <option value="employed" selected>Employed</option>
+                <option value="selfemployed">Self-employed / business owner</option>
+                <option value="farmer">Farmer</option>
+                <option value="unemployed">Unemployed</option>
+                <option value="retired">Retired</option>
+              </select>
+            </div>
+            <div class="eligibility-question">
+              <label for="eqIncome" class="form-label">Household income level</label>
+              <select id="eqIncome" class="form-control">
+                <option value="low">Low income</option>
+                <option value="middle" selected>Middle income</option>
+                <option value="high">High income</option>
+              </select>
+            </div>
+          </div>
+          <div class="eligibility-question">
+            <p class="form-label mb-2">Do any of these apply to you?</p>
+            <div class="flex flex-wrap gap-4 text-sm" style="color:var(--gray-700)">
+              <label class="flex items-center gap-2"><input type="checkbox" id="eqDisability" style="width:16px;height:16px;accent-color:var(--gov-blue)"> Certified disability</label>
+              <label class="flex items-center gap-2"><input type="checkbox" id="eqGirlChild" style="width:16px;height:16px;accent-color:var(--gov-blue)"> Have a daughter under 18</label>
+              <label class="flex items-center gap-2"><input type="checkbox" id="eqWidow" style="width:16px;height:16px;accent-color:var(--gov-blue)"> Widowed / single parent</label>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary mt-5"><i class="fa-solid fa-magnifying-glass"></i> Check eligibility</button>
+        </form>
+        <div id="eligibilityResults" hidden class="mt-6"></div>
+      </div>
+
+      <div class="flex items-center justify-between mb-4">
+        <h2>All schemes</h2>
+        <span id="schemeCount" class="listing-meta">9 schemes</span>
+      </div>
+
+      <div id="schemesGrid" class="grid-auto-sm">
+        <article data-category="Welfare" class="listing-card card card-hover" data-aos="fade-up">
+          <span class="badge" style="background:#F1EAFB; color:#7C3AED">Welfare</span>
+          <span class="card-icon mt-3" style="background:#F1EAFB; color:#7C3AED"><i class="fa-solid fa-hand-holding-heart"></i></span>
+          <h3 class="card-title mt-3">Old Age Pension Scheme</h3>
+          <p class="card-text mt-1">Monthly financial support for senior citizens above 60 with limited income.</p>
+          <a href="application-status.html" class="card-link">Check eligibility &amp; apply <i class="fa-solid fa-arrow-right"></i></a>
+        </article>
+        <article data-category="Financial Assistance" class="listing-card card card-hover" data-aos="fade-up">
+          <span class="badge badge-warning">Financial Assistance</span>
+          <span class="card-icon mt-3" style="background:var(--warning-bg); color:var(--warning)"><i class="fa-solid fa-sack-dollar"></i></span>
+          <h3 class="card-title mt-3">Small Business Support Grant</h3>
+          <p class="card-text mt-1">One-time grant for registering a new small business or micro-enterprise.</p>
+          <a href="application-status.html" class="card-link">Check eligibility &amp; apply <i class="fa-solid fa-arrow-right"></i></a>
+        </article>
+        <article data-category="Education" class="listing-card card card-hover" data-aos="fade-up">
+          <span class="badge" style="background:#FCE7F3; color:#BE185D">Education</span>
+          <span class="card-icon mt-3" style="background:#FCE7F3; color:#BE185D"><i class="fa-solid fa-graduation-cap"></i></span>
+          <h3 class="card-title mt-3">Merit Scholarship for Students</h3>
+          <p class="card-text mt-1">Tuition support for students from low-income households with strong academic records.</p>
+          <a href="application-status.html" class="card-link">Check eligibility &amp; apply <i class="fa-solid fa-arrow-right"></i></a>
+        </article>
+        <article data-category="Healthcare" class="listing-card card card-hover" data-aos="fade-up">
+          <span class="badge badge-danger">Healthcare</span>
+          <span class="card-icon mt-3" style="background:var(--danger-bg); color:var(--danger)"><i class="fa-solid fa-notes-medical"></i></span>
+          <h3 class="card-title mt-3">Health Insurance for Families</h3>
+          <p class="card-text mt-1">Cashless hospital treatment coverage for eligible low-income families.</p>
+          <a href="application-status.html" class="card-link">Check eligibility &amp; apply <i class="fa-solid fa-arrow-right"></i></a>
+        </article>
+        <article data-category="Employment" class="listing-card card card-hover" data-aos="fade-up">
+          <span class="badge badge-info">Employment</span>
+          <span class="card-icon mt-3"><i class="fa-solid fa-briefcase"></i></span>
+          <h3 class="card-title mt-3">Skill Development Training</h3>
+          <p class="card-text mt-1">Free vocational training and job placement support for young jobseekers.</p>
+          <a href="jobs.html" class="card-link">Check eligibility &amp; apply <i class="fa-solid fa-arrow-right"></i></a>
+        </article>
+        <article data-category="Social Security" class="listing-card card card-hover" data-aos="fade-up">
+          <span class="badge badge-success">Social Security</span>
+          <span class="card-icon mt-3" style="background:var(--success-bg); color:var(--success)"><i class="fa-solid fa-shield-heart"></i></span>
+          <h3 class="card-title mt-3">Disability Support Allowance</h3>
+          <p class="card-text mt-1">Monthly allowance and equipment support for persons with certified disabilities.</p>
+          <a href="application-status.html" class="card-link">Check eligibility &amp; apply <i class="fa-solid fa-arrow-right"></i></a>
+        </article>
+        <article data-category="Welfare" class="listing-card card card-hover" data-aos="fade-up">
+          <span class="badge" style="background:#F1EAFB; color:#7C3AED">Welfare</span>
+          <span class="card-icon mt-3" style="background:#F1EAFB; color:#7C3AED"><i class="fa-solid fa-people-roof"></i></span>
+          <h3 class="card-title mt-3">Widow &amp; Single-Parent Support</h3>
+          <p class="card-text mt-1">Monthly income support and priority access to housing schemes.</p>
+          <a href="application-status.html" class="card-link">Check eligibility &amp; apply <i class="fa-solid fa-arrow-right"></i></a>
+        </article>
+        <article data-category="Financial Assistance" class="listing-card card card-hover" data-aos="fade-up">
+          <span class="badge badge-warning">Financial Assistance</span>
+          <span class="card-icon mt-3" style="background:var(--warning-bg); color:var(--warning)"><i class="fa-solid fa-seedling"></i></span>
+          <h3 class="card-title mt-3">Farmer Crop Insurance Subsidy</h3>
+          <p class="card-text mt-1">Subsidised crop insurance premiums for registered smallholder farmers.</p>
+          <a href="application-status.html" class="card-link">Check eligibility &amp; apply <i class="fa-solid fa-arrow-right"></i></a>
+        </article>
+        <article data-category="Education" class="listing-card card card-hover" data-aos="fade-up">
+          <span class="badge" style="background:#FCE7F3; color:#BE185D">Education</span>
+          <span class="card-icon mt-3" style="background:#FCE7F3; color:#BE185D"><i class="fa-solid fa-child-reaching"></i></span>
+          <h3 class="card-title mt-3">Girl Child Education Incentive</h3>
+          <p class="card-text mt-1">Cash incentive paid at key school milestones to support girls' education.</p>
+          <a href="application-status.html" class="card-link">Check eligibility &amp; apply <i class="fa-solid fa-arrow-right"></i></a>
+        </article>
+      </div>
+
+      <p id="schemeEmpty" hidden class="empty-state"><i class="fa-solid fa-magnifying-glass"></i> No schemes match your filters. Try clearing the search or category.</p>
+      <nav id="schemePagination" class="pagination" aria-label="Schemes pages"></nav>
+    </div>
+
+    <aside>
+      <div class="sidebar-card" data-aos="fade-up">
+        <h2>Quick links</h2>
+        <div class="sidebar-links">
+          <a href="services.html"><i class="fa-solid fa-grip"></i> Browse all services</a>
+          <a href="application-status.html"><i class="fa-solid fa-list-check"></i> Track an application</a>
+          <a href="jobs.html"><i class="fa-solid fa-briefcase"></i> Government jobs</a>
+        </div>
+      </div>
+      <div class="sidebar-card" data-aos="fade-up" data-aos-delay="80">
+        <h2>Related</h2>
+        <div class="sidebar-links">
+          <a href="representatives.html"><i class="fa-solid fa-people-group"></i> My representatives</a>
+          <a href="about.html"><i class="fa-solid fa-circle-info"></i> About this portal</a>
+        </div>
+      </div>
+      <div class="sidebar-card help-card" data-aos="fade-up" data-aos-delay="160">
+        <h2>Not sure which scheme applies?</h2>
+        <p>Our support team can help you check eligibility over the phone or chat.</p>
+        <a href="help.html" class="btn btn-gold btn-sm mt-3"><i class="fa-solid fa-headset"></i> Contact support</a>
+      </div>
+    </aside>
+  </div>
+
+  <section class="panel-navy cta-row mt-12" data-aos="fade-up">
+    <div><p class="eyebrow on-navy">Ready to apply?</p><h2 class="mt-1">Start with a service application</h2><p class="mt-2 text-on-navy text-sm">Most schemes are applied for through the standard services flow.</p></div>
+    <a href="services.html" class="btn btn-white"><i class="fa-solid fa-grip"></i> Browse services</a>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container-gov footer-grid">
+    <div>
+      <div class="flex items-center"><img src="images/stackly-logo-white.webp" alt="Stackly" class="footer-brand-logo"></div>
+      <p class="mt-3 text-sm" style="line-height:var(--lh-normal)">A single place to apply for, track, and manage government services online.</p>
+      <p class="mt-4 text-sm font-semibold" style="color:#fff">Helpline: 1800 123 4567</p>
+      <p class="text-xs" style="color:var(--gov-gold)">Monday&ndash;Friday, 9:00 AM&ndash;5:30 PM</p>
+      <div class="footer-social" role="group" aria-label="Social media">
+        <a href="404.html" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="404.html" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="404.html" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="404.html" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+    </div>
+    <div><h2>Explore</h2><ul class="footer-links"><li><a href="home.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="application-status.html">Track application</a></li><li><a href="about.html">About</a></li><li><a href="help.html">Help</a></li></ul></div>
+    <div><h2>More</h2><ul class="footer-links"><li><a href="schemes.html">Government schemes</a></li><li><a href="jobs.html">Jobs in government</a></li><li><a href="representatives.html">My representatives</a></li><li><a href="tourism.html">Travel &amp; tourism</a></li><li><a href="document-verification.html">Document verification</a></li></ul></div>
+    <div><h2>Account &amp; support</h2><ul class="footer-links"><li><a href="staff-login.html">Staff login</a></li><li><a href="about.html#accessibility">Accessibility statement</a></li><li><a href="help.html">Contact support</a></li><li><a href="help.html">Report an issue</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><div class="container-gov footer-bottom-inner"><p>Citizen Services Portal is a demonstration project built for practice purposes &mdash; not an official government website.</p><p>Last updated: September 2026</p></div></div>
+</footer>
+
+<script src="listing-common.js"></script>
+<script>
+  initListing({
+    gridSelector: '#schemesGrid', cardSelector: '.listing-card', searchInputSelector: '#schemeSearch',
+    filterBarSelector: '#schemeFilters', countSelector: '#schemeCount', emptyStateSelector: '#schemeEmpty',
+    paginationSelector: '#schemePagination', pageSize: 6, itemLabel: 'scheme',
+  });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>AOS.init({ duration: 500, once: true, offset: 60, disable: window.matchMedia('(prefers-reduced-motion: reduce)').matches });</script>
+<script src="portal-common.js"></script>
+</body>
+</html>

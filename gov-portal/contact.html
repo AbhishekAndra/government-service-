@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us — Citizen Services Portal (Demo)</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="assets/shared.css">
+</head>
+<body class="bg-[var(--gov-bg)] text-slate-800">
+
+<a href="#main-content" class="skip-link focus-ring bg-white text-[var(--gov-blue)] px-4 py-2 rounded shadow font-semibold">Skip to main content</a>
+<div id="site-header"></div>
+
+<main id="main-content" class="max-w-3xl mx-auto px-4 sm:px-6 py-8 grid grid-cols-1 sm:grid-cols-2 gap-8">
+  <section>
+    <h1 class="text-2xl font-bold text-slate-800 mb-4">Contact Us</h1>
+    <ul class="space-y-3 text-sm text-slate-600">
+      <li><strong class="block text-slate-800">Citizen Helpline</strong>1800-XXX-XXXX (toll-free, 24×7)</li>
+      <li><strong class="block text-slate-800">Email</strong>helpdesk@example-gov-demo.in</li>
+      <li><strong class="block text-slate-800">Head Office</strong>Department of Citizen Services, Civil Lines, State Capital — 000001</li>
+      <li><strong class="block text-slate-800">Office hours</strong>Mon–Sat, 9:30 AM – 6:00 PM (portal available 24×7)</li>
+    </ul>
+  </section>
+  <section class="bg-white rounded-xl border border-slate-200 p-6">
+    <h2 class="font-semibold text-slate-800 mb-4">Send us a message</h2>
+    <form id="contactForm" class="space-y-3">
+      <input required placeholder="Your name" class="focus-ring w-full border border-slate-300 rounded-lg px-3 py-2 text-sm"/>
+      <input required type="email" placeholder="Email address" class="focus-ring w-full border border-slate-300 rounded-lg px-3 py-2 text-sm"/>
+      <textarea required rows="4" placeholder="Message" class="focus-ring w-full border border-slate-300 rounded-lg px-3 py-2 text-sm"></textarea>
+      <button class="focus-ring w-full bg-[var(--gov-blue)] hover:bg-blue-800 text-white text-sm font-semibold rounded-lg py-2.5">Send message</button>
+    </form>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script src="assets/shared.js"></script>
+<script>
+  document.getElementById('contactForm').addEventListener('submit', e => { e.preventDefault(); GOV.toast('Message sent (simulated).', 'success'); e.target.reset(); });
+</script>
+</body>
+</html>

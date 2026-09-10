@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grievance Redressal — Citizen Services Portal (Demo)</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="assets/shared.css">
+</head>
+<body class="bg-[var(--gov-bg)] text-slate-800">
+
+<a href="#main-content" class="skip-link focus-ring bg-white text-[var(--gov-blue)] px-4 py-2 rounded shadow font-semibold">Skip to main content</a>
+<div id="site-header" data-active="grievance"></div>
+
+<main id="main-content" class="max-w-3xl mx-auto px-4 sm:px-6 py-8">
+  <h1 class="text-2xl font-bold text-slate-800 mb-1">Grievance Redressal</h1>
+  <p class="text-sm text-slate-500 mb-6">Raise a complaint or feedback and track its resolution here.</p>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+    <section class="bg-white rounded-xl border border-slate-200 p-6">
+      <h2 class="font-semibold text-slate-800 mb-4">Submit a new grievance</h2>
+      <form id="grievanceForm" class="space-y-4">
+        <div>
+          <label for="gCategory" class="block text-sm font-medium text-slate-700 mb-1">Category</label>
+          <select id="gCategory" class="focus-ring w-full border border-slate-300 rounded-lg px-3 py-2.5 text-sm">
+            <option>Application delay</option>
+            <option>Payment issue</option>
+            <option>Document rejection dispute</option>
+            <option>Portal / technical issue</option>
+            <option>Officer conduct</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div>
+          <label for="gRefId" class="block text-sm font-medium text-slate-700 mb-1">Related Application ID (optional)</label>
+          <input id="gRefId" placeholder="e.g. APP-88231" class="focus-ring w-full border border-slate-300 rounded-lg px-3 py-2.5 text-sm"/>
+        </div>
+        <div>
+          <label for="gSubject" class="block text-sm font-medium text-slate-700 mb-1">Subject *</label>
+          <input id="gSubject" required class="focus-ring w-full border border-slate-300 rounded-lg px-3 py-2.5 text-sm"/>
+        </div>
+        <div>
+          <label for="gDesc" class="block text-sm font-medium text-slate-700 mb-1">Description *</label>
+          <textarea id="gDesc" required rows="4" class="focus-ring w-full border border-slate-300 rounded-lg px-3 py-2.5 text-sm"></textarea>
+        </div>
+        <button type="submit" class="focus-ring w-full bg-[var(--gov-blue)] hover:bg-blue-800 text-white text-sm font-semibold rounded-lg py-2.5">Submit grievance</button>
+      </form>
+    </section>
+
+    <section class="bg-white rounded-xl border border-slate-200 p-6">
+      <h2 class="font-semibold text-slate-800 mb-4">Your tickets</h2>
+      <ul id="ticketList" class="space-y-3"></ul>
+    </section>
+  </div>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="assets/shared.js"></script>
+<script>
+  const statusPill = s => s === 'Resolved' ? 'status-approved' : s === 'In Progress' ? 'status-review' : 'status-pending';
+  function render() {
+    const tickets = GOV.getTickets();
+    document.getElementById('ticketList').innerHTML = tickets.map(t => `
+      <li class="border border-slate-200 rounded-lg p-3">
+        <div class="flex items-center justify-between gap-2">
+          <p class="text-sm font-semibold text-slate-800">${t.subject}</p>
+          <span class="status-pill ${statusPill(t.status)}">${t.status}</span>
+        </div>
+        <p class="text-xs text-slate-400 mt-1">${t.id} · Raised ${t.date}</p>
+      </li>
+    `).join('') || '<li class="text-sm text-slate-400">No grievances raised yet.</li>';
+  }
+  render();
+
+  document.getElementById('grievanceForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const subject = document.getElementById('gSubject').value.trim();
+    const desc = document.getElementById('gDesc').value.trim();
+    if (!subject || !desc) { GOV.toast('Please fill in subject and description.', 'warning'); return; }
+    const id = GOV.genId('TCK');
+    GOV.addTicket({ id, subject, status: 'Open', date: new Date().toISOString().slice(0,10) });
+    e.target.reset();
+    render();
+    GOV.toast(`Grievance submitted. Ticket ${id} created.`, 'success');
+  });
+</script>
+</body>
+</html>

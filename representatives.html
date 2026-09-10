@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Find Your Representatives | Citizen Services Portal</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<div class="utility-bar">
+  <div class="container-gov flex items-center justify-between gap-4" style="height:36px">
+    <div class="flex items-center gap-3">
+      <button id="a11yToggle" type="button" aria-expanded="false" aria-controls="a11yPanel" class="flex items-center gap-2"><i class="fa-solid fa-universal-access"></i> Accessibility</button>
+      <span class="divider-v" aria-hidden="true"></span>
+      <button type="button" class="flex items-center gap-2"><i class="fa-solid fa-globe"></i> English <i class="fa-solid fa-chevron-down"></i></button>
+    </div>
+    <div class="flex items-center gap-3">
+      <a href="staff-login.html"><i class="fa-solid fa-id-badge"></i> Staff Login</a>
+      <span class="divider-v" aria-hidden="true"></span>
+      <a id="headerSearch" href="services.html?focus=search" class="flex items-center gap-2"><i class="fa-solid fa-magnifying-glass"></i> Search</a>
+    </div>
+  </div>
+  <div id="a11yPanel" hidden class="a11y-panel">
+    <div class="container-gov flex flex-wrap items-center gap-4" style="padding-block:var(--space-3)">
+      <span class="text-xs font-semibold" style="text-transform:uppercase; letter-spacing:.05em; color:#7E97B8">Text size</span>
+      <span class="flex items-center gap-1" role="group" aria-label="Text size">
+        <button type="button" data-fontsize="dec" class="a11y-size-btn" aria-label="Decrease text size">A-</button>
+        <button type="button" data-fontsize="reset" class="a11y-size-btn" aria-label="Reset text size">A</button>
+        <button type="button" data-fontsize="inc" class="a11y-size-btn" aria-label="Increase text size">A+</button>
+      </span>
+      <a href="about.html#accessibility" class="text-sm font-semibold" style="color:var(--gov-gold); margin-left:auto">Full accessibility statement &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<header class="navbar">
+  <div class="container-gov navbar-row">
+    <a href="home.html" class="navbar-brand">
+      <img src="images/stackly-logo-white.webp" alt="Stackly" class="navbar-brand-logo">
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primaryNav"><i class="fa-solid fa-bars"></i></button>
+    <nav id="primaryNav" aria-label="Primary" class="primary-nav">
+      <a href="home.html" class="nav-link">Home</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="application-status.html" class="nav-link">Track application</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="help.html" class="nav-link">Help</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container-gov">
+    <nav class="breadcrumb on-navy" aria-label="Breadcrumb"><a href="home.html">Home</a><span class="sep">/</span><span class="current">My Representatives</span></nav>
+    <p class="eyebrow on-navy" data-aos="fade-up">Local government</p>
+    <h1 data-aos="fade-up" data-aos-delay="60">Find your representatives</h1>
+    <p class="lead mt-2" data-aos="fade-up" data-aos-delay="120">Select your state to see the kind of representative information available &mdash; national, state, and local.</p>
+  </div>
+</section>
+
+<main id="main-content" class="container-gov container-narrow" style="padding-block:var(--space-10)">
+  <div class="card" data-aos="fade-up">
+    <label for="stateSelect" class="form-label">Your state</label>
+    <select id="stateSelect" class="form-control" style="max-width:22rem">
+      <option value="">Choose a state&hellip;</option>
+      <option value="Maharashtra">Maharashtra</option>
+      <option value="Karnataka">Karnataka</option>
+      <option value="Tamil Nadu">Tamil Nadu</option>
+      <option value="Uttar Pradesh">Uttar Pradesh</option>
+      <option value="West Bengal">West Bengal</option>
+      <option value="Kerala">Kerala</option>
+    </select>
+  </div>
+
+  <div id="repResult" hidden class="grid-auto-sm mt-6">
+    <div class="card"><p class="text-xs font-semibold" style="text-transform:uppercase; letter-spacing:.05em; color:var(--gray-400)">National</p><h2 class="mt-1 card-title">Your Lok Sabha MP</h2><p class="mt-2 text-sm card-text">Represents your constituency in the House of the People, New Delhi.</p></div>
+    <div class="card"><p class="text-xs font-semibold" style="text-transform:uppercase; letter-spacing:.05em; color:var(--gray-400)">State</p><h2 class="mt-1 card-title">Your MLA</h2><p class="mt-2 text-sm card-text">Represents your constituency in the <span id="repStateName">state</span> Legislative Assembly.</p></div>
+    <div class="card"><p class="text-xs font-semibold" style="text-transform:uppercase; letter-spacing:.05em; color:var(--gray-400)">Local</p><h2 class="mt-1 card-title">Your Ward Councillor</h2><p class="mt-2 text-sm card-text">Represents your ward on the municipal or panchayat council.</p></div>
+  </div>
+
+  <div id="repNote" hidden class="mt-4" style="background:var(--warning-bg); border:1px solid #FDE7B2; border-radius:var(--radius-md); padding:var(--space-3) var(--space-4); font-size:var(--fs-sm); color:#92400E">
+    This is a demonstration layout, not a live lookup of real elected officials. For accurate, current representative information, use the Election Commission of India's <a href="https://elections24.eci.gov.in/" style="color:#92400E; font-weight:600" rel="noopener">official constituency lookup</a> or the <a href="https://sansad.in/ls/members" style="color:#92400E; font-weight:600" rel="noopener">Lok Sabha members directory</a>.
+  </div>
+
+  <section aria-labelledby="why-heading" class="mt-10">
+    <h2 id="why-heading">Why contact your representative?</h2>
+    <ul class="mt-4 flex flex-col gap-2 text-sm card-text">
+      <li class="flex gap-2"><i class="fa-solid fa-circle-check" style="color:var(--gov-blue)"></i> Raise a local infrastructure issue (roads, water, streetlights)</li>
+      <li class="flex gap-2"><i class="fa-solid fa-circle-check" style="color:var(--gov-blue)"></i> Ask about the status of a scheme or public project in your area</li>
+      <li class="flex gap-2"><i class="fa-solid fa-circle-check" style="color:var(--gov-blue)"></i> Request support in escalating an application stuck in review</li>
+      <li class="flex gap-2"><i class="fa-solid fa-circle-check" style="color:var(--gov-blue)"></i> Get help with a service application via <a href="help.html" style="color:var(--gov-blue); font-weight:600">Help &amp; Support</a></li>
+    </ul>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container-gov footer-grid">
+    <div>
+      <div class="flex items-center"><img src="images/stackly-logo-white.webp" alt="Stackly" class="footer-brand-logo"></div>
+      <p class="mt-3 text-sm" style="line-height:var(--lh-normal)">A single place to apply for, track, and manage government services online.</p>
+      <p class="mt-4 text-sm font-semibold" style="color:#fff">Helpline: 1800 123 4567</p>
+      <p class="text-xs" style="color:var(--gov-gold)">Monday&ndash;Friday, 9:00 AM&ndash;5:30 PM</p>
+      <div class="footer-social" role="group" aria-label="Social media">
+        <a href="404.html" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="404.html" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="404.html" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="404.html" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+    </div>
+    <div><h2>Explore</h2><ul class="footer-links"><li><a href="home.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="application-status.html">Track application</a></li><li><a href="about.html">About</a></li><li><a href="help.html">Help</a></li></ul></div>
+    <div><h2>More</h2><ul class="footer-links"><li><a href="schemes.html">Government schemes</a></li><li><a href="jobs.html">Jobs in government</a></li><li><a href="representatives.html">My representatives</a></li><li><a href="tourism.html">Travel &amp; tourism</a></li><li><a href="document-verification.html">Document verification</a></li></ul></div>
+    <div><h2>Account &amp; support</h2><ul class="footer-links"><li><a href="staff-login.html">Staff login</a></li><li><a href="about.html#accessibility">Accessibility statement</a></li><li><a href="help.html">Contact support</a></li><li><a href="help.html">Report an issue</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><div class="container-gov footer-bottom-inner"><p>Citizen Services Portal is a demonstration project built for practice purposes &mdash; not an official government website.</p><p>Last updated: September 2026</p></div></div>
+</footer>
+
+<script>
+document.getElementById('stateSelect').addEventListener('change', e => {
+  const val = e.target.value;
+  const result = document.getElementById('repResult');
+  const note = document.getElementById('repNote');
+  if (val) {
+    document.getElementById('repStateName').textContent = val;
+    result.hidden = false;
+    note.hidden = false;
+    result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  } else {
+    result.hidden = true;
+    note.hidden = true;
+  }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>AOS.init({ duration: 500, once: true, offset: 60, disable: window.matchMedia('(prefers-reduced-motion: reduce)').matches });</script>
+<script src="portal-common.js"></script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document Vault — Citizen Services Portal (Demo)</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="assets/shared.css">
+</head>
+<body class="bg-[var(--gov-bg)] text-slate-800">
+
+<a href="#main-content" class="skip-link focus-ring bg-white text-[var(--gov-blue)] px-4 py-2 rounded shadow font-semibold">Skip to main content</a>
+<div id="site-header" data-active="vault"></div>
+
+<main id="main-content" class="max-w-5xl mx-auto px-4 sm:px-6 py-8">
+  <div class="flex items-center justify-between flex-wrap gap-3 mb-6">
+    <div>
+      <h1 class="text-2xl font-bold text-slate-800">Document Vault</h1>
+      <p class="text-sm text-slate-500">Your digital documents, encrypted at rest and available for any application.</p>
+    </div>
+    <label class="focus-ring cursor-pointer bg-[var(--gov-blue)] hover:bg-blue-800 text-white text-sm font-semibold rounded-lg px-4 py-2.5">
+      + Upload document <input id="fileInput" type="file" class="sr-only" accept=".pdf,.jpg,.jpeg,.png"/>
+    </label>
+  </div>
+
+  <div class="bg-white rounded-xl border border-slate-200 p-4 mb-6">
+    <div class="flex items-center justify-between text-xs text-slate-500 mb-1">
+      <span>Storage used</span><span id="quotaText">18 MB of 100 MB</span>
+    </div>
+    <div class="h-2 rounded-full bg-slate-100 overflow-hidden"><div class="h-full bg-[var(--gov-blue)]" style="width:18%"></div></div>
+  </div>
+
+  <div class="bg-white rounded-xl border border-slate-200 overflow-hidden">
+    <table class="w-full text-sm">
+      <thead class="bg-slate-50 text-slate-500 text-xs">
+        <tr>
+          <th class="px-4 py-2 text-left">Document</th>
+          <th class="px-4 py-2 text-left hidden sm:table-cell">Type</th>
+          <th class="px-4 py-2 text-left hidden md:table-cell">Uploaded</th>
+          <th class="px-4 py-2 text-left">Status</th>
+          <th class="px-4 py-2 text-left">Actions</th>
+        </tr>
+      </thead>
+      <tbody id="vaultBody" class="divide-y divide-slate-100"></tbody>
+    </table>
+  </div>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="assets/shared.js"></script>
+<script>
+  const LS_VAULT = 'gov_portal_vault';
+  function seedVault() {
+    if (localStorage.getItem(LS_VAULT)) return;
+    localStorage.setItem(LS_VAULT, JSON.stringify([
+      { name: 'Aadhaar Card', type: 'PDF', date: '2026-01-12', status: 'Verified' },
+      { name: 'PAN Card', type: 'JPG', date: '2026-01-12', status: 'Verified' },
+      { name: 'Address Proof (Electricity Bill)', type: 'PDF', date: '2026-08-30', status: 'Pending review' },
+    ]));
+  }
+  function getVault() { seedVault(); return JSON.parse(localStorage.getItem(LS_VAULT)) || []; }
+  function saveVault(list) { localStorage.setItem(LS_VAULT, JSON.stringify(list)); }
+
+  const statusPill = s => s === 'Verified' ? 'status-approved' : s === 'Rejected' ? 'status-rejected' : 'status-pending';
+
+  function render() {
+    const list = getVault();
+    document.getElementById('vaultBody').innerHTML = list.map((d, i) => `
+      <tr>
+        <td class="px-4 py-3 font-medium text-slate-800 flex items-center gap-2">
+          <svg class="w-4 h-4 text-slate-400 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 3v4a1 1 0 0 1-1 1H4"/><path d="M20 21H8a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8l6 6v10a2 2 0 0 1-2 2Z"/></svg>
+          ${d.name}
+        </td>
+        <td class="px-4 py-3 hidden sm:table-cell text-slate-500">${d.type}</td>
+        <td class="px-4 py-3 hidden md:table-cell text-slate-500">${d.date}</td>
+        <td class="px-4 py-3"><span class="status-pill ${statusPill(d.status)}">${d.status}</span></td>
+        <td class="px-4 py-3 space-x-3">
+          <button class="focus-ring text-xs font-semibold text-[var(--gov-blue)] hover:underline" data-dl="${i}">Download</button>
+          <button class="focus-ring text-xs font-semibold text-red-600 hover:underline" data-del="${i}">Delete</button>
+        </td>
+      </tr>
+    `).join('');
+    document.querySelectorAll('[data-dl]').forEach(b => b.addEventListener('click', () => GOV.toast('Download started (simulated).', 'success')));
+    document.querySelectorAll('[data-del]').forEach(b => b.addEventListener('click', () => {
+      const list = getVault(); list.splice(Number(b.dataset.del), 1); saveVault(list); render();
+      GOV.toast('Document removed from vault.', 'default');
+    }));
+  }
+  render();
+
+  document.getElementById('fileInput').addEventListener('change', e => {
+    const f = e.target.files[0];
+    if (!f) return;
+    GOV.toast(`Scanning "${f.name}" for viruses…`, 'default');
+    setTimeout(() => {
+      const list = getVault();
+      list.unshift({ name: f.name, type: (f.name.split('.').pop() || '').toUpperCase(), date: new Date().toISOString().slice(0,10), status: 'Pending review' });
+      saveVault(list); render();
+      GOV.toast('Upload complete — clean file, added to vault.', 'success');
+    }, 800);
+  });
+</script>
+</body>
+</html>

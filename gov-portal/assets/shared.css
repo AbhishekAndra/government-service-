@@ -1,0 +1,61 @@
+/* ===========================================================
+   Shared design tokens & components — Citizen Services Portal
+   (Prototype only — see README.md)
+=========================================================== */
+
+:root {
+  --gov-navy: #0B3B60;
+  --gov-navy-dark: #072A46;
+  --gov-saffron: #FF9933;
+  --gov-green: #128807;
+  --gov-blue: #1D4ED8;
+  --gov-bg: #F4F6F8;
+  --focus: #1D4ED8;
+}
+
+html.a11y-large { font-size: 118%; }
+html.a11y-larger { font-size: 138%; }
+html.a11y-contrast body { background: #000 !important; color: #fff !important; }
+html.a11y-contrast .hc-invert { background: #000 !important; color: #fff !important; border-color: #fff !important; }
+html.a11y-contrast a { color: #ffd166 !important; }
+html.a11y-contrast .bg-white { background: #000 !important; }
+html.a11y-contrast .text-slate-500,
+html.a11y-contrast .text-slate-600,
+html.a11y-contrast .text-slate-400 { color: #e5e5e5 !important; }
+
+* { scrollbar-color: #cbd5e1 #f1f5f9; }
+body { font-family: 'Segoe UI', Roboto, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif; }
+
+.focus-ring:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+[hidden] { display: none !important; }
+
+.skip-link:not(:focus) { position: absolute; left: -9999px; top: auto; }
+.skip-link:focus { position: fixed; top: 8px; left: 8px; z-index: 100; }
+
+.tricolor-strip { height: 4px; background: linear-gradient(90deg, var(--gov-saffron) 33%, #fff 33% 66%, var(--gov-green) 66%); }
+
+.emblem-badge {
+  width: 2.5rem; height: 2.5rem; border-radius: 9999px;
+  background: radial-gradient(circle at 30% 30%, #ffffff20, transparent), var(--gov-navy);
+  display: flex; align-items: center; justify-content: center;
+  border: 2px solid #ffffff40;
+}
+
+.status-pill { display:inline-flex; align-items:center; gap:.375rem; padding:.25rem .625rem; border-radius:9999px; font-size:.75rem; font-weight:600; }
+.status-pending   { background:#FEF3C7; color:#92400E; }
+.status-review    { background:#DBEAFE; color:#1E40AF; }
+.status-approved  { background:#D1FAE5; color:#065F46; }
+.status-rejected  { background:#FEE2E2; color:#991B1B; }
+.status-draft     { background:#E2E8F0; color:#334155; }
+
+.demo-banner {
+  background: #7C2D12; color: #fff; text-align: center; font-size: .75rem;
+  padding: .4rem .75rem; font-weight: 600; letter-spacing: .01em;
+}
+
+.chat-bubble-enter { animation: chatIn .15s ease-out; }
+@keyframes chatIn { from { opacity:0; transform: translateY(8px);} to { opacity:1; transform: translateY(0);} }
+
+.wizard-step-dot { width: 2rem; height: 2rem; border-radius: 9999px; display:flex; align-items:center; justify-content:center; font-size:.8rem; font-weight:700; border: 2px solid #CBD5E1; color:#94A3B8; background:#fff; }
+.wizard-step-dot.active { border-color: var(--gov-blue); color:#fff; background: var(--gov-blue); }
+.wizard-step-dot.done { border-color: #059669; color:#fff; background:#059669; }

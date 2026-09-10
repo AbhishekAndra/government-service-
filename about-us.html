@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us — Coastline Tours</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          brand: {
+            teal: '#2F8F93',
+            tealDark: '#256F72',
+            tealDarker: '#1D5658',
+            gold: '#D8A65C',
+            goldDark: '#C69349',
+            cream: '#F7F3EC',
+          }
+        },
+        fontFamily: {
+          sans: ['"Poppins"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        }
+      }
+    }
+  }
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  body { font-family: 'Poppins', ui-sans-serif, system-ui, sans-serif; }
+  .wave-top { display:block; width:100%; height:auto; }
+  .card-arrow { transition: background .15s ease, transform .15s ease; }
+  .card-arrow:hover { transform: scale(1.08); }
+  .illus-hue-1 { filter: hue-rotate(0deg); }
+  .illus-hue-2 { filter: hue-rotate(-12deg) saturate(1.05); }
+  .illus-hue-3 { filter: hue-rotate(10deg) saturate(0.95); }
+  .bg-dots { background-image: radial-gradient(circle, rgba(255,255,255,0.35) 1px, transparent 1px); background-size: 14px 14px; }
+</style>
+</head>
+<body class="bg-white text-slate-700 antialiased">
+
+<!-- ============ NAVBAR ============ -->
+<header class="relative z-30 bg-white">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between">
+    <a href="#" class="flex items-center gap-2 py-4">
+      <svg class="w-9 h-9 text-brand-teal" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+        <circle cx="24" cy="24" r="22" stroke="currentColor" stroke-width="2.5"/>
+        <path d="M14 28c3-6 7-6 10 0s7 6 10 0" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M17 18c2-3 4-3 6 0" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+      <div class="leading-tight">
+        <p class="font-bold text-slate-800 text-base sm:text-lg tracking-wide">COASTLINE</p>
+        <p class="text-[10px] sm:text-xs tracking-[0.25em] text-brand-gold font-semibold -mt-1">TOURS &amp; STAYS</p>
+      </div>
+    </a>
+
+    <nav class="hidden lg:flex items-center gap-10 text-sm font-medium text-slate-600">
+      <a href="#find-out" class="hover:text-brand-teal transition-colors">Top Attractions</a>
+      <a href="#reviews" class="hover:text-brand-teal transition-colors">Deals &amp; Customer Reviews</a>
+    </nav>
+
+    <div class="flex items-stretch h-14 sm:h-16">
+      <a href="#about" class="flex items-center px-5 sm:px-7 bg-brand-gold hover:bg-brand-goldDark text-white text-sm font-semibold transition-colors">About Us</a>
+      <a href="#" class="hidden sm:flex items-center px-5 sm:px-7 bg-brand-goldDark hover:brightness-95 text-white text-sm font-semibold transition-colors">VIP</a>
+      <a href="#" aria-label="Account" class="flex items-center justify-center w-14 sm:w-16 bg-slate-800 hover:bg-slate-900 text-white transition-colors">
+        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4.5 5-6 8-6s6.5 1.5 8 6"/></svg>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section id="about" class="relative bg-brand-teal overflow-hidden">
+  <!-- decorative circles -->
+  <svg class="absolute -top-10 -left-16 w-72 h-72 opacity-20" viewBox="0 0 200 200"><circle cx="100" cy="100" r="100" fill="#ffffff"/></svg>
+  <svg class="absolute top-10 right-0 w-56 h-56 opacity-10" viewBox="0 0 200 200"><circle cx="100" cy="100" r="100" fill="#ffffff"/></svg>
+  <svg class="absolute bottom-0 left-1/3 w-40 h-40 opacity-10" viewBox="0 0 200 200"><circle cx="100" cy="100" r="100" fill="#ffffff"/></svg>
+
+  <div class="relative max-w-4xl mx-auto text-center px-6 pt-14 pb-10">
+    <p class="text-white/80 font-medium tracking-wide">About Us,</p>
+    <h1 class="mt-2 text-3xl sm:text-4xl md:text-[2.6rem] font-extrabold text-white leading-tight">
+      About Top Attractions &amp; Reviews.
+    </h1>
+    <p class="mt-4 text-white/80 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+      We help travelers discover harbor towns, hidden coastlines and unforgettable stays — curated by
+      locals, reviewed by real guests, and booked in minutes. This is placeholder copy standing in for
+      final brand content.
+    </p>
+    <a href="#find-out" class="inline-block mt-6 px-7 py-2.5 rounded-full border-2 border-brand-gold text-brand-gold font-semibold text-sm hover:bg-brand-gold hover:text-white transition-colors">
+      More About Us
+    </a>
+  </div>
+
+  <!-- hero image / carousel -->
+  <div class="relative max-w-6xl mx-auto px-4 sm:px-8 pb-16">
+    <div class="relative rounded-xl overflow-hidden shadow-2xl ring-1 ring-white/10 h-56 sm:h-80 md:h-[26rem]">
+      <svg class="illus-hue-1 w-full h-full" viewBox="0 0 1200 480" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+        <rect width="1200" height="480" fill="#bfe3ea"/>
+        <rect y="0" width="1200" height="230" fill="#dff1f5"/>
+        <circle cx="1040" cy="90" r="46" fill="#fef3c7"/>
+        <rect x="0" y="330" width="1200" height="150" fill="#2f6f8f"/>
+        <path d="M0 330 Q150 300 300 330 T600 330 T900 330 T1200 330 V480 H0Z" fill="#3a7f9e"/>
+        <!-- buildings skyline -->
+        <g fill="#e8845a">
+          <rect x="60" y="210" width="70" height="120"/>
+          <rect x="140" y="190" width="60" height="140"/>
+          <rect x="210" y="220" width="80" height="110"/>
+        </g>
+        <g fill="#f2c14e">
+          <rect x="300" y="200" width="65" height="130"/>
+          <rect x="375" y="230" width="70" height="100"/>
+          <rect x="455" y="205" width="60" height="125"/>
+        </g>
+        <g fill="#4a7a8c">
+          <rect x="525" y="190" width="55" height="140"/>
+          <rect x="590" y="215" width="70" height="115"/>
+        </g>
+        <!-- clock tower -->
+        <rect x="690" y="120" width="34" height="210" fill="#3f6b6b"/>
+        <polygon points="690,120 724,120 707,70" fill="#2f8f93"/>
+        <circle cx="707" cy="150" r="7" fill="#fff8e7"/>
+        <g fill="#c9714a">
+          <rect x="740" y="215" width="60" height="115"/>
+          <rect x="805" y="195" width="70" height="135"/>
+          <rect x="885" y="220" width="60" height="110"/>
+        </g>
+        <!-- second tower -->
+        <rect x="960" y="140" width="26" height="190" fill="#3f6b6b"/>
+        <polygon points="960,140 986,140 973,105" fill="#2f8f93"/>
+        <!-- water reflections -->
+        <g stroke="#bfe0ea" stroke-width="3" opacity="0.5">
+          <line x1="150" y1="380" x2="220" y2="380"/>
+          <line x1="500" y1="400" x2="600" y2="400"/>
+          <line x1="800" y1="420" x2="900" y2="420"/>
+        </g>
+        <!-- boats -->
+        <g>
+          <path d="M60 400 h120 l-14 24 h-92z" fill="#f5f5f5"/>
+          <rect x="105" y="360" width="6" height="42" fill="#7a7a7a"/>
+          <path d="M960 410 h150 l-16 26 h-118z" fill="#eaeaea"/>
+          <line x1="1010" y1="330" x2="1010" y2="410" stroke="#6b6b6b" stroke-width="4"/>
+          <line x1="1010" y1="335" x2="1120" y2="345" stroke="#6b6b6b" stroke-width="2"/>
+        </g>
+      </svg>
+
+      <button aria-label="Previous slide" class="card-arrow absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 hover:bg-white flex items-center justify-center shadow">
+        <svg class="w-5 h-5 text-brand-tealDark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m15 18-6-6 6-6"/></svg>
+      </button>
+      <button aria-label="Next slide" class="card-arrow absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 hover:bg-white flex items-center justify-center shadow">
+        <svg class="w-5 h-5 text-brand-tealDark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+      </button>
+      <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+        <span class="w-2 h-2 rounded-full bg-white"></span>
+        <span class="w-2 h-2 rounded-full bg-white/50"></span>
+        <span class="w-2 h-2 rounded-full bg-white/50"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FIND OUT ============ -->
+<section id="find-out" class="relative bg-white pt-16 pb-14 px-4 sm:px-8">
+  <div class="max-w-3xl mx-auto text-center">
+    <h2 class="text-2xl sm:text-3xl font-bold text-slate-800">Find Out</h2>
+    <div class="w-14 h-1 bg-brand-gold rounded-full mx-auto mt-3 mb-4"></div>
+    <p class="text-slate-500 text-sm sm:text-base">
+      A closer look at the harbor towns, historic quarters and marinas our travelers love most.
+    </p>
+  </div>
+
+  <div class="relative max-w-6xl mx-auto mt-10">
+    <button aria-label="Previous" class="card-arrow hidden md:flex absolute -left-5 top-1/3 -translate-y-1/2 w-9 h-9 rounded-full bg-white shadow ring-1 ring-slate-200 items-center justify-center text-slate-400 hover:text-brand-teal z-10">
+      <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m15 18-6-6 6-6"/></svg>
+    </button>
+    <button aria-label="Next" class="card-arrow hidden md:flex absolute -right-5 top-1/3 -translate-y-1/2 w-9 h-9 rounded-full bg-white shadow ring-1 ring-slate-200 items-center justify-center text-slate-400 hover:text-brand-teal z-10">
+      <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+    </button>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- Card 1 -->
+      <article class="rounded-xl overflow-hidden shadow-lg bg-white">
+        <div class="h-40">
+          <svg class="illus-hue-2 w-full h-full" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="200" fill="#cfe7ec"/>
+            <rect y="0" width="400" height="90" fill="#e7f3f5"/>
+            <g fill="#e8845a"><rect x="20" y="70" width="40" height="55"/><rect x="65" y="55" width="35" height="70"/></g>
+            <g fill="#f2c14e"><rect x="105" y="65" width="35" height="60"/><rect x="145" y="80" width="40" height="45"/></g>
+            <g fill="#4a7a8c"><rect x="190" y="60" width="30" height="65"/><rect x="225" y="75" width="35" height="50"/></g>
+            <rect x="270" y="40" width="18" height="85" fill="#3f6b6b"/>
+            <polygon points="270,40 288,40 279,20" fill="#2f8f93"/>
+            <rect y="125" width="400" height="75" fill="#3a7f9e"/>
+            <path d="M0 125 Q100 110 200 125 T400 125 V200 H0Z" fill="#4a8fae"/>
+          </svg>
+        </div>
+        <div class="bg-brand-teal text-white px-5 pt-4 pb-5">
+          <h3 class="font-semibold leading-snug">Riverside Old Town<br/>Harbor District</h3>
+          <p class="text-white/75 text-xs mt-2 leading-relaxed">Cobblestone lanes, pastel townhouses and a working marina, all within walking distance.</p>
+          <div class="flex items-center justify-between mt-4 text-xs">
+            <span class="flex items-center gap-1 text-white/80">
+              <svg class="w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+              Self-guided tours
+            </span>
+            <span class="flex items-center gap-1 text-white/80">
+              <svg class="w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+              Free cancellation
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="rounded-xl overflow-hidden shadow-lg bg-white">
+        <div class="h-40">
+          <svg class="illus-hue-3 w-full h-full" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="200" fill="#cfe7ec"/>
+            <rect y="0" width="400" height="80" fill="#e7f3f5"/>
+            <rect x="150" y="90" width="100" height="70" fill="#f5f5f5"/>
+            <polygon points="150,90 250,90 240,75 160,75" fill="#e0e0e0"/>
+            <rect x="60" y="120" width="280" height="80" fill="#3a7f9e"/>
+            <path d="M0 120 Q150 105 300 120 T400 118 V200 H0Z" fill="#4a8fae"/>
+            <line x1="200" y1="60" x2="200" y2="90" stroke="#8a8a8a" stroke-width="3"/>
+          </svg>
+        </div>
+        <div class="bg-brand-teal text-white px-5 pt-4 pb-5">
+          <h3 class="font-semibold leading-snug">About Us<br/>Marina &amp; Ferry Terminal</h3>
+          <p class="text-white/75 text-xs mt-2 leading-relaxed">Catch a harbor cruise or hop a ferry to nearby islands right from the terminal.</p>
+          <div class="flex items-center justify-between mt-4 text-xs">
+            <span class="flex items-center gap-1 text-white/80">
+              <svg class="w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+              Daily departures
+            </span>
+            <span class="flex items-center gap-1 text-white/80">
+              <svg class="w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+              Verified reviews
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="rounded-xl overflow-hidden shadow-lg bg-white">
+        <div class="h-40">
+          <svg class="illus-hue-1 w-full h-full" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="200" fill="#cfe7ec"/>
+            <rect y="0" width="400" height="70" fill="#e7f3f5"/>
+            <rect x="30" y="100" width="340" height="65" fill="#dfe6ea"/>
+            <g fill="#f6f6f6"><rect x="45" y="85" width="10" height="35"/><rect x="65" y="90" width="10" height="30"/><rect x="90" y="82" width="10" height="38"/><rect x="120" y="88" width="10" height="32"/><rect x="150" y="80" width="10" height="40"/><rect x="185" y="90" width="10" height="30"/><rect x="215" y="84" width="10" height="36"/><rect x="250" y="88" width="10" height="32"/><rect x="285" y="80" width="10" height="40"/><rect x="320" y="90" width="10" height="30"/></g>
+            <rect y="165" width="400" height="35" fill="#3a7f9e"/>
+            <path d="M0 165 Q150 150 300 165 T400 163 V200 H0Z" fill="#4a8fae"/>
+          </svg>
+        </div>
+        <div class="bg-brand-teal text-white px-5 pt-4 pb-5">
+          <h3 class="font-semibold leading-snug">Marinas &amp; Docks<br/>Guided Boat Tours</h3>
+          <p class="text-white/75 text-xs mt-2 leading-relaxed">Row after row of private yachts — a favorite backdrop for our early-morning walking tours.</p>
+          <div class="mt-4 flex items-center gap-2">
+            <div class="flex-1 bg-white/15 rounded-full px-3 py-1.5 text-xs text-white/80">Search dates…</div>
+            <button class="px-3 py-1.5 rounded-full bg-brand-gold hover:bg-brand-goldDark text-xs font-semibold whitespace-nowrap">Check now</button>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+
+  <!-- highlight stats -->
+  <div class="max-w-4xl mx-auto mt-14 grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+    <div>
+      <svg class="w-8 h-8 mx-auto text-brand-gold" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 3 7v5c0 5 4 9 9 10 5-1 9-5 9-10V7l-9-5Z"/></svg>
+      <p class="mt-2 font-semibold text-slate-700 text-sm">Curated Choices</p>
+      <p class="text-xs text-slate-400 mt-1">Hand-picked stays &amp; tours</p>
+    </div>
+    <div>
+      <svg class="w-8 h-8 mx-auto text-brand-gold" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M9 12h6M12 9v6"/></svg>
+      <p class="mt-2 font-semibold text-slate-700 text-sm">Money-Back Guarantee</p>
+      <p class="text-xs text-slate-400 mt-1">Full refund, no questions asked</p>
+    </div>
+    <div>
+      <p class="font-extrabold text-brand-teal text-2xl">9<span class="text-brand-gold">+</span></p>
+      <p class="mt-1 font-semibold text-slate-700 text-sm">Years of Experience</p>
+      <p class="text-xs text-slate-400 mt-1">Trusted by thousands of travelers</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WAVY FEATURE SECTION ============ -->
+<section id="reviews" class="relative bg-white">
+  <svg class="wave-top" viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,40 C240,90 480,0 720,30 C960,60 1200,10 1440,50 L1440,90 L0,90 Z" fill="#2F8F93"/>
+  </svg>
+
+  <div class="relative bg-brand-teal pb-24 pt-4 overflow-hidden">
+    <svg class="absolute top-10 left-10 w-24 h-24 opacity-10" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#fff"/></svg>
+    <svg class="absolute bottom-16 right-16 w-32 h-32 opacity-10" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#fff"/></svg>
+
+    <div class="max-w-6xl mx-auto px-6 sm:px-10 grid grid-cols-1 lg:grid-cols-[220px_1fr] gap-10 items-center">
+
+      <!-- decorative vase illustration -->
+      <div class="hidden lg:flex justify-center">
+        <svg class="w-40 h-64 text-brand-tealDarker" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 200" fill="none">
+          <path d="M45 10h30l6 30c10 10 16 26 16 44 0 46-30 60-37 96h-16C37 144 7 130 7 84c0-18 6-34 16-44l6-30Z" fill="currentColor" opacity="0.55"/>
+          <path d="M45 10h30" stroke="#fff" stroke-width="3" opacity="0.5"/>
+          <circle cx="60" cy="60" r="4" fill="#fff" opacity="0.4"/>
+        </svg>
+      </div>
+
+      <!-- feature cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <div class="bg-brand-cream rounded-xl p-6 shadow-lg">
+          <svg class="w-9 h-9 text-brand-teal" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21c-4-3.5-8-7.1-8-11.5A8 8 0 0 1 12 3a8 8 0 0 1 8 6.5c0 4.4-4 8-8 11.5Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <h3 class="mt-4 font-semibold text-slate-800">Customer Reviews</h3>
+          <p class="mt-2 text-xs text-slate-500 leading-relaxed">
+            Real ratings from verified travelers help you choose stays and tours with confidence.
+          </p>
+          <a href="#" class="inline-block mt-4 text-xs font-semibold text-brand-teal hover:underline">Learn more →</a>
+        </div>
+        <div class="bg-brand-cream rounded-xl p-6 shadow-lg">
+          <svg class="w-9 h-9 text-brand-teal" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          <h3 class="mt-4 font-semibold text-slate-800">Find &amp; Reserve</h3>
+          <p class="mt-2 text-xs text-slate-500 leading-relaxed">
+            Search by destination, date or activity and lock in your spot in just a few taps.
+          </p>
+          <a href="#" class="inline-block mt-4 text-xs font-semibold text-brand-teal hover:underline">Learn more →</a>
+        </div>
+        <div class="bg-brand-cream rounded-xl p-6 shadow-lg">
+          <svg class="w-9 h-9 text-brand-teal" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+          <h3 class="mt-4 font-semibold text-slate-800">Book Now</h3>
+          <p class="mt-2 text-xs text-slate-500 leading-relaxed">
+            Instant confirmation, flexible dates, and free cancellation on most bookings.
+          </p>
+          <a href="#" class="inline-block mt-4 text-xs font-semibold text-brand-teal hover:underline">Learn more →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <svg class="wave-top rotate-180" viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,40 C240,90 480,0 720,30 C960,60 1200,10 1440,50 L1440,90 L0,90 Z" fill="#2F8F93"/>
+  </svg>
+</section>
+
+<!-- ============ FOOTER (minimal) ============ -->
+<footer class="bg-slate-900 text-slate-400 text-center text-xs py-6 px-4">
+  <p>© 2026 Coastline Tours &amp; Stays — placeholder content for layout preview only.</p>
+</footer>
+
+</body>
+</html>

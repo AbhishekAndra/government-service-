@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home | Citizen Services Portal</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/14.2.0/swiper-bundle.min.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- ============ UTILITY BAR ============ -->
+<div class="utility-bar">
+  <div class="container-gov flex items-center justify-between gap-4" style="height:36px">
+    <div class="flex items-center gap-3">
+      <button id="a11yToggle" type="button" aria-expanded="false" aria-controls="a11yPanel" class="flex items-center gap-2">
+        <i class="fa-solid fa-universal-access"></i> Accessibility
+      </button>
+      <span class="divider-v" aria-hidden="true"></span>
+      <button type="button" class="flex items-center gap-2">
+        <i class="fa-solid fa-globe"></i> English <i class="fa-solid fa-chevron-down"></i>
+      </button>
+    </div>
+    <div class="flex items-center gap-3">
+      <a href="staff-login.html"><i class="fa-solid fa-id-badge"></i> Staff Login</a>
+      <span class="divider-v" aria-hidden="true"></span>
+      <a id="headerSearch" href="services.html?focus=search" class="flex items-center gap-2">
+        <i class="fa-solid fa-magnifying-glass"></i> Search
+      </a>
+    </div>
+  </div>
+
+  <div id="a11yPanel" hidden class="a11y-panel">
+    <div class="container-gov flex flex-wrap items-center gap-4" style="padding-block:var(--space-3)">
+      <span class="text-xs font-semibold" style="text-transform:uppercase; letter-spacing:.05em; color:#7E97B8">Text size</span>
+      <span class="flex items-center gap-1" role="group" aria-label="Text size">
+        <button type="button" data-fontsize="dec" class="a11y-size-btn" aria-label="Decrease text size">A-</button>
+        <button type="button" data-fontsize="reset" class="a11y-size-btn" aria-label="Reset text size">A</button>
+        <button type="button" data-fontsize="inc" class="a11y-size-btn" aria-label="Increase text size">A+</button>
+      </span>
+      <a href="about.html#accessibility" class="text-sm font-semibold" style="color:var(--gov-gold); margin-left:auto">Full accessibility statement &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ MAIN NAV ============ -->
+<header class="navbar">
+  <div class="container-gov navbar-row">
+    <a href="home.html" class="navbar-brand">
+      <img src="images/stackly-logo-white.webp" alt="Stackly" class="navbar-brand-logo">
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primaryNav">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <nav id="primaryNav" aria-label="Primary" class="primary-nav">
+      <a href="home.html" aria-current="page" class="nav-link active">Home</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="application-status.html" class="nav-link">Track application</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="help.html" class="nav-link">Help</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" style="min-height:560px; display:flex; align-items:flex-end">
+    <video class="hero-bg-video" autoplay muted loop playsinline poster="images/india-city-life-poster.webp" aria-label="Everyday life in an Indian riverside town">
+      <source src="images/india-city-life.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="hero-inner container-gov" style="padding-top:var(--space-20)">
+      <p class="eyebrow on-navy" data-aos="fade-up">Your government services, simplified</p>
+      <h1 class="mt-3" style="max-width:640px" data-aos="fade-up" data-aos-delay="80">Welcome to the Citizen Services Portal</h1>
+      <p class="mt-2 lead" data-aos="fade-up" data-aos-delay="140">Your services start here.</p>
+      <div class="mt-6 flex flex-wrap items-center gap-4" data-aos="fade-up" data-aos-delay="200">
+        <a href="services.html" class="btn btn-gold btn-lg"><i class="fa-solid fa-file-signature"></i> Start an application</a>
+        <a href="application-status.html" class="text-sm font-semibold flex items-center gap-2" style="color:#fff">Already applied? Track your application <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ QUICK TILES (overlapping hero) ============ -->
+  <section aria-label="Quick links" class="container-gov" style="position:relative; margin-top:-3rem; padding-bottom:var(--space-4)">
+    <div class="grid-auto-md">
+      <a href="application-status.html" class="card card-hover card-on-navy tile" data-aos="fade-up">
+        <span class="card-icon gold"><i class="fa-solid fa-list-check"></i></span>
+        <div><h2 class="card-title" style="color:#fff">Track your application</h2><p class="mt-1 text-sm text-on-navy">Check status with your reference number.</p></div>
+      </a>
+      <a href="services.html" class="card card-hover card-on-navy tile" data-aos="fade-up" data-aos-delay="100">
+        <span class="card-icon gold"><i class="fa-solid fa-grip"></i></span>
+        <div><h2 class="card-title" style="color:#fff">Explore all services</h2><p class="mt-1 text-sm text-on-navy">Certificates, registration, welfare and more.</p></div>
+      </a>
+      <a href="help.html" class="card card-hover card-on-navy tile" data-aos="fade-up" data-aos-delay="200">
+        <span class="card-icon gold"><i class="fa-solid fa-circle-question"></i></span>
+        <div><h2 class="card-title" style="color:#fff">Get help &amp; support</h2><p class="mt-1 text-sm text-on-navy">FAQs, service centre hours, and contact form.</p></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ FEATURED SERVICES ============ -->
+  <section class="container-gov" style="padding-top:var(--space-6); padding-bottom:var(--space-10)">
+    <h2 class="mb-5" data-aos="fade-up">Featured Services</h2>
+    <div class="grid-auto-md">
+      <a href="services.html" class="card card-hover tile" data-aos="fade-up">
+        <span class="card-icon navy"><i class="fa-solid fa-car"></i></span>
+        <div><h3 class="card-title">Vehicle Renewal</h3><p class="card-text" style="font-style:italic">Vehicle Registration Services</p></div>
+      </a>
+      <a href="services.html" class="card card-hover tile" data-aos="fade-up" data-aos-delay="60">
+        <span class="card-icon navy"><i class="fa-solid fa-id-card"></i></span>
+        <div><h3 class="card-title">Driving Licence Renewal</h3><p class="card-text" style="font-style:italic">Transport Department</p></div>
+      </a>
+      <a href="services.html" class="card card-hover tile" data-aos="fade-up" data-aos-delay="120">
+        <span class="card-icon navy"><i class="fa-solid fa-passport"></i></span>
+        <div><h3 class="card-title">Passport &amp; Travel</h3><p class="card-text" style="font-style:italic">External Affairs</p></div>
+      </a>
+      <a href="jobs.html" class="card card-hover tile" data-aos="fade-up">
+        <span class="card-icon navy"><i class="fa-solid fa-briefcase"></i></span>
+        <div><h3 class="card-title">Jobs in Government</h3><p class="card-text" style="font-style:italic">Department of Workforce Services</p></div>
+      </a>
+      <a href="services.html" class="card card-hover tile" data-aos="fade-up" data-aos-delay="60">
+        <span class="card-icon navy"><i class="fa-solid fa-file-lines"></i></span>
+        <div><h3 class="card-title">Vital Records</h3><p class="card-text" style="font-style:italic">Birth, death &amp; marriage certificates</p></div>
+      </a>
+      <a href="services.html" class="card card-hover tile" data-aos="fade-up" data-aos-delay="120">
+        <span class="card-icon" style="background:var(--gray-100); color:var(--gray-500)"><i class="fa-solid fa-ellipsis"></i></span>
+        <div><h3 class="card-title">View More</h3><p class="card-text" style="font-style:italic">Services from this Portal</p></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ LOCAL GOVERNMENT ============ -->
+  <section class="container-gov" style="padding-bottom:var(--space-10)">
+    <h2 class="mb-5" data-aos="fade-up">Local Government</h2>
+    <div class="grid-auto-md">
+      <a href="representatives.html" class="card card-hover tile" data-aos="fade-up">
+        <span class="card-icon navy"><i class="fa-solid fa-people-group"></i></span>
+        <div><h3 class="card-title">My Representatives</h3><p class="mt-1 card-text">Find your local representatives based on your location</p></div>
+      </a>
+      <a href="help.html" class="card card-hover tile" data-aos="fade-up" data-aos-delay="100">
+        <span class="card-icon navy"><i class="fa-solid fa-calendar-days"></i></span>
+        <div><h3 class="card-title">Meetings</h3><p class="mt-1 card-text">Find upcoming public meetings near you</p></div>
+      </a>
+      <a href="jobs.html" class="card card-hover tile" data-aos="fade-up" data-aos-delay="200">
+        <span class="card-icon navy"><i class="fa-solid fa-envelope-open-text"></i></span>
+        <div><h3 class="card-title">Jobs</h3><p class="mt-1 card-text">Find job openings near you</p></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ VISITING INDIA ============ -->
+  <section class="container-gov" style="padding-bottom:var(--space-10)">
+    <h2 class="mb-5" data-aos="fade-up">Visiting India</h2>
+    <div class="grid-auto-md">
+      <a href="tourism.html" class="card card-hover tile" data-aos="fade-up">
+        <span class="card-icon navy"><i class="fa-solid fa-earth-asia"></i></span>
+        <div><h3 class="card-title">Travel &amp; Tourism</h3><p class="mt-1 card-text">Information for traveling and touring India</p></div>
+      </a>
+      <a href="tourism.html" class="card card-hover tile" data-aos="fade-up" data-aos-delay="100">
+        <span class="card-icon navy"><i class="fa-solid fa-tree"></i></span>
+        <div><h3 class="card-title">National Parks</h3><p class="mt-1 card-text">Visit our wildlife reserves and national parks</p></div>
+      </a>
+      <a href="tourism.html" class="card card-hover tile" data-aos="fade-up" data-aos-delay="200">
+        <span class="card-icon" style="background:var(--gray-100); color:var(--gray-500)"><i class="fa-solid fa-ellipsis"></i></span>
+        <div><h3 class="card-title">View More</h3><p class="mt-1 card-text">India visiting and travel information</p></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ HOW IT WORKS ============ -->
+  <section class="container-gov section-y">
+    <div class="section-heading align-left" data-aos="fade-up">
+      <p class="eyebrow">How it works</p>
+      <h2 class="mt-1">Apply for services online, step by step</h2>
+    </div>
+    <ol class="grid-auto-sm">
+      <li class="card" data-aos="fade-up"><span class="step-badge">1</span><h3 class="mt-3 font-semibold text-sm" style="color:var(--gray-900)">Select a service</h3><p class="mt-1 text-xs card-text">Search or browse for what you need.</p></li>
+      <li class="card" data-aos="fade-up" data-aos-delay="60"><span class="step-badge">2</span><h3 class="mt-3 font-semibold text-sm" style="color:var(--gray-900)">Register / sign in</h3><p class="mt-1 text-xs card-text">Staff sign in for verification; citizens apply directly.</p></li>
+      <li class="card" data-aos="fade-up" data-aos-delay="120"><span class="step-badge">3</span><h3 class="mt-3 font-semibold text-sm" style="color:var(--gray-900)">Submit application</h3><p class="mt-1 text-xs card-text">Fill in your details online.</p></li>
+      <li class="card" data-aos="fade-up" data-aos-delay="180"><span class="step-badge">4</span><h3 class="mt-3 font-semibold text-sm" style="color:var(--gray-900)">Upload documents</h3><p class="mt-1 text-xs card-text">Attach clear scans or photos as proof.</p></li>
+      <li class="card" data-aos="fade-up" data-aos-delay="240"><span class="step-badge">5</span><h3 class="mt-3 font-semibold text-sm" style="color:var(--gray-900)">Track status</h3><p class="mt-1 text-xs card-text">Follow progress anytime, no office visit needed.</p></li>
+      <li class="card" data-aos="fade-up" data-aos-delay="300"><span class="step-badge gold">6</span><h3 class="mt-3 font-semibold text-sm" style="color:var(--gray-900)">Receive approval</h3><p class="mt-1 text-xs card-text">Get your certificate or decision notice.</p></li>
+    </ol>
+  </section>
+
+  <!-- ============ VIDEO TOUR ============ -->
+  <section class="container-gov" style="padding-bottom:var(--space-14)">
+    <div class="grid-2 card card-flush" style="overflow:hidden" data-aos="fade-up">
+      <video style="width:100%; height:16rem; object-fit:cover; background:#000" controls preload="none" poster="images/video-poster.webp">
+        <source src="images/rashtrapati-bhavan-tour.webm" type="video/webm">
+        Your browser does not support embedded video. <a href="images/rashtrapati-bhavan-tour.webm">Download the video</a> instead.
+      </video>
+      <div style="padding:var(--space-8)">
+        <p class="eyebrow">Take a look</p>
+        <h2 class="mt-1">A quick tour of Rashtrapati Bhavan</h2>
+        <p class="mt-3 text-sm card-text" style="line-height:var(--lh-normal)">A short official video introducing the President's residence in New Delhi &mdash; part of the seat of government this portal connects citizens to.</p>
+        <p class="mt-4 text-xs" style="color:var(--gray-400)">Video: &ldquo;Welcome to Rashtrapati Bhavan&rdquo; by the President of India, <a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="license">CC BY-SA 3.0</a>, via Wikimedia Commons.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ POPULAR SERVICES ============ -->
+  <section class="container-gov section-y">
+    <div class="section-flex-header" data-aos="fade-up">
+      <div>
+        <p class="eyebrow">Popular</p>
+        <h2 class="mt-1">Most-used services</h2>
+      </div>
+      <a href="services.html" class="text-sm font-semibold flex items-center gap-2" style="color:var(--gov-blue)">View all services <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+    <div class="grid-auto-md">
+      <a href="services.html" class="card card-hover" data-aos="fade-up">
+        <span class="card-icon"><i class="fa-solid fa-file-invoice-dollar"></i></span>
+        <h3 class="card-title mt-4">Income certificate</h3><p class="mt-2 card-text">Apply or view an existing request.</p></a>
+      <a href="services.html" class="card card-hover" data-aos="fade-up" data-aos-delay="60">
+        <span class="card-icon" style="background:var(--success-bg); color:var(--success)"><i class="fa-solid fa-address-card"></i></span>
+        <h3 class="card-title mt-4">Identity &amp; address</h3><p class="mt-2 card-text">Update details and documents.</p></a>
+      <a href="services.html" class="card card-hover" data-aos="fade-up" data-aos-delay="120">
+        <span class="card-icon" style="background:var(--warning-bg); color:var(--warning)"><i class="fa-solid fa-building"></i></span>
+        <h3 class="card-title mt-4">Business registration</h3><p class="mt-2 card-text">Register or renew a license.</p></a>
+      <a href="services.html" class="card card-hover" data-aos="fade-up" data-aos-delay="180">
+        <span class="card-icon" style="background:#F1EAFB; color:#7C3AED"><i class="fa-solid fa-hand-holding-heart"></i></span>
+        <h3 class="card-title mt-4">Pension &amp; welfare</h3><p class="mt-2 card-text">Check eligibility and apply.</p></a>
+    </div>
+  </section>
+
+  <!-- ============ GOVERNMENT SCHEMES ============ -->
+  <section class="container-gov" style="padding-bottom:var(--space-14)">
+    <div class="panel-navy grid-2" data-aos="fade-up">
+      <div>
+        <p class="eyebrow on-navy">Government schemes</p>
+        <h2 class="mt-2">Discover benefits you may be eligible for</h2>
+        <p class="mt-3 text-on-navy" style="max-width:36rem">Explore welfare schemes, financial assistance, education programs, healthcare benefits, employment opportunities, and social security initiatives.</p>
+        <a href="schemes.html" class="btn btn-white mt-6"><i class="fa-solid fa-hand-holding-dollar"></i> View all schemes</a>
+      </div>
+      <div class="pill-grid">
+        <div>Welfare</div><div>Financial Aid</div><div>Education</div>
+        <div>Healthcare</div><div>Employment</div><div>Social Security</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHY USE OUR PORTAL ============ -->
+  <section class="container-gov" style="padding-bottom:var(--space-14)">
+    <h2 class="mb-6" data-aos="fade-up">Why use our portal?</h2>
+    <div class="grid-auto-md">
+      <div class="card tile" data-aos="fade-up"><span class="card-icon sm" style="background:var(--success-bg); color:var(--success)"><i class="fa-solid fa-check"></i></span><div><h3 class="font-semibold text-sm" style="color:var(--gray-900)">Easy online access</h3><p class="mt-1 card-text">Apply anytime, from any device, without visiting an office.</p></div></div>
+      <div class="card tile" data-aos="fade-up" data-aos-delay="60"><span class="card-icon sm"><i class="fa-solid fa-lock"></i></span><div><h3 class="font-semibold text-sm" style="color:var(--gray-900)">Secure application process</h3><p class="mt-1 card-text">Your details are only shared with the verifying officer.</p></div></div>
+      <div class="card tile" data-aos="fade-up" data-aos-delay="120"><span class="card-icon sm" style="background:#F1EAFB; color:#7C3AED"><i class="fa-solid fa-mobile-screen"></i></span><div><h3 class="font-semibold text-sm" style="color:var(--gray-900)">Mobile-friendly services</h3><p class="mt-1 card-text">Every page works cleanly on a phone, tablet, or desktop.</p></div></div>
+      <div class="card tile" data-aos="fade-up"><span class="card-icon sm" style="background:var(--warning-bg); color:var(--warning)"><i class="fa-solid fa-bolt"></i></span><div><h3 class="font-semibold text-sm" style="color:var(--gray-900)">Faster application tracking</h3><p class="mt-1 card-text">See live status instead of waiting on a phone call.</p></div></div>
+      <div class="card tile" data-aos="fade-up" data-aos-delay="60"><span class="card-icon sm" style="background:var(--info-bg); color:var(--info)"><i class="fa-solid fa-file-arrow-up"></i></span><div><h3 class="font-semibold text-sm" style="color:var(--gray-900)">Digital document support</h3><p class="mt-1 card-text">Upload scans or photos instead of mailing originals.</p></div></div>
+      <div class="card tile" data-aos="fade-up" data-aos-delay="120"><span class="card-icon sm" style="background:var(--danger-bg); color:var(--danger)"><i class="fa-solid fa-bell"></i></span><div><h3 class="font-semibold text-sm" style="color:var(--gray-900)">Status notifications</h3><p class="mt-1 card-text">Opt in to be alerted the moment something changes.</p></div></div>
+    </div>
+  </section>
+
+  <!-- ============ ANNOUNCEMENTS ============ -->
+  <section class="container-gov section-y">
+    <div class="section-flex-header" data-aos="fade-up">
+      <div><p class="eyebrow">Latest</p><h2 class="mt-1">Announcements &amp; updates</h2></div>
+    </div>
+    <div class="grid-auto-md">
+      <article class="card" data-aos="fade-up">
+        <span class="badge" style="background:#F1EAFB; color:#7C3AED">New scheme</span>
+        <h3 class="card-title mt-2">Disability Support Allowance now open</h3>
+        <p class="mt-2 card-text" style="line-height:var(--lh-normal)">A new monthly allowance for persons with certified disabilities is now accepting applications.</p>
+        <p class="mt-3 text-xs" style="color:var(--gray-400)">08 September 2026</p>
+        <a href="schemes.html" class="mt-2" style="display:inline-block; color:var(--gov-blue); font-size:var(--fs-xs); font-weight:600">View schemes &rarr;</a>
+      </article>
+      <article class="card" data-aos="fade-up" data-aos-delay="60">
+        <span class="badge badge-info">Notice</span>
+        <h3 class="card-title mt-2">Faster income certificate processing</h3>
+        <p class="mt-2 card-text" style="line-height:var(--lh-normal)">Average turnaround for income certificates has dropped to 5 working days following added verification staff.</p>
+        <p class="mt-3 text-xs" style="color:var(--gray-400)">05 September 2026</p>
+      </article>
+      <article class="card" data-aos="fade-up" data-aos-delay="120">
+        <span class="badge badge-info">Recruitment</span>
+        <h3 class="card-title mt-2">6 new positions open across departments</h3>
+        <p class="mt-2 card-text" style="line-height:var(--lh-normal)">Openings in Revenue, Health, Public Works, Education, and Digital Services &mdash; applications close on a rolling basis.</p>
+        <p class="mt-3 text-xs" style="color:var(--gray-400)">03 September 2026</p>
+        <a href="jobs.html" class="mt-2" style="display:inline-block; color:var(--gov-blue); font-size:var(--fs-xs); font-weight:600">View openings &rarr;</a>
+      </article>
+      <article class="card" data-aos="fade-up">
+        <span class="badge badge-success">New feature</span>
+        <h3 class="card-title mt-2">Track applications by SMS</h3>
+        <p class="mt-2 card-text" style="line-height:var(--lh-normal)">You can now opt in to SMS status updates when you submit an application &mdash; no need to keep checking online.</p>
+        <p class="mt-3 text-xs" style="color:var(--gray-400)">28 August 2026</p>
+      </article>
+      <article class="card" data-aos="fade-up" data-aos-delay="60">
+        <span class="badge badge-danger">Public notice</span>
+        <h3 class="card-title mt-2">Property tax assessment review period</h3>
+        <p class="mt-2 card-text" style="line-height:var(--lh-normal)">Property owners have until 10 October to formally contest new assessment values through the Revenue office.</p>
+        <p class="mt-3 text-xs" style="color:var(--gray-400)">30 August 2026</p>
+      </article>
+      <article class="card" data-aos="fade-up" data-aos-delay="120">
+        <span class="badge badge-warning">Maintenance</span>
+        <h3 class="card-title mt-2">Scheduled downtime, 14 September</h3>
+        <p class="mt-2 card-text" style="line-height:var(--lh-normal)">The portal will be briefly unavailable between 1:00&ndash;3:00&nbsp;AM for scheduled maintenance. Save your work beforehand.</p>
+        <p class="mt-3 text-xs" style="color:var(--gray-400)">02 September 2026</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ STATS STRIP ============ -->
+  <section class="stats-strip">
+    <div class="container-gov grid-auto-sm text-center" style="padding-block:var(--space-10)">
+      <div data-aos="zoom-in" data-counter data-target="500000" data-suffix="+"><p class="stat-number"><span class="counter">0</span></p><p class="mt-1 text-sm card-text">Services Completed</p></div>
+      <div data-aos="zoom-in" data-aos-delay="80" data-counter data-target="2000000" data-suffix="+"><p class="stat-number"><span class="counter">0</span></p><p class="mt-1 text-sm card-text">Registered Users</p></div>
+      <div data-aos="zoom-in" data-aos-delay="160" data-counter data-target="6" data-suffix=""><p class="stat-number"><span class="counter">0</span></p><p class="mt-1 text-sm card-text">Service categories online</p></div>
+      <div data-aos="zoom-in" data-aos-delay="240" data-counter data-target="24" data-suffix="&#8202;&#215;&#8202;7"><p class="stat-number"><span class="counter">0</span></p><p class="mt-1 text-sm card-text">Access to apply and track online</p></div>
+    </div>
+  </section>
+
+  <!-- ============ TESTIMONIALS (Swiper carousel) ============ -->
+  <section class="container-gov section-y">
+    <div data-aos="fade-up">
+      <p class="eyebrow">Citizen voices</p>
+      <h2 class="mt-1">What people are saying</h2>
+    </div>
+    <div class="swiper mt-6" id="testimonialSwiper" data-aos="fade-up">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <blockquote class="card" style="height:100%">
+            <i class="fa-solid fa-quote-left" style="color:var(--gov-gold)"></i>
+            <p class="mt-2 text-sm card-text" style="line-height:var(--lh-normal)">I applied for my income certificate on a Sunday evening and had it approved before the week was out. No queue, no repeat visits.</p>
+            <footer class="mt-4 text-sm font-semibold" style="color:var(--gray-900)">&mdash; Ravi Kumar, <span class="font-normal card-text">Hyderabad</span></footer>
+          </blockquote>
+        </div>
+        <div class="swiper-slide">
+          <blockquote class="card" style="height:100%">
+            <i class="fa-solid fa-quote-left" style="color:var(--gov-gold)"></i>
+            <p class="mt-2 text-sm card-text" style="line-height:var(--lh-normal)">Tracking my application status online meant I didn't have to call the office every few days to check.</p>
+            <footer class="mt-4 text-sm font-semibold" style="color:var(--gray-900)">&mdash; Sunita Verma, <span class="font-normal card-text">Lucknow</span></footer>
+          </blockquote>
+        </div>
+        <div class="swiper-slide">
+          <blockquote class="card" style="height:100%">
+            <i class="fa-solid fa-quote-left" style="color:var(--gov-gold)"></i>
+            <p class="mt-2 text-sm card-text" style="line-height:var(--lh-normal)">The text-size and screen reader options made it easy for my father to apply for his pension himself.</p>
+            <footer class="mt-4 text-sm font-semibold" style="color:var(--gray-900)">&mdash; Priya Nair, <span class="font-normal card-text">Kochi</span></footer>
+          </blockquote>
+        </div>
+        <div class="swiper-slide">
+          <blockquote class="card" style="height:100%">
+            <i class="fa-solid fa-quote-left" style="color:var(--gov-gold)"></i>
+            <p class="mt-2 text-sm card-text" style="line-height:var(--lh-normal)">Renewing my driving licence took fifteen minutes on my phone during my lunch break.</p>
+            <footer class="mt-4 text-sm font-semibold" style="color:var(--gray-900)">&mdash; Arjun Mehta, <span class="font-normal card-text">Pune</span></footer>
+          </blockquote>
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev" aria-label="Previous testimonial"></div>
+      <div class="swiper-button-next" aria-label="Next testimonial"></div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="container-gov section-y">
+    <div class="panel-navy cta-row" data-aos="fade-up">
+      <div><p class="eyebrow on-navy">Need a hand?</p><h2 class="mt-1">Talk to our support team</h2><p class="mt-2 text-on-navy text-sm">Helpline: 1800 123 4567 &middot; Monday&ndash;Friday, 9:00 AM to 5:30 PM</p></div>
+      <a href="help.html" class="btn btn-white"><i class="fa-solid fa-headset"></i> Contact support</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container-gov footer-grid">
+    <div>
+      <div class="flex items-center"><img src="images/stackly-logo-white.webp" alt="Stackly" class="footer-brand-logo"></div>
+      <p class="mt-3 text-sm" style="line-height:var(--lh-normal)">A single place to apply for, track, and manage government services online.</p>
+      <p class="mt-4 text-sm font-semibold" style="color:#fff">Helpline: 1800 123 4567</p>
+      <p class="text-xs" style="color:var(--gov-gold)">Monday&ndash;Friday, 9:00 AM&ndash;5:30 PM</p>
+      <div class="footer-social" role="group" aria-label="Social media">
+        <a href="404.html" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="404.html" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="404.html" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="404.html" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+
+      <h2 class="mt-6">Get updates</h2>
+      <p class="text-sm mt-2">New services and scheme announcements, no spam.</p>
+      <form id="newsletterForm" class="newsletter-form mt-3">
+        <label for="newsletterEmail" class="sr-only">Email address</label>
+        <input type="email" id="newsletterEmail" class="form-control" placeholder="you@example.com" required>
+        <button type="submit" class="btn btn-gold btn-sm"><i class="fa-solid fa-paper-plane"></i> Subscribe</button>
+      </form>
+      <p id="newsletterMsg" class="newsletter-msg" hidden></p>
+    </div>
+    <div>
+      <h2>Explore</h2>
+      <ul class="footer-links">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="application-status.html">Track application</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="help.html">Help</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>More</h2>
+      <ul class="footer-links">
+        <li><a href="schemes.html">Government schemes</a></li>
+        <li><a href="jobs.html">Jobs in government</a></li>
+        <li><a href="representatives.html">My representatives</a></li>
+        <li><a href="tourism.html">Travel &amp; tourism</a></li>
+        <li><a href="document-verification.html">Document verification</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Account &amp; support</h2>
+      <ul class="footer-links">
+        <li><a href="staff-login.html">Staff login</a></li>
+        <li><a href="about.html#accessibility">Accessibility statement</a></li>
+        <li><a href="help.html">Contact support</a></li>
+        <li><a href="help.html">Report an issue</a></li>
+      </ul>
+    </div>
+  </div>
+  <div style="border-top:1px solid rgba(255,255,255,.1)"><div class="container-gov text-xs" style="padding-block:var(--space-4); color:var(--gov-gold)">Hero photo: Parliament House, New Delhi by Nikhilb239, <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license">CC BY-SA 4.0</a>, via Wikimedia Commons.</div></div>
+  <div class="footer-bottom">
+    <div class="container-gov footer-bottom-inner">
+      <p>Citizen Services Portal is a demonstration project built for practice purposes &mdash; not an official government website.</p>
+      <p>Last updated: September 2026</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ FLOATING ACCESSIBILITY ICON ============ -->
+<button id="a11yFab" type="button" aria-label="Open accessibility options" class="fab fab-navy">
+  <i class="fa-solid fa-universal-access"></i>
+</button>
+
+<!-- ============ FLOATING CHAT ASSISTANT ============ -->
+<div id="chatPanel" hidden class="chat-panel">
+  <div class="chat-header">
+    <span class="icon-avatar"><i class="fa-solid fa-comments"></i></span>
+    <div class="flex-1"><p class="font-semibold text-sm" style="line-height:1.2; color:#fff">CSP Assistant</p><p class="text-xs" style="line-height:1.2; color:var(--gov-gold)">AI-powered &middot; not a live person</p></div>
+    <button id="chatClose" type="button" style="width:32px;height:32px;border-radius:8px;background:none;border:none;color:#fff;cursor:pointer" aria-label="Close chat"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+  <div id="chatLog" class="chat-log" aria-live="polite">
+    <div class="chat-msg">
+      Hi, I'm the CSP Assistant. I can help you find services, check what you need to track an application, or point you to support. My answers are generated automatically &mdash; please avoid sharing sensitive personal information here, and call your local helpline for emergencies.
+    </div>
+  </div>
+  <div class="chat-input-row">
+    <input id="chatInput" type="text" placeholder="Start a conversation..." class="form-control">
+    <button id="chatSend" type="button" aria-label="Send message" class="fab fab-blue" style="position:static; width:44px; height:44px; font-size:1rem"><i class="fa-solid fa-paper-plane"></i></button>
+  </div>
+  <div style="padding:0 var(--space-3) var(--space-2)"><button id="chatClear" type="button" class="text-xs font-semibold" style="background:none;border:none;color:var(--gov-blue);cursor:pointer">Clear chat</button></div>
+</div>
+<button id="chatToggle" type="button" aria-label="Open assistant chat" aria-expanded="false" aria-controls="chatPanel" class="fab fab-blue">
+  <i class="fa-solid fa-comments"></i>
+</button>
+
+<script>
+// Floating chat assistant
+(function(){
+  var toggle=document.getElementById('chatToggle'), panel=document.getElementById('chatPanel'),
+      closeBtn=document.getElementById('chatClose'), log=document.getElementById('chatLog'),
+      input=document.getElementById('chatInput'), send=document.getElementById('chatSend'),
+      clear=document.getElementById('chatClear');
+  var WELCOME = log.innerHTML;
+
+  function openChat(){ panel.hidden=false; toggle.setAttribute('aria-expanded','true'); input.focus(); }
+  function closeChat(){ panel.hidden=true; toggle.setAttribute('aria-expanded','false'); }
+  toggle.addEventListener('click',function(){ panel.hidden ? openChat() : closeChat(); });
+  closeBtn.addEventListener('click', closeChat);
+
+  function addMessage(text, who){
+    var row=document.createElement('div');
+    row.className = 'chat-msg' + (who==='user' ? ' user' : '');
+    row.textContent=text;
+    log.appendChild(row);
+    log.scrollTop=log.scrollHeight;
+  }
+
+  function reply(q){
+    var t=q.toLowerCase();
+    if(t.includes('track') || t.includes('status') || t.includes('reference'))
+      return 'You can check your application status on the Track application page — you will need your reference number (example: GOV-2026-1842).';
+    if(t.includes('certificate') || t.includes('income'))
+      return 'Income certificates can be applied for from the Services page under "Income certificate".';
+    if(t.includes('document') || t.includes('upload') || t.includes('verif'))
+      return 'Document verification usually takes about five working days once submitted through the Services page.';
+    if(t.includes('help') || t.includes('contact') || t.includes('support') || t.includes('human'))
+      return 'You can reach our support team on the Help page, or call the helpline at 1800 123 4567 (Mon–Fri, 9:00 AM–5:30 PM).';
+    if(t.includes('staff') || t.includes('officer') || t.includes('login'))
+      return 'Staff and verification officers can sign in from the Staff Login link at the top of the page.';
+    return 'I can help with applications, tracking a request, document verification, or connecting you to support. Try asking about one of those, or visit the Help page for a live person.';
+  }
+
+  function sendMessage(){
+    var text=input.value.trim();
+    if(!text) return;
+    addMessage(text,'user');
+    input.value='';
+    setTimeout(function(){ addMessage(reply(text),'bot'); }, 350);
+  }
+  send.addEventListener('click', sendMessage);
+  input.addEventListener('keydown', function(e){ if(e.key==='Enter'){ e.preventDefault(); sendMessage(); } });
+  clear.addEventListener('click', function(){ log.innerHTML=WELCOME; });
+})();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/14.2.0/swiper-bundle.min.js"></script>
+<script>
+  new Swiper('#testimonialSwiper', {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    loop: true,
+    pagination: { el: '.swiper-pagination', clickable: true },
+    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+    breakpoints: { 700: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
+  });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 500,
+    once: true,
+    offset: 60,
+    disable: window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  });
+</script>
+<script src="portal-common.js"></script>
+</body>
+</html>

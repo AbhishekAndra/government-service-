@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Backoffice — Citizen Services Portal (Demo)</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="assets/shared.css">
+<style>
+  .admin-tab { padding: .6rem 1rem; border-radius: .5rem; font-size: .875rem; font-weight: 600; color: #475569; }
+  .admin-tab.active { background: var(--gov-navy); color: #fff; }
+  .bar { background: var(--gov-blue); border-radius: 4px 4px 0 0; }
+</style>
+</head>
+<body class="bg-[var(--gov-bg)] text-slate-800">
+
+<a href="#main-content" class="skip-link focus-ring bg-white text-[var(--gov-blue)] px-4 py-2 rounded shadow font-semibold">Skip to main content</a>
+<div id="site-header" data-active="admin"></div>
+
+<main id="main-content" class="max-w-7xl mx-auto px-4 sm:px-6 py-8">
+  <div class="flex items-center justify-between flex-wrap gap-3 mb-6">
+    <div>
+      <h1 class="text-2xl font-bold text-slate-800">Admin &amp; Officer Backoffice</h1>
+      <p class="text-sm text-slate-500">Role-based access · signed in as <strong id="roleLabel">Department Admin</strong></p>
+    </div>
+    <label for="roleSelect" class="sr-only">Switch role (demo)</label>
+    <select id="roleSelect" class="focus-ring border border-slate-300 rounded-lg text-sm px-3 py-2 bg-white">
+      <option value="super">Super Admin</option>
+      <option value="dept" selected>Department Admin</option>
+      <option value="officer">Officer</option>
+    </select>
+  </div>
+
+  <nav class="flex flex-wrap gap-2 mb-6" aria-label="Admin sections">
+    <button data-tab="analytics" class="admin-tab active">Analytics</button>
+    <button data-tab="applications" class="admin-tab">Applications</button>
+    <button data-tab="cms" class="admin-tab">Content (CMS)</button>
+    <button data-tab="rules" class="admin-tab">Rules Engine</button>
+    <button data-tab="users" class="admin-tab" data-role-gate="super">Users &amp; Roles</button>
+    <button data-tab="audit" class="admin-tab">Audit Trail</button>
+  </nav>
+
+  <!-- ANALYTICS -->
+  <section id="tab-analytics" class="space-y-6">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="bg-white rounded-xl border border-slate-200 p-5"><p class="text-xs text-slate-400">Total applications (30d)</p><p class="text-2xl font-bold mt-1">8,742</p></div>
+      <div class="bg-white rounded-xl border border-slate-200 p-5"><p class="text-xs text-slate-400">Avg. response time</p><p class="text-2xl font-bold mt-1">2.4 days</p></div>
+      <div class="bg-white rounded-xl border border-slate-200 p-5"><p class="text-xs text-slate-400">Citizen satisfaction</p><p class="text-2xl font-bold mt-1 text-emerald-600">4.4 / 5</p></div>
+      <div class="bg-white rounded-xl border border-slate-200 p-5"><p class="text-xs text-slate-400">SLA compliance</p><p class="text-2xl font-bold mt-1">96%</p></div>
+    </div>
+
+    <div class="bg-white rounded-xl border border-slate-200 p-6">
+      <h2 class="font-semibold text-slate-800 mb-4">Service usage — last 7 days</h2>
+      <div class="flex items-end gap-3 h-40" aria-hidden="true">
+        <div class="bar w-8" style="height:60%"></div><div class="bar w-8" style="height:80%"></div><div class="bar w-8" style="height:45%"></div>
+        <div class="bar w-8" style="height:95%"></div><div class="bar w-8" style="height:70%"></div><div class="bar w-8" style="height:55%"></div><div class="bar w-8" style="height:88%"></div>
+      </div>
+      <div class="flex gap-3 mt-2 text-[11px] text-slate-400"><span class="w-8 text-center">Mon</span><span class="w-8 text-center">Tue</span><span class="w-8 text-center">Wed</span><span class="w-8 text-center">Thu</span><span class="w-8 text-center">Fri</span><span class="w-8 text-center">Sat</span><span class="w-8 text-center">Sun</span></div>
+      <p class="text-xs text-slate-400 mt-4">Chart data is illustrative (demo). A production build would query the analytics warehouse via API.</p>
+    </div>
+  </section>
+
+  <!-- APPLICATIONS -->
+  <section id="tab-applications" hidden>
+    <div class="bg-white rounded-xl border border-slate-200 overflow-hidden">
+      <div class="px-5 py-3 border-b border-slate-200 flex items-center justify-between flex-wrap gap-2">
+        <h2 class="font-semibold text-slate-800">Application queue</h2>
+        <span class="text-xs text-slate-400">Showing applications visible to your role</span>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead class="bg-slate-50 text-slate-500 text-xs">
+            <tr><th class="px-4 py-2 text-left">Application</th><th class="px-4 py-2 text-left hidden sm:table-cell">Applicant</th><th class="px-4 py-2 text-left">Status</th><th class="px-4 py-2 text-left">Actions</th></tr>
+          </thead>
+          <tbody id="adminAppsBody" class="divide-y divide-slate-100"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- CMS -->
+  <section id="tab-cms" hidden class="bg-white rounded-xl border border-slate-200 p-6">
+    <h2 class="font-semibold text-slate-800 mb-4">Announcements &amp; content</h2>
+    <form id="cmsForm" class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+      <input id="cmsTitle" placeholder="Announcement title" class="focus-ring border border-slate-300 rounded-lg px-3 py-2 text-sm sm:col-span-2"/>
+      <textarea id="cmsBody" placeholder="Details…" rows="3" class="focus-ring border border-slate-300 rounded-lg px-3 py-2 text-sm sm:col-span-2"></textarea>
+      <button class="focus-ring bg-[var(--gov-blue)] hover:bg-blue-800 text-white text-sm font-semibold rounded-lg px-4 py-2 sm:col-span-2">Publish announcement</button>
+    </form>
+    <ul id="cmsList" class="space-y-2 text-sm"></ul>
+  </section>
+
+  <!-- RULES ENGINE -->
+  <section id="tab-rules" hidden class="bg-white rounded-xl border border-slate-200 p-6">
+    <h2 class="font-semibold text-slate-800 mb-1">Rules engine</h2>
+    <p class="text-sm text-slate-500 mb-4">Configure per-service approval thresholds and auto-escalation (demo form — not wired to a real rules engine).</p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div>
+        <label class="block text-sm font-medium text-slate-700 mb-1">Service</label>
+        <select class="focus-ring w-full border border-slate-300 rounded-lg px-3 py-2 text-sm"><option>Income Certificate</option><option>Trade License</option><option>Building Permit</option></select>
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-slate-700 mb-1">Auto-escalate if pending longer than</label>
+        <input type="number" value="5" class="focus-ring w-full border border-slate-300 rounded-lg px-3 py-2 text-sm"/> <span class="text-xs text-slate-400">days</span>
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-slate-700 mb-1">Requires two-officer approval above</label>
+        <input type="text" value="₹10,000 fee value" class="focus-ring w-full border border-slate-300 rounded-lg px-3 py-2 text-sm"/>
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-slate-700 mb-1">Notify applicant on status change via</label>
+        <select class="focus-ring w-full border border-slate-300 rounded-lg px-3 py-2 text-sm"><option>SMS + Email</option><option>SMS only</option><option>Email only</option></select>
+      </div>
+    </div>
+    <button class="focus-ring mt-5 bg-[var(--gov-blue)] hover:bg-blue-800 text-white text-sm font-semibold rounded-lg px-5 py-2.5" onclick="GOV.toast('Rule saved (demo).','success')">Save rule</button>
+  </section>
+
+  <!-- USERS -->
+  <section id="tab-users" hidden class="bg-white rounded-xl border border-slate-200 p-6">
+    <h2 class="font-semibold text-slate-800 mb-4">Users &amp; roles</h2>
+    <table class="w-full text-sm">
+      <thead class="text-slate-500 text-xs"><tr><th class="text-left py-2">Name</th><th class="text-left py-2">Role</th><th class="text-left py-2">Department</th><th class="text-left py-2">Status</th></tr></thead>
+      <tbody class="divide-y divide-slate-100">
+        <tr><td class="py-2">A. Sharma</td><td class="py-2">Officer</td><td class="py-2">Revenue Department</td><td class="py-2"><span class="status-pill status-approved">Active</span></td></tr>
+        <tr><td class="py-2">R. Nambiar</td><td class="py-2">Department Admin</td><td class="py-2">Revenue Department</td><td class="py-2"><span class="status-pill status-approved">Active</span></td></tr>
+        <tr><td class="py-2">S. Iyer</td><td class="py-2">Officer</td><td class="py-2">Municipal Corporation</td><td class="py-2"><span class="status-pill status-pending">Invited</span></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- AUDIT -->
+  <section id="tab-audit" hidden class="bg-white rounded-xl border border-slate-200 overflow-hidden">
+    <div class="px-5 py-3 border-b border-slate-200"><h2 class="font-semibold text-slate-800">Audit trail</h2></div>
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead class="bg-slate-50 text-slate-500 text-xs"><tr><th class="px-4 py-2 text-left">Timestamp</th><th class="px-4 py-2 text-left">Officer</th><th class="px-4 py-2 text-left">Action</th><th class="px-4 py-2 text-left">Application</th></tr></thead>
+        <tbody id="auditBody" class="divide-y divide-slate-100"></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="assets/shared.js"></script>
+<script>
+  // Tabs
+  document.querySelectorAll('[data-tab]').forEach(btn => btn.addEventListener('click', () => {
+    document.querySelectorAll('[data-tab]').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    ['analytics','applications','cms','rules','users','audit'].forEach(id => {
+      document.getElementById('tab-' + id).hidden = id !== btn.dataset.tab;
+    });
+  }));
+
+  // Role gating (demo)
+  const roleSelect = document.getElementById('roleSelect');
+  const roleLabels = { super: 'Super Admin', dept: 'Department Admin', officer: 'Officer' };
+  function applyRole() {
+    document.getElementById('roleLabel').textContent = roleLabels[roleSelect.value];
+    document.querySelectorAll('[data-role-gate]').forEach(el => {
+      el.style.display = (roleSelect.value === el.dataset.roleGate) ? '' : 'none';
+    });
+  }
+  roleSelect.addEventListener('change', applyRole);
+  applyRole();
+
+  // Applications management (reads/writes the same store citizens see)
+  const statusClass = { Pending: 'status-pending', 'Under Review': 'status-review', Approved: 'status-approved', Rejected: 'status-rejected' };
+  function renderApps() {
+    const apps = GOV.getApplications();
+    document.getElementById('adminAppsBody').innerHTML = apps.map(a => `
+      <tr>
+        <td class="px-4 py-3"><p class="font-medium text-slate-800">${a.service}</p><p class="text-xs text-slate-400">${a.id} · ${a.date}</p></td>
+        <td class="px-4 py-3 hidden sm:table-cell text-slate-500">${a.applicant}</td>
+        <td class="px-4 py-3"><span class="status-pill ${statusClass[a.status] || 'status-draft'}">${a.status}</span></td>
+        <td class="px-4 py-3 space-x-2 whitespace-nowrap">
+          <button data-act="approve" data-id="${a.id}" class="focus-ring text-xs font-semibold text-emerald-700 hover:underline">Approve</button>
+          <button data-act="reject" data-id="${a.id}" class="focus-ring text-xs font-semibold text-red-600 hover:underline">Reject</button>
+          <button data-act="escalate" data-id="${a.id}" class="focus-ring text-xs font-semibold text-orange-600 hover:underline">Escalate</button>
+        </td>
+      </tr>
+    `).join('');
+    document.querySelectorAll('[data-act]').forEach(btn => btn.addEventListener('click', () => {
+      const id = btn.dataset.id;
+      const map = { approve: 'Approved', reject: 'Rejected', escalate: 'Under Review' };
+      const status = map[btn.dataset.act];
+      GOV.updateApplicationStatus(id, status, btn.dataset.act === 'escalate' ? 'Escalated to senior officer' : undefined, roleLabels[roleSelect.value] + ' (demo)');
+      logAudit(id, `${btn.dataset.act.charAt(0).toUpperCase() + btn.dataset.act.slice(1)}d application`);
+      renderApps();
+      GOV.toast(`Application ${id} marked "${status}".`, btn.dataset.act === 'reject' ? 'danger' : 'success');
+    }));
+  }
+  renderApps();
+
+  // Audit log (separate localStorage list, seeded + appended)
+  const LS_AUDIT = 'gov_portal_audit';
+  function getAudit() {
+    if (!localStorage.getItem(LS_AUDIT)) {
+      localStorage.setItem(LS_AUDIT, JSON.stringify([
+        { date: '2026-09-07 11:45', officer: 'R. Nambiar (Dept Admin)', action: 'Moved to Under Review', app: 'APP-88231' },
+        { date: '2026-08-22 16:00', officer: 'S. Iyer (Officer)', action: 'Approved application', app: 'APP-88190' },
+      ]));
+    }
+    return JSON.parse(localStorage.getItem(LS_AUDIT));
+  }
+  function logAudit(appId, action) {
+    const list = getAudit();
+    list.unshift({ date: new Date().toISOString().slice(0,16).replace('T',' '), officer: roleLabels[roleSelect.value] + ' (demo)', action, app: appId });
+    localStorage.setItem(LS_AUDIT, JSON.stringify(list));
+    renderAudit();
+  }
+  function renderAudit() {
+    document.getElementById('auditBody').innerHTML = getAudit().map(e => `
+      <tr><td class="px-4 py-2 whitespace-nowrap text-slate-600">${e.date}</td><td class="px-4 py-2 text-slate-600">${e.officer}</td><td class="px-4 py-2 text-slate-700 font-medium">${e.action}</td><td class="px-4 py-2 text-slate-500">${e.app}</td></tr>
+    `).join('');
+  }
+  renderAudit();
+
+  // CMS (localStorage-backed announcement list, demo only)
+  const LS_CMS = 'gov_portal_cms';
+  function getCms() { try { return JSON.parse(localStorage.getItem(LS_CMS)) || []; } catch { return []; } }
+  function renderCms() {
+    document.getElementById('cmsList').innerHTML = getCms().map(c => `<li class="border border-slate-200 rounded-lg p-3"><p class="font-semibold text-slate-800">${c.title}</p><p class="text-slate-500">${c.body}</p></li>`).join('') || '<li class="text-slate-400">No announcements published yet.</li>';
+  }
+  renderCms();
+  document.getElementById('cmsForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const title = document.getElementById('cmsTitle').value.trim();
+    const body = document.getElementById('cmsBody').value.trim();
+    if (!title) { GOV.toast('Add a title before publishing.', 'warning'); return; }
+    const list = getCms(); list.unshift({ title, body }); localStorage.setItem(LS_CMS, JSON.stringify(list));
+    e.target.reset(); renderCms();
+    GOV.toast('Announcement published.', 'success');
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Administrator Dashboard | Citizen Services Portal</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body style="background:var(--gray-100)">
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<div class="utility-bar">
+  <div class="dash-container flex items-center justify-between gap-4" style="height:36px">
+    <a href="home.html" class="flex items-center gap-2"><i class="fa-solid fa-arrow-left"></i> Back to Citizen Services Portal</a>
+    <nav aria-label="Utility" class="flex items-center gap-3">
+      <a href="about.html#accessibility">Screen Reader Access</a>
+      <span class="divider-v" aria-hidden="true"></span>
+      <span class="flex items-center gap-1" role="group" aria-label="Text size">
+        <button type="button" data-fontsize="dec" aria-label="Decrease text size">A-</button>
+        <button type="button" data-fontsize="reset" aria-label="Reset text size">A</button>
+        <button type="button" data-fontsize="inc" aria-label="Increase text size">A+</button>
+      </span>
+      <span class="divider-v" aria-hidden="true"></span>
+      <button type="button" class="flex items-center gap-1">English <i class="fa-solid fa-chevron-down"></i></button>
+    </nav>
+  </div>
+</div>
+
+<header class="dash-header">
+  <div class="dash-container flex items-center justify-between gap-4 flex-wrap" style="padding-block:var(--space-3)">
+    <div class="flex items-center gap-3">
+      <span class="icon-avatar square" style="background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2)"><i class="fa-solid fa-chart-line"></i></span>
+      <div>
+        <p class="text-xs" style="text-transform:uppercase; letter-spacing:.05em; color:#B9CCE4">Administrator Dashboard</p>
+        <h1 style="font-size:var(--fs-lg); color:#fff">Portal Overview</h1>
+      </div>
+    </div>
+    <div class="flex items-center gap-3 text-sm">
+      <span style="color:#B9CCE4">Administrator: <strong id="officerName" style="color:#fff">Duty Administrator</strong> &middot; ID #<span id="officerIdLabel">AD-1000</span></span>
+      <button id="logoutBtn" class="btn btn-sm" style="background:rgba(255,255,255,.1); color:#fff; border:1px solid rgba(255,255,255,.2)">Log out</button>
+    </div>
+  </div>
+</header>
+
+<main id="main-content" class="dash-container" style="padding-block:var(--space-6)">
+  <nav class="breadcrumb mb-4" aria-label="Breadcrumb"><a href="home.html">Home</a><span class="sep">/</span><span class="current">Administrator Dashboard</span></nav>
+
+  <div class="flex flex-wrap items-end justify-between gap-3 mb-5">
+    <div>
+      <h2 style="font-size:var(--fs-xl)">Last 30 days</h2>
+      <p class="text-sm mt-1" style="color:var(--gray-500)">Portal-wide activity across all services and officers.</p>
+    </div>
+    <select id="rangeSelect" class="form-control" style="max-width:12rem">
+      <option>Last 7 days</option>
+      <option selected>Last 30 days</option>
+      <option>Last 90 days</option>
+    </select>
+  </div>
+
+  <section aria-label="Key metrics" class="dash-kpi-grid mb-6">
+    <div class="dash-kpi-card">
+      <span class="dash-kpi-icon" style="background:var(--gov-blue-light); color:var(--gov-blue)"><i class="fa-solid fa-file-lines"></i></span>
+      <div><p class="dash-kpi-value">18,742</p><p class="dash-kpi-label">Applications received</p><p class="dash-kpi-trend up"><i class="fa-solid fa-arrow-up"></i> 6.2% vs. prior period</p></div>
+    </div>
+    <div class="dash-kpi-card">
+      <span class="dash-kpi-icon" style="background:var(--success-bg); color:var(--success)"><i class="fa-solid fa-circle-check"></i></span>
+      <div><p class="dash-kpi-value">81%</p><p class="dash-kpi-label">Approved on first review</p><p class="dash-kpi-trend up"><i class="fa-solid fa-arrow-up"></i> 2.1 pts</p></div>
+    </div>
+    <div class="dash-kpi-card">
+      <span class="dash-kpi-icon" style="background:var(--gov-gold-light); color:var(--gov-gold-dark)"><i class="fa-solid fa-gauge-high"></i></span>
+      <div><p class="dash-kpi-value">4.1 days</p><p class="dash-kpi-label">Median time to decision</p><p class="dash-kpi-trend up"><i class="fa-solid fa-arrow-down"></i> 0.6 days faster</p></div>
+    </div>
+    <div class="dash-kpi-card">
+      <span class="dash-kpi-icon" style="background:var(--warning-bg); color:var(--warning)"><i class="fa-solid fa-triangle-exclamation"></i></span>
+      <div><p class="dash-kpi-value">312</p><p class="dash-kpi-label">Open grievances / tickets</p><p class="dash-kpi-trend down"><i class="fa-solid fa-arrow-up"></i> 4.4% vs. prior period</p></div>
+    </div>
+    <div class="dash-kpi-card">
+      <span class="dash-kpi-icon" style="background:#EDE9FE; color:#6D28D9"><i class="fa-solid fa-users"></i></span>
+      <div><p class="dash-kpi-value">2.86M</p><p class="dash-kpi-label">Registered citizen accounts</p><p class="dash-kpi-trend up"><i class="fa-solid fa-arrow-up"></i> 0.9% growth</p></div>
+    </div>
+  </section>
+
+  <div class="grid-2 mb-6">
+    <section class="card" aria-labelledby="category-heading">
+      <div class="flex items-center justify-between mb-1">
+        <h2 id="category-heading" style="font-size:var(--fs-lg)">Applications by category</h2>
+        <span class="text-xs" style="color:var(--gray-400)">Last 30 days</span>
+      </div>
+      <div class="bar-chart mt-5">
+        <div class="bar-chart-row"><span class="bar-chart-label">Certificates</span><div class="bar-chart-track"><div class="bar-chart-fill" style="width:82%"></div></div><span class="bar-chart-value">5,410</span></div>
+        <div class="bar-chart-row"><span class="bar-chart-label">Registration</span><div class="bar-chart-track"><div class="bar-chart-fill" style="width:64%; background:var(--gov-gold-dark)"></div></div><span class="bar-chart-value">4,220</span></div>
+        <div class="bar-chart-row"><span class="bar-chart-label">Welfare</span><div class="bar-chart-track"><div class="bar-chart-fill" style="width:52%; background:var(--success)"></div></div><span class="bar-chart-value">3,405</span></div>
+        <div class="bar-chart-row"><span class="bar-chart-label">Payments</span><div class="bar-chart-track"><div class="bar-chart-fill" style="width:40%; background:#6D28D9"></div></div><span class="bar-chart-value">2,610</span></div>
+        <div class="bar-chart-row"><span class="bar-chart-label">Travel</span><div class="bar-chart-track"><div class="bar-chart-fill" style="width:27%; background:#0E7490"></div></div><span class="bar-chart-value">1,780</span></div>
+        <div class="bar-chart-row"><span class="bar-chart-label">Support</span><div class="bar-chart-track"><div class="bar-chart-fill" style="width:19%; background:var(--warning)"></div></div><span class="bar-chart-value">1,317</span></div>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="status-heading">
+      <h2 id="status-heading" style="font-size:var(--fs-lg)">Status breakdown</h2>
+      <div class="flex items-center gap-6 mt-5 flex-wrap">
+        <div class="donut" style="background:conic-gradient(var(--success) 0 61%, var(--gov-blue) 61% 78%, var(--warning) 78% 91%, var(--danger) 91% 100%)">
+          <div class="donut-center"><span class="font-bold" style="font-size:var(--fs-xl); color:var(--gray-900)">18.7K</span><span class="text-xs" style="color:var(--gray-400)">total</span></div>
+        </div>
+        <ul class="donut-legend">
+          <li><span class="donut-legend-dot" style="background:var(--success)"></span>Approved &mdash; 61%</li>
+          <li><span class="donut-legend-dot" style="background:var(--gov-blue)"></span>Pending / in review &mdash; 17%</li>
+          <li><span class="donut-legend-dot" style="background:var(--warning)"></span>Changes requested &mdash; 13%</li>
+          <li><span class="donut-legend-dot" style="background:var(--danger)"></span>Rejected &mdash; 9%</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <section class="card card-flush mb-6" aria-labelledby="officer-heading" style="overflow:hidden">
+    <div class="flex items-center justify-between" style="padding:var(--space-5) var(--space-5) 0">
+      <h2 id="officer-heading" style="font-size:var(--fs-lg)">Officer performance</h2>
+      <span class="text-xs" style="color:var(--gray-400)">Last 30 days</span>
+    </div>
+    <div class="table-scroll mt-4">
+      <table class="data-table">
+        <thead><tr><th>Officer</th><th>ID</th><th>Reviewed</th><th>Approval rate</th><th>Avg. time to decision</th></tr></thead>
+        <tbody>
+          <tr><td>A. Sharma</td><td>OF-2291</td><td>1,204</td><td>84%</td><td>3.6 days</td></tr>
+          <tr><td>R. Nambiar</td><td>OF-1187</td><td>986</td><td>79%</td><td>4.2 days</td></tr>
+          <tr><td>S. Iyer</td><td>OF-1542</td><td>1,410</td><td>88%</td><td>3.1 days</td></tr>
+          <tr><td>K. Bano</td><td>OF-1809</td><td>742</td><td>76%</td><td>5.0 days</td></tr>
+          <tr><td>D. Prasad</td><td>OF-2033</td><td>1,058</td><td>82%</td><td>3.9 days</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <div class="grid-2 mb-6">
+    <section class="card card-flush" aria-labelledby="activity-heading" style="overflow:hidden">
+      <h2 id="activity-heading" style="font-size:var(--fs-lg); padding:var(--space-5) var(--space-5) 0">Recent system activity</h2>
+      <div class="table-scroll mt-4">
+        <table class="data-table">
+          <thead><tr><th>Date</th><th>Officer</th><th>Action</th></tr></thead>
+          <tbody>
+            <tr><td>2026-09-10 09:14</td><td>S. Iyer (OF-1542)</td><td>Approved APP-10248</td></tr>
+            <tr><td>2026-09-10 08:52</td><td>A. Sharma (OF-2291)</td><td>Requested changes on APP-10232</td></tr>
+            <tr><td>2026-09-09 17:20</td><td>R. Nambiar (OF-1187)</td><td>Rejected APP-10234</td></tr>
+            <tr><td>2026-09-09 15:03</td><td>D. Prasad (OF-2033)</td><td>Approved APP-10243</td></tr>
+            <tr><td>2026-09-09 11:41</td><td>K. Bano (OF-1809)</td><td>Status &rarr; Under Review on APP-10236</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs mt-3" style="padding:0 var(--space-5) var(--space-5); color:var(--gray-400)">Full audit history is available from each document's record in Document Verification.</p>
+    </section>
+
+    <section class="card" aria-labelledby="manage-heading">
+      <h2 id="manage-heading" style="font-size:var(--fs-lg)">Quick manage</h2>
+      <div class="grid-auto-sm mt-5">
+        <a href="document-verification.html" class="card card-hover tile"><span class="card-icon"><i class="fa-solid fa-file-circle-check"></i></span><div><h3 class="font-semibold text-sm" style="color:var(--gray-900)">Document verification</h3><p class="mt-1 text-xs card-text">Review and decide on submissions.</p></div></a>
+        <a href="schemes.html" class="card card-hover tile"><span class="card-icon" style="background:var(--success-bg); color:var(--success)"><i class="fa-solid fa-hand-holding-dollar"></i></span><div><h3 class="font-semibold text-sm" style="color:var(--gray-900)">Government schemes</h3><p class="mt-1 text-xs card-text">Manage published scheme listings.</p></div></a>
+        <a href="jobs.html" class="card card-hover tile"><span class="card-icon" style="background:#CFFAFE; color:#0E7490"><i class="fa-solid fa-briefcase"></i></span><div><h3 class="font-semibold text-sm" style="color:var(--gray-900)">Jobs in government</h3><p class="mt-1 text-xs card-text">Review job postings and openings.</p></div></a>
+        <a href="representatives.html" class="card card-hover tile"><span class="card-icon" style="background:var(--gov-gold-light); color:var(--gov-gold-dark)"><i class="fa-solid fa-people-group"></i></span><div><h3 class="font-semibold text-sm" style="color:var(--gray-900)">Representatives directory</h3><p class="mt-1 text-xs card-text">Keep representative records current.</p></div></a>
+      </div>
+    </section>
+  </div>
+
+  <p class="text-xs mb-6" style="color:var(--gray-400)">Figures on this page are illustrative demo data for this practice portal, not live statistics.</p>
+</main>
+
+<script>
+(function () {
+  try {
+    const savedId = sessionStorage.getItem('staffOfficerId');
+    if (savedId) document.getElementById('officerIdLabel').textContent = savedId;
+  } catch (e) {}
+
+  document.getElementById('logoutBtn').addEventListener('click', () => {
+    try { sessionStorage.removeItem('staffOfficerId'); sessionStorage.removeItem('staffRole'); } catch (e) {}
+    window.location.href = 'staff-login.html';
+  });
+})();
+</script>
+<script src="portal-common.js"></script>
+</body>
+</html>

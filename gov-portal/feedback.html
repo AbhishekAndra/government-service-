@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feedback — Citizen Services Portal (Demo)</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="assets/shared.css">
+</head>
+<body class="bg-[var(--gov-bg)] text-slate-800">
+
+<a href="#main-content" class="skip-link focus-ring bg-white text-[var(--gov-blue)] px-4 py-2 rounded shadow font-semibold">Skip to main content</a>
+<div id="site-header"></div>
+
+<main id="main-content" class="max-w-xl mx-auto px-4 sm:px-6 py-8">
+  <h1 class="text-2xl font-bold text-slate-800 mb-1">Share your feedback</h1>
+  <p class="text-sm text-slate-500 mb-6">Help us improve the portal for every citizen.</p>
+
+  <form id="feedbackForm" class="bg-white rounded-xl border border-slate-200 p-6 space-y-4">
+    <div>
+      <p class="text-sm font-medium text-slate-700 mb-2">How would you rate your experience?</p>
+      <div class="flex gap-2" role="radiogroup" aria-label="Rating">
+        <button type="button" data-rate="1" class="rate-btn focus-ring w-10 h-10 rounded-full border border-slate-300 hover:bg-slate-50">1</button>
+        <button type="button" data-rate="2" class="rate-btn focus-ring w-10 h-10 rounded-full border border-slate-300 hover:bg-slate-50">2</button>
+        <button type="button" data-rate="3" class="rate-btn focus-ring w-10 h-10 rounded-full border border-slate-300 hover:bg-slate-50">3</button>
+        <button type="button" data-rate="4" class="rate-btn focus-ring w-10 h-10 rounded-full border border-slate-300 hover:bg-slate-50">4</button>
+        <button type="button" data-rate="5" class="rate-btn focus-ring w-10 h-10 rounded-full border border-slate-300 hover:bg-slate-50">5</button>
+      </div>
+    </div>
+    <div>
+      <label for="fbText" class="block text-sm font-medium text-slate-700 mb-1">Your feedback</label>
+      <textarea id="fbText" rows="4" class="focus-ring w-full border border-slate-300 rounded-lg px-3 py-2 text-sm"></textarea>
+    </div>
+    <button class="focus-ring w-full bg-[var(--gov-blue)] hover:bg-blue-800 text-white text-sm font-semibold rounded-lg py-2.5">Submit feedback</button>
+  </form>
+</main>
+
+<div id="site-footer"></div>
+<script src="assets/shared.js"></script>
+<script>
+  let rating = null;
+  document.querySelectorAll('.rate-btn').forEach(b => b.addEventListener('click', () => {
+    document.querySelectorAll('.rate-btn').forEach(x => x.classList.remove('bg-[var(--gov-blue)]','text-white','border-[var(--gov-blue)]'));
+    b.classList.add('bg-[var(--gov-blue)]','text-white','border-[var(--gov-blue)]');
+    rating = b.dataset.rate;
+  }));
+  document.getElementById('feedbackForm').addEventListener('submit', e => {
+    e.preventDefault();
+    if (!rating) { GOV.toast('Please select a rating.', 'warning'); return; }
+    GOV.toast('Thank you for your feedback!', 'success');
+    e.target.reset();
+    document.querySelectorAll('.rate-btn').forEach(x => x.classList.remove('bg-[var(--gov-blue)]','text-white','border-[var(--gov-blue)]'));
+    rating = null;
+  });
+</script>
+</body>
+</html>

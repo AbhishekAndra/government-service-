@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About | Citizen Services Portal</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<div class="utility-bar">
+  <div class="container-gov flex items-center justify-between gap-4" style="height:36px">
+    <div class="flex items-center gap-3">
+      <button id="a11yToggle" type="button" aria-expanded="false" aria-controls="a11yPanel" class="flex items-center gap-2"><i class="fa-solid fa-universal-access"></i> Accessibility</button>
+      <span class="divider-v" aria-hidden="true"></span>
+      <button type="button" class="flex items-center gap-2"><i class="fa-solid fa-globe"></i> English <i class="fa-solid fa-chevron-down"></i></button>
+    </div>
+    <div class="flex items-center gap-3">
+      <a href="staff-login.html"><i class="fa-solid fa-id-badge"></i> Staff Login</a>
+      <span class="divider-v" aria-hidden="true"></span>
+      <a id="headerSearch" href="services.html?focus=search" class="flex items-center gap-2"><i class="fa-solid fa-magnifying-glass"></i> Search</a>
+    </div>
+  </div>
+  <div id="a11yPanel" hidden class="a11y-panel">
+    <div class="container-gov flex flex-wrap items-center gap-4" style="padding-block:var(--space-3)">
+      <span class="text-xs font-semibold" style="text-transform:uppercase; letter-spacing:.05em; color:#7E97B8">Text size</span>
+      <span class="flex items-center gap-1" role="group" aria-label="Text size">
+        <button type="button" data-fontsize="dec" class="a11y-size-btn" aria-label="Decrease text size">A-</button>
+        <button type="button" data-fontsize="reset" class="a11y-size-btn" aria-label="Reset text size">A</button>
+        <button type="button" data-fontsize="inc" class="a11y-size-btn" aria-label="Increase text size">A+</button>
+      </span>
+      <a href="about.html#accessibility" class="text-sm font-semibold" style="color:var(--gov-gold); margin-left:auto">Full accessibility statement &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<header class="navbar">
+  <div class="container-gov navbar-row">
+    <a href="home.html" class="navbar-brand">
+      <img src="images/stackly-logo-white.webp" alt="Stackly" class="navbar-brand-logo">
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primaryNav"><i class="fa-solid fa-bars"></i></button>
+    <nav id="primaryNav" aria-label="Primary" class="primary-nav">
+      <a href="home.html" class="nav-link">Home</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="application-status.html" class="nav-link">Track application</a>
+      <a href="about.html" aria-current="page" class="nav-link active">About</a>
+      <a href="help.html" class="nav-link">Help</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <video class="page-hero__video" autoplay muted loop playsinline poster="images/india-flag-sky-poster.webp" aria-label="The national flag of India waving">
+    <source src="images/india-flag-sky.mp4" type="video/mp4">
+  </video>
+  <div class="page-hero__overlay" aria-hidden="true"></div>
+  <div class="container-gov">
+    <nav class="breadcrumb on-navy" aria-label="Breadcrumb"><a href="home.html">Home</a><span class="sep">/</span><span class="current">About</span></nav>
+    <p class="eyebrow on-navy" data-aos="fade-up">About the portal</p>
+    <h1 data-aos="fade-up" data-aos-delay="60">One place for citizen services</h1>
+    <p class="lead mt-2" data-aos="fade-up" data-aos-delay="120">The Citizen Services Portal brings together applications, certificates, and status tracking that used to require separate visits to different offices. Our goal is to make everyday government services simpler, faster, and easier to follow from anywhere.</p>
+  </div>
+</section>
+
+<main id="main-content" class="container-gov" style="padding-block:var(--space-10)">
+
+  <figure class="mb-8" style="border-radius:var(--radius-lg); overflow:hidden; position:relative" data-aos="fade-up">
+    <img src="images/about-secretariat.webp" alt="The Secretariat Building in New Delhi, which houses key government ministries" style="width:100%; height:16rem; object-fit:cover" loading="lazy">
+    <figcaption style="position:absolute; inset-inline:0; bottom:0; background:linear-gradient(to top, rgba(0,0,0,.6), transparent); color:#fff; font-size:var(--fs-xs); padding:var(--space-2) var(--space-4)">The Secretariat Building, New Delhi &middot; photo by Matthew T Rader, <a href="https://creativecommons.org/licenses/by-sa/4.0/" style="color:#fff; text-decoration:underline" rel="license">CC BY-SA 4.0</a></figcaption>
+  </figure>
+
+  <section class="grid-auto-sm mb-12">
+    <div class="card" data-aos="fade-up"><p class="stat-number">6</p><p class="mt-1 text-sm card-text">Service categories available online</p></div>
+    <div class="card" data-aos="fade-up" data-aos-delay="60"><p class="stat-number">5 days</p><p class="mt-1 text-sm card-text">Typical document verification turnaround</p></div>
+    <div class="card" data-aos="fade-up" data-aos-delay="120"><p class="stat-number">24&#8202;&#215;&#8202;7</p><p class="mt-1 text-sm card-text">Access to apply and track requests online</p></div>
+  </section>
+
+  <section aria-labelledby="govt-heading" class="mb-12">
+    <p class="eyebrow">Government of India</p>
+    <h2 id="govt-heading" class="mt-1">Government at a glance</h2>
+    <p class="mt-2 text-sm" style="color:var(--gray-500); max-width:42rem">Shown here for civic reference only &mdash; this is general public information about India's constitutional offices, not the leadership or staff of this portal.</p>
+
+    <h3 class="mt-8 text-sm font-semibold" style="text-transform:uppercase; letter-spacing:.05em; color:var(--gray-500)">Constitutional leadership</h3>
+    <div class="grid-auto-sm mt-4">
+      <div class="card tile">
+        <img src="images/president-murmu.webp" alt="Official portrait of Droupadi Murmu" style="width:64px; height:64px; border-radius:50%; object-fit:cover; border:1px solid var(--gray-200)">
+        <div><p class="text-xs font-semibold" style="text-transform:uppercase; letter-spacing:.05em; color:var(--gray-400)">Head of State</p><h4 class="mt-1 card-title" style="font-size:var(--fs-base)">Droupadi Murmu</h4><p class="text-xs" style="color:var(--gray-500)">President of India</p></div>
+      </div>
+      <div class="card tile">
+        <img src="images/vp-dhankhar.webp" alt="Official portrait of Jagdeep Dhankhar" style="width:64px; height:64px; border-radius:50%; object-fit:cover; border:1px solid var(--gray-200)">
+        <div><p class="text-xs font-semibold" style="text-transform:uppercase; letter-spacing:.05em; color:var(--gray-400)">Chairman, Rajya Sabha</p><h4 class="mt-1 card-title" style="font-size:var(--fs-base)">Jagdeep Dhankhar</h4><p class="text-xs" style="color:var(--gray-500)">Vice President of India</p></div>
+      </div>
+      <div class="card tile">
+        <img src="images/pm-modi.webp" alt="Official portrait of Narendra Modi" style="width:64px; height:64px; border-radius:50%; object-fit:cover; border:1px solid var(--gray-200)">
+        <div><p class="text-xs font-semibold" style="text-transform:uppercase; letter-spacing:.05em; color:var(--gray-400)">Head of Government</p><h4 class="mt-1 card-title" style="font-size:var(--fs-base)">Narendra Modi</h4><p class="text-xs" style="color:var(--gray-500)">Prime Minister of India</p></div>
+      </div>
+    </div>
+    <p class="mt-3 text-xs" style="color:var(--gray-400)">Official portraits &middot; Government Open Data License &ndash; India (GODL), via Wikimedia Commons and the respective offices' official websites.</p>
+
+    <h3 class="mt-10 text-sm font-semibold" style="text-transform:uppercase; letter-spacing:.05em; color:var(--gray-500)">Legislative branch &mdash; Parliament of India</h3>
+    <div class="grid-2 mt-4">
+      <div class="card tile" style="background:var(--gov-navy); border-color:var(--gov-navy); color:#fff">
+        <span class="card-icon navy" style="background:rgba(255,255,255,.1)"><i class="fa-solid fa-landmark-dome"></i></span>
+        <div><h4 class="font-bold" style="color:#fff">Rajya Sabha</h4><p class="text-sm text-on-navy">Council of States &mdash; the upper house</p></div>
+      </div>
+      <div class="card tile" style="background:var(--gov-navy); border-color:var(--gov-navy); color:#fff">
+        <span class="card-icon navy" style="background:rgba(255,255,255,.1)"><i class="fa-solid fa-landmark-dome"></i></span>
+        <div><h4 class="font-bold" style="color:#fff">Lok Sabha</h4><p class="text-sm text-on-navy">House of the People &mdash; the lower house</p></div>
+      </div>
+    </div>
+
+    <h3 class="mt-10 text-sm font-semibold" style="text-transform:uppercase; letter-spacing:.05em; color:var(--gray-500)">Judicial branch</h3>
+    <div class="grid-auto-sm mt-4">
+      <div class="card tile"><span class="card-icon sm"><i class="fa-solid fa-scale-balanced"></i></span><h4 class="font-semibold" style="font-size:var(--fs-sm); color:var(--gray-900)">Supreme Court of India</h4></div>
+      <div class="card tile"><span class="card-icon sm"><i class="fa-solid fa-scale-balanced"></i></span><h4 class="font-semibold" style="font-size:var(--fs-sm); color:var(--gray-900)">State High Courts</h4></div>
+      <div class="card tile"><span class="card-icon sm"><i class="fa-solid fa-scale-balanced"></i></span><h4 class="font-semibold" style="font-size:var(--fs-sm); color:var(--gray-900)">District Courts</h4></div>
+    </div>
+
+    <h3 class="mt-10 text-sm font-semibold" style="text-transform:uppercase; letter-spacing:.05em; color:var(--gray-500)">Key government locations, New Delhi</h3>
+    <div class="mt-4 card card-flush" style="overflow:hidden">
+      <iframe title="Map of central government buildings in New Delhi" style="width:100%; height:20rem; border:none; display:block" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=77.19%2C28.60%2C77.24%2C28.63&amp;layer=mapnik&amp;marker=28.6139%2C77.2090"></iframe>
+    </div>
+    <p class="mt-2 text-xs" style="color:var(--gray-400)">Map data &copy; <a href="https://www.openstreetmap.org/copyright" style="color:var(--gray-400); text-decoration:underline">OpenStreetMap</a> contributors.</p>
+  </section>
+
+  <section class="grid-2 mb-12">
+    <div>
+      <h2>Our mission</h2>
+      <p class="mt-3 card-text" style="line-height:var(--lh-normal)">To reduce the time and effort citizens spend on paperwork by putting applications, verification, and support in a single, accessible portal &mdash; so that anyone, from any district, can access the same standard of service.</p>
+      <h2 class="mt-8">What we handle</h2>
+      <ul class="mt-3 flex flex-col gap-2 card-text">
+        <li class="flex gap-2"><i class="fa-solid fa-circle-check" style="color:var(--gov-blue)"></i> Income and identity certificates</li>
+        <li class="flex gap-2"><i class="fa-solid fa-circle-check" style="color:var(--gov-blue)"></i> Address and identity corrections</li>
+        <li class="flex gap-2"><i class="fa-solid fa-circle-check" style="color:var(--gov-blue)"></i> Business registration and licensing</li>
+        <li class="flex gap-2"><i class="fa-solid fa-circle-check" style="color:var(--gov-blue)"></i> Pension and welfare scheme applications</li>
+        <li class="flex gap-2"><i class="fa-solid fa-circle-check" style="color:var(--gov-blue)"></i> Document upload and verification</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2 id="accessibility" style="scroll-margin-top:6rem">Accessibility commitment</h2>
+      <p class="mt-3 text-sm card-text" style="line-height:var(--lh-normal)">This portal is built to be usable with a keyboard alone, with screen readers, and at larger text sizes. We follow WCAG 2.1 AA guidance for contrast, focus visibility, and form labeling.</p>
+      <p class="mt-3 text-sm card-text" style="line-height:var(--lh-normal)">If you run into an accessibility barrier anywhere on this site, please tell us using the support form &mdash; we treat these reports as a priority.</p>
+      <a href="help.html" class="btn btn-primary mt-4"><i class="fa-solid fa-triangle-exclamation"></i> Report an accessibility issue</a>
+    </div>
+  </section>
+
+  <section aria-labelledby="milestones-heading" class="mb-12">
+    <h2 id="milestones-heading">Milestones</h2>
+    <ol class="mt-6" style="border-left:2px solid var(--gray-200); padding-left:var(--space-6); display:flex; flex-direction:column; gap:var(--space-6)">
+      <li style="position:relative"><span style="position:absolute; left:-31px; top:4px; width:12px; height:12px; border-radius:50%; background:var(--gov-blue)"></span><p class="text-xs font-semibold" style="color:var(--gray-400)">2022</p><h3 class="font-semibold" style="color:var(--gray-900); font-size:var(--fs-base)">Portal launched</h3><p class="mt-1 text-sm card-text">Income certificates and identity corrections became available online for the first time.</p></li>
+      <li style="position:relative"><span style="position:absolute; left:-31px; top:4px; width:12px; height:12px; border-radius:50%; background:var(--gov-blue)"></span><p class="text-xs font-semibold" style="color:var(--gray-400)">2023</p><h3 class="font-semibold" style="color:var(--gray-900); font-size:var(--fs-base)">Document verification added</h3><p class="mt-1 text-sm card-text">Citizens could upload and track document verification without visiting an office.</p></li>
+      <li style="position:relative"><span style="position:absolute; left:-31px; top:4px; width:12px; height:12px; border-radius:50%; background:var(--gov-blue)"></span><p class="text-xs font-semibold" style="color:var(--gray-400)">2024</p><h3 class="font-semibold" style="color:var(--gray-900); font-size:var(--fs-base)">Business &amp; pension services</h3><p class="mt-1 text-sm card-text">Business registration and pension/welfare applications joined the portal.</p></li>
+      <li style="position:relative"><span style="position:absolute; left:-31px; top:4px; width:12px; height:12px; border-radius:50%; background:var(--success)"></span><p class="text-xs font-semibold" style="color:var(--gray-400)">2026</p><h3 class="font-semibold" style="color:var(--gray-900); font-size:var(--fs-base)">Accessibility overhaul &amp; new services</h3><p class="mt-1 text-sm card-text">Text-size controls, screen-reader support, and passport, land record, and scholarship services were added.</p></li>
+    </ol>
+  </section>
+
+  <section aria-labelledby="partners-heading" class="mb-12">
+    <h2 id="partners-heading">Departments on this portal</h2>
+    <p class="mt-2 text-sm" style="color:var(--gray-500); max-width:42rem">Services here are coordinated across several departments so you don't need to know which office to contact first.</p>
+    <div class="grid-auto-sm mt-5">
+      <div class="card text-sm font-semibold" style="color:var(--gray-900)">Revenue &amp; Certificates</div>
+      <div class="card text-sm font-semibold" style="color:var(--gray-900)">Identity &amp; Civil Registration</div>
+      <div class="card text-sm font-semibold" style="color:var(--gray-900)">Trade &amp; Business Licensing</div>
+      <div class="card text-sm font-semibold" style="color:var(--gray-900)">Social Welfare &amp; Pensions</div>
+      <div class="card text-sm font-semibold" style="color:var(--gray-900)">Passport &amp; External Affairs</div>
+      <div class="card text-sm font-semibold" style="color:var(--gray-900)">Land Records &amp; Revenue Survey</div>
+      <div class="card text-sm font-semibold" style="color:var(--gray-900)">School &amp; Higher Education</div>
+      <div class="card text-sm font-semibold" style="color:var(--gray-900)">Digital Services &amp; IT</div>
+    </div>
+  </section>
+
+  <section class="panel-navy cta-row" data-aos="fade-up">
+    <div><p class="eyebrow on-navy">Questions about a service?</p><h2 class="mt-1">Get in touch with support</h2><p class="mt-2 text-on-navy text-sm">Helpline: 1800 123 4567 &middot; Monday&ndash;Friday, 9:00 AM to 5:30 PM</p></div>
+    <a href="help.html" class="btn btn-white">Contact support</a>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container-gov footer-grid">
+    <div>
+      <div class="flex items-center"><img src="images/stackly-logo-white.webp" alt="Stackly" class="footer-brand-logo"></div>
+      <p class="mt-3 text-sm" style="line-height:var(--lh-normal)">A single place to apply for, track, and manage government services online.</p>
+      <p class="mt-4 text-sm font-semibold" style="color:#fff">Helpline: 1800 123 4567</p>
+      <p class="text-xs" style="color:var(--gov-gold)">Monday&ndash;Friday, 9:00 AM&ndash;5:30 PM</p>
+      <div class="footer-social" role="group" aria-label="Social media">
+        <a href="404.html" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="404.html" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="404.html" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="404.html" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+    </div>
+    <div><h2>Explore</h2><ul class="footer-links"><li><a href="home.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="application-status.html">Track application</a></li><li><a href="about.html">About</a></li><li><a href="help.html">Help</a></li></ul></div>
+    <div><h2>More</h2><ul class="footer-links"><li><a href="schemes.html">Government schemes</a></li><li><a href="jobs.html">Jobs in government</a></li><li><a href="representatives.html">My representatives</a></li><li><a href="tourism.html">Travel &amp; tourism</a></li><li><a href="document-verification.html">Document verification</a></li></ul></div>
+    <div><h2>Account &amp; support</h2><ul class="footer-links"><li><a href="staff-login.html">Staff login</a></li><li><a href="about.html#accessibility">Accessibility statement</a></li><li><a href="help.html">Contact support</a></li><li><a href="help.html">Report an issue</a></li></ul></div>
+  </div>
+  <div style="border-top:1px solid rgba(255,255,255,.1)"><div class="container-gov text-xs" style="padding-block:var(--space-4); color:var(--gov-gold)">Photos: The Secretariat Building by Matthew T Rader (CC BY-SA 4.0); official portraits of the President, Vice President, and Prime Minister via GODL-India &mdash; all via Wikimedia Commons.</div></div>
+  <div class="footer-bottom"><div class="container-gov footer-bottom-inner"><p>Citizen Services Portal is a demonstration project built for practice purposes &mdash; not an official government website.</p><p>Last updated: September 2026</p></div></div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>AOS.init({ duration: 500, once: true, offset: 60, disable: window.matchMedia('(prefers-reduced-motion: reduce)').matches });</script>
+<script src="portal-common.js"></script>
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Staff Login | Citizen Services Portal</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<div class="utility-bar">
+  <div class="container-gov flex items-center justify-between gap-4" style="height:36px">
+    <div class="flex items-center gap-3">
+      <button id="a11yToggle" type="button" aria-expanded="false" aria-controls="a11yPanel" class="flex items-center gap-2"><i class="fa-solid fa-universal-access"></i> Accessibility</button>
+      <span class="divider-v" aria-hidden="true"></span>
+      <button type="button" class="flex items-center gap-2"><i class="fa-solid fa-globe"></i> English <i class="fa-solid fa-chevron-down"></i></button>
+    </div>
+    <div class="flex items-center gap-3">
+      <a href="staff-login.html" aria-current="page" style="color:#fff; font-weight:600; text-decoration:underline"><i class="fa-solid fa-id-badge"></i> Staff Login</a>
+      <span class="divider-v" aria-hidden="true"></span>
+      <a id="headerSearch" href="services.html?focus=search" class="flex items-center gap-2"><i class="fa-solid fa-magnifying-glass"></i> Search</a>
+    </div>
+  </div>
+  <div id="a11yPanel" hidden class="a11y-panel">
+    <div class="container-gov flex flex-wrap items-center gap-4" style="padding-block:var(--space-3)">
+      <span class="text-xs font-semibold" style="text-transform:uppercase; letter-spacing:.05em; color:#7E97B8">Text size</span>
+      <span class="flex items-center gap-1" role="group" aria-label="Text size">
+        <button type="button" data-fontsize="dec" class="a11y-size-btn" aria-label="Decrease text size">A-</button>
+        <button type="button" data-fontsize="reset" class="a11y-size-btn" aria-label="Reset text size">A</button>
+        <button type="button" data-fontsize="inc" class="a11y-size-btn" aria-label="Increase text size">A+</button>
+      </span>
+      <a href="about.html#accessibility" class="text-sm font-semibold" style="color:var(--gov-gold); margin-left:auto">Full accessibility statement &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<header class="navbar">
+  <div class="container-gov navbar-row">
+    <a href="home.html" class="navbar-brand">
+      <img src="images/stackly-logo-white.webp" alt="Stackly" class="navbar-brand-logo">
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primaryNav"><i class="fa-solid fa-bars"></i></button>
+    <nav id="primaryNav" aria-label="Primary" class="primary-nav">
+      <a href="home.html" class="nav-link">Home</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="application-status.html" class="nav-link">Track application</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="help.html" class="nav-link">Help</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content" class="auth-page">
+  <video class="auth-page__video" autoplay muted loop playsinline poster="images/login-bg-particles-poster.webp" aria-hidden="true">
+    <source src="images/login-bg-particles.mp4" type="video/mp4">
+  </video>
+  <div class="auth-page__overlay" aria-hidden="true"></div>
+
+  <div class="container-gov container-narrow auth-page__content" style="padding-block:var(--space-12); max-width:28rem">
+  <div class="text-center mb-6">
+    <span class="card-icon" style="margin-inline:auto; margin-bottom:var(--space-4); background:rgba(255,255,255,.1); color:var(--gov-gold); border:1px solid rgba(255,255,255,.2)"><i class="fa-solid fa-lock"></i></span>
+    <p class="eyebrow on-navy" style="justify-content:center">Restricted access</p>
+    <h1 class="mt-1" style="font-size:var(--fs-3xl); color:#fff">Staff sign in</h1>
+    <p class="mt-3 text-sm" style="line-height:var(--lh-normal); color:#C6D7EC">For verification officers and portal staff only. Citizens should use <a href="application-status.html" style="color:var(--gov-gold); font-weight:600">Track application</a> instead.</p>
+  </div>
+
+  <div class="card" data-aos="fade-up">
+    <form id="loginForm" novalidate style="display:flex; flex-direction:column; gap:var(--space-4)">
+      <div>
+        <p class="form-label">Sign in as</p>
+        <div class="role-select-grid" role="radiogroup" aria-label="Sign in as">
+          <label class="role-option">
+            <input type="radio" name="role" value="verification" checked>
+            <span class="role-option-card"><i class="fa-solid fa-file-shield" aria-hidden="true"></i><span>Verification Officer</span></span>
+          </label>
+          <label class="role-option">
+            <input type="radio" name="role" value="admin">
+            <span class="role-option-card"><i class="fa-solid fa-chart-line" aria-hidden="true"></i><span>Portal Administrator</span></span>
+          </label>
+        </div>
+      </div>
+      <div>
+        <label for="officerId" class="form-label">Officer ID</label>
+        <input id="officerId" required class="form-control" placeholder="Example: OF-2291" autocomplete="username">
+      </div>
+      <div>
+        <label for="password" class="form-label">Password</label>
+        <div class="relative">
+          <input id="password" required type="password" minlength="4" class="form-control" style="padding-right:4rem" autocomplete="current-password">
+          <button type="button" id="togglePw" class="btn btn-ghost" style="position:absolute; right:4px; top:4px; height:38px">Show</button>
+        </div>
+      </div>
+      <div class="flex items-center justify-between text-sm">
+        <label class="flex items-center gap-2"><input type="checkbox" style="width:16px;height:16px;accent-color:var(--gov-blue)"> Keep me signed in</label>
+        <a href="404.html" style="color:var(--gov-blue); font-weight:600">Forgot password?</a>
+      </div>
+      <p id="formError" hidden role="alert" class="form-error-box">Enter your Officer ID and a password of at least 4 characters.</p>
+      <button class="btn btn-primary btn-block" type="submit">Sign in</button>
+    </form>
+    <p class="mt-4 text-xs text-center" style="color:var(--gray-400)">This is a demo sign-in. Any Officer ID and a password of 4+ characters will work.</p>
+  </div>
+
+  <p class="mt-6 text-sm text-center"><a href="services.html" style="color:var(--gov-gold); font-weight:600">&larr; Back to Citizen Services Portal</a></p>
+
+  <section aria-labelledby="security-heading" class="mt-10" style="background:var(--warning-bg); border:1px solid #FDE7B2; border-radius:var(--radius-lg); padding:var(--space-5)">
+    <h2 id="security-heading" class="flex items-center gap-2 font-bold" style="font-size:var(--fs-sm); color:#92400E"><i class="fa-solid fa-triangle-exclamation"></i> Security notice</h2>
+    <ul class="mt-3 flex flex-col gap-1 text-xs" style="color:#92400E">
+      <li>&bull; This system is for authorised personnel only. All access is logged.</li>
+      <li>&bull; Never share your Officer ID or password, even with a colleague.</li>
+      <li>&bull; Always sign out when you step away from a shared computer.</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="resources-heading" class="mt-6 card">
+    <h2 id="resources-heading" class="font-bold" style="font-size:var(--fs-sm); color:var(--gray-900)">Staff resources</h2>
+    <ul class="mt-3 flex flex-col gap-2 text-sm">
+      <li><a href="help.html" style="color:var(--gov-blue); font-weight:600">IT support &amp; password reset</a></li>
+      <li><a href="about.html" style="color:var(--gov-blue); font-weight:600">Verification guidelines &amp; policy</a></li>
+      <li><a href="help.html" style="color:var(--gov-blue); font-weight:600">Report a system issue</a></li>
+    </ul>
+    <p class="mt-4 text-xs" style="color:var(--gray-400)">Supported browsers: current versions of Chrome, Edge, and Firefox. A stable internet connection is recommended for document review.</p>
+  </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container-gov footer-grid">
+    <div>
+      <div class="flex items-center"><img src="images/stackly-logo-white.webp" alt="Stackly" class="footer-brand-logo"></div>
+      <p class="mt-3 text-sm" style="line-height:var(--lh-normal)">A single place to apply for, track, and manage government services online.</p>
+      <p class="mt-4 text-sm font-semibold" style="color:#fff">Helpline: 1800 123 4567</p>
+      <p class="text-xs" style="color:var(--gov-gold)">Monday&ndash;Friday, 9:00 AM&ndash;5:30 PM</p>
+      <div class="footer-social" role="group" aria-label="Social media">
+        <a href="404.html" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="404.html" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="404.html" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="404.html" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+    </div>
+    <div><h2>Explore</h2><ul class="footer-links"><li><a href="home.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="application-status.html">Track application</a></li><li><a href="about.html">About</a></li><li><a href="help.html">Help</a></li></ul></div>
+    <div><h2>More</h2><ul class="footer-links"><li><a href="schemes.html">Government schemes</a></li><li><a href="jobs.html">Jobs in government</a></li><li><a href="representatives.html">My representatives</a></li><li><a href="tourism.html">Travel &amp; tourism</a></li><li><a href="document-verification.html">Document verification</a></li></ul></div>
+    <div><h2>Account &amp; support</h2><ul class="footer-links"><li><a href="staff-login.html">Staff login</a></li><li><a href="about.html#accessibility">Accessibility statement</a></li><li><a href="help.html">Contact support</a></li><li><a href="help.html">Report an issue</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><div class="container-gov footer-bottom-inner"><p>Citizen Services Portal is a demonstration project built for practice purposes &mdash; not an official government website.</p><p>Last updated: September 2026</p></div></div>
+</footer>
+
+<script>
+const form = document.getElementById('loginForm');
+const officerId = document.getElementById('officerId');
+const password = document.getElementById('password');
+const error = document.getElementById('formError');
+document.getElementById('togglePw').addEventListener('click', e => {
+  const btn = e.currentTarget;
+  const show = password.type === 'password';
+  password.type = show ? 'text' : 'password';
+  btn.textContent = show ? 'Hide' : 'Show';
+});
+form.addEventListener('submit', event => {
+  event.preventDefault();
+  if (!officerId.value.trim() || password.value.length < 4) { error.hidden = false; return; }
+  error.hidden = true;
+  const role = (document.querySelector('input[name="role"]:checked') || {}).value || 'verification';
+  try {
+    sessionStorage.setItem('staffOfficerId', officerId.value.trim());
+    sessionStorage.setItem('staffRole', role);
+  } catch (e) {}
+  window.location.href = role === 'admin' ? 'admin-dashboard.html' : 'document-verification.html';
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>AOS.init({ duration: 500, once: true, offset: 60, disable: window.matchMedia('(prefers-reduced-motion: reduce)').matches });</script>
+<script src="portal-common.js"></script>
+</body>
+</html>

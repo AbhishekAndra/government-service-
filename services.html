@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services | Citizen Services Portal</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<div class="utility-bar">
+  <div class="container-gov flex items-center justify-between gap-4" style="height:36px">
+    <div class="flex items-center gap-3">
+      <button id="a11yToggle" type="button" aria-expanded="false" aria-controls="a11yPanel" class="flex items-center gap-2"><i class="fa-solid fa-universal-access"></i> Accessibility</button>
+      <span class="divider-v" aria-hidden="true"></span>
+      <button type="button" class="flex items-center gap-2"><i class="fa-solid fa-globe"></i> English <i class="fa-solid fa-chevron-down"></i></button>
+    </div>
+    <div class="flex items-center gap-3">
+      <a href="staff-login.html"><i class="fa-solid fa-id-badge"></i> Staff Login</a>
+      <span class="divider-v" aria-hidden="true"></span>
+      <a id="headerSearch" href="services.html?focus=search" class="flex items-center gap-2"><i class="fa-solid fa-magnifying-glass"></i> Search</a>
+    </div>
+  </div>
+  <div id="a11yPanel" hidden class="a11y-panel">
+    <div class="container-gov flex flex-wrap items-center gap-4" style="padding-block:var(--space-3)">
+      <span class="text-xs font-semibold" style="text-transform:uppercase; letter-spacing:.05em; color:#7E97B8">Text size</span>
+      <span class="flex items-center gap-1" role="group" aria-label="Text size">
+        <button type="button" data-fontsize="dec" class="a11y-size-btn" aria-label="Decrease text size">A-</button>
+        <button type="button" data-fontsize="reset" class="a11y-size-btn" aria-label="Reset text size">A</button>
+        <button type="button" data-fontsize="inc" class="a11y-size-btn" aria-label="Increase text size">A+</button>
+      </span>
+      <a href="about.html#accessibility" class="text-sm font-semibold" style="color:var(--gov-gold); margin-left:auto">Full accessibility statement &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<header class="navbar">
+  <div class="container-gov navbar-row">
+    <a href="home.html" class="navbar-brand">
+      <img src="images/stackly-logo-white.webp" alt="Stackly" class="navbar-brand-logo">
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primaryNav"><i class="fa-solid fa-bars"></i></button>
+    <nav id="primaryNav" aria-label="Primary" class="primary-nav">
+      <a href="home.html" class="nav-link">Home</a>
+      <a href="services.html" aria-current="page" class="nav-link active">Services</a>
+      <a href="application-status.html" class="nav-link">Track application</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="help.html" class="nav-link">Help</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <video class="page-hero__video" autoplay muted loop playsinline poster="images/india-flag-sky-poster.webp" aria-label="The national flag of India waving">
+    <source src="images/india-flag-sky.mp4" type="video/mp4">
+  </video>
+  <div class="page-hero__overlay" aria-hidden="true"></div>
+  <div class="container-gov">
+    <nav class="breadcrumb on-navy" aria-label="Breadcrumb"><a href="home.html">Home</a><span class="sep">/</span><span class="current">Services</span></nav>
+    <p class="eyebrow on-navy" data-aos="fade-up">One portal, many essentials</p>
+    <h1 data-aos="fade-up" data-aos-delay="60">Find a government service</h1>
+    <p class="lead mt-2" data-aos="fade-up" data-aos-delay="120">Start an application, renew a document, or check a request already in progress. Services are grouped by what you need to do.</p>
+  </div>
+</section>
+
+<main id="main-content" class="container-gov" style="padding-block:var(--space-10)">
+  <div class="listing-layout">
+
+    <div>
+      <div class="card mb-6" data-aos="fade-up">
+        <label for="serviceSearch" class="form-label">Search services</label>
+        <div class="relative">
+          <i class="fa-solid fa-magnifying-glass" style="position:absolute; left:1rem; top:50%; transform:translateY(-50%); color:var(--gray-400)"></i>
+          <input id="serviceSearch" type="search" class="form-control" style="padding-left:2.5rem" placeholder="Try passport, income, certificate…">
+        </div>
+        <p class="text-xs font-semibold mt-4 mb-2" style="text-transform:uppercase; letter-spacing:.04em; color:var(--gray-500)">Filter by category</p>
+        <div id="serviceFilters" class="filter-bar" role="group" aria-label="Filter services by category">
+          <button type="button" class="filter-chip" data-filter="All" aria-pressed="true">All</button>
+          <button type="button" class="filter-chip" data-filter="Certificates" aria-pressed="false">Certificates</button>
+          <button type="button" class="filter-chip" data-filter="Registration" aria-pressed="false">Registration</button>
+          <button type="button" class="filter-chip" data-filter="Welfare" aria-pressed="false">Welfare</button>
+          <button type="button" class="filter-chip" data-filter="Payments" aria-pressed="false">Payments</button>
+          <button type="button" class="filter-chip" data-filter="Travel" aria-pressed="false">Travel</button>
+          <button type="button" class="filter-chip" data-filter="Support" aria-pressed="false">Support</button>
+        </div>
+      </div>
+
+      <figure class="mb-6" style="border-radius:var(--radius-lg); overflow:hidden; position:relative" data-aos="fade-up">
+        <img src="images/services-rashtrapati.webp" alt="Rashtrapati Bhavan, the seat of the President of India, in New Delhi" style="width:100%; height:14rem; object-fit:cover" loading="lazy">
+        <figcaption style="position:absolute; inset-inline:0; bottom:0; background:linear-gradient(to top, rgba(0,0,0,.6), transparent); color:#fff; font-size:var(--fs-xs); padding:var(--space-2) var(--space-4)">Rashtrapati Bhavan, New Delhi &middot; photo by IM3847, <a href="https://creativecommons.org/licenses/by-sa/4.0/" style="color:#fff; text-decoration:underline" rel="license">CC BY-SA 4.0</a></figcaption>
+      </figure>
+
+      <div class="flex items-center justify-between mb-4">
+        <h2>Popular services</h2>
+        <span id="serviceCount" class="listing-meta">15 services</span>
+      </div>
+
+      <div id="servicesGrid" class="grid-auto-sm">
+        <a href="application-status.html" data-category="Certificates" class="listing-card card card-hover" data-aos="fade-up">
+          <span class="card-icon"><i class="fa-solid fa-file-invoice-dollar"></i></span>
+          <h3 class="card-title mt-4">Income certificate</h3>
+          <p class="card-text mt-1">Apply for a new certificate or view an existing request.</p>
+          <span class="card-link">Start service <i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+        <a href="application-status.html" data-category="Registration" class="listing-card card card-hover" data-aos="fade-up">
+          <span class="card-icon" style="background:var(--success-bg); color:var(--success)"><i class="fa-solid fa-address-card"></i></span>
+          <h3 class="card-title mt-4">Identity and address</h3>
+          <p class="card-text mt-1">Update personal details and submit supporting documents.</p>
+          <span class="card-link">Start service <i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+        <a href="application-status.html" data-category="Registration" class="listing-card card card-hover" data-aos="fade-up">
+          <span class="card-icon" style="background:var(--warning-bg); color:var(--warning)"><i class="fa-solid fa-building"></i></span>
+          <h3 class="card-title mt-4">Business registration</h3>
+          <p class="card-text mt-1">Register a business, renew a license, or download a permit.</p>
+          <span class="card-link">Start service <i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+        <a href="application-status.html" data-category="Welfare" class="listing-card card card-hover" data-aos="fade-up">
+          <span class="card-icon" style="background:#F1EAFB; color:#7C3AED"><i class="fa-solid fa-hand-holding-heart"></i></span>
+          <h3 class="card-title mt-4">Pension and welfare</h3>
+          <p class="card-text mt-1">Check eligibility and apply for social support schemes.</p>
+          <span class="card-link">Start service <i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+        <a href="document-verification.html" data-category="Support" class="listing-card card card-hover" data-aos="fade-up">
+          <span class="card-icon" style="background:var(--info-bg); color:var(--info)"><i class="fa-solid fa-file-circle-check"></i></span>
+          <h3 class="card-title mt-4">Document verification</h3>
+          <p class="card-text mt-1">Upload documents and monitor verification progress.</p>
+          <span class="card-link">Start service <i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+        <a href="help.html" data-category="Support" class="listing-card card card-hover" data-aos="fade-up">
+          <span class="card-icon" style="background:var(--danger-bg); color:var(--danger)"><i class="fa-solid fa-circle-question"></i></span>
+          <h3 class="card-title mt-4">Help and appointments</h3>
+          <p class="card-text mt-1">Get help online or book a visit to a service centre.</p>
+          <span class="card-link">Get support <i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+        <a href="application-status.html" data-category="Travel" class="listing-card card card-hover" data-aos="fade-up">
+          <span class="card-icon" style="background:#EAE6FB; color:#4F46E5"><i class="fa-solid fa-passport"></i></span>
+          <h3 class="card-title mt-4">Passport &amp; travel documents</h3>
+          <p class="card-text mt-1">Apply for a new passport, renewal, or police clearance certificate.</p>
+          <span class="card-link">Start service <i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+        <a href="application-status.html" data-category="Registration" class="listing-card card card-hover" data-aos="fade-up">
+          <span class="card-icon" style="background:#ECFCCB; color:#4D7C0F"><i class="fa-solid fa-file-contract"></i></span>
+          <h3 class="card-title mt-4">Land &amp; property records</h3>
+          <p class="card-text mt-1">Request land record copies, mutation updates, or property tax receipts.</p>
+          <span class="card-link">Start service <i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+        <a href="application-status.html" data-category="Welfare" class="listing-card card card-hover" data-aos="fade-up">
+          <span class="card-icon" style="background:#FCE7F3; color:#BE185D"><i class="fa-solid fa-graduation-cap"></i></span>
+          <h3 class="card-title mt-4">Education scholarships</h3>
+          <p class="card-text mt-1">Check eligibility and apply for student scholarship schemes.</p>
+          <span class="card-link">Start service <i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+        <a href="application-status.html" data-category="Registration" class="listing-card card card-hover" data-aos="fade-up">
+          <span class="card-icon" style="background:var(--info-bg); color:var(--info)"><i class="fa-solid fa-car"></i></span>
+          <h3 class="card-title mt-4">Vehicle registration renewal</h3>
+          <p class="card-text mt-1">Renew registration, transfer ownership, or update vehicle details.</p>
+          <span class="card-link">Start service <i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+        <a href="application-status.html" data-category="Registration" class="listing-card card card-hover" data-aos="fade-up">
+          <span class="card-icon" style="background:var(--warning-bg); color:var(--warning)"><i class="fa-solid fa-id-card"></i></span>
+          <h3 class="card-title mt-4">Driving licence renewal</h3>
+          <p class="card-text mt-1">Renew an expiring licence or request a duplicate.</p>
+          <span class="card-link">Start service <i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+        <a href="application-status.html" data-category="Certificates" class="listing-card card card-hover" data-aos="fade-up">
+          <span class="card-icon" style="background:#CCFBF1; color:#0F766E"><i class="fa-solid fa-file-lines"></i></span>
+          <h3 class="card-title mt-4">Vital records</h3>
+          <p class="card-text mt-1">Order birth, death, or marriage certificate copies.</p>
+          <span class="card-link">Start service <i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+        <a href="application-status.html" data-category="Certificates" class="listing-card card card-hover" data-aos="fade-up">
+          <span class="card-icon" style="background:var(--danger-bg); color:var(--danger)"><i class="fa-solid fa-people-group"></i></span>
+          <h3 class="card-title mt-4">Caste certificate</h3>
+          <p class="card-text mt-1">Apply for a community/caste certificate for education or employment.</p>
+          <span class="card-link">Start service <i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+        <a href="application-status.html" data-category="Certificates" class="listing-card card card-hover" data-aos="fade-up">
+          <span class="card-icon"><i class="fa-solid fa-house-chimney"></i></span>
+          <h3 class="card-title mt-4">Residence / domicile certificate</h3>
+          <p class="card-text mt-1">Prove your state or district residency for school, college, or job applications.</p>
+          <span class="card-link">Start service <i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+        <a href="application-status.html" data-category="Payments" class="listing-card card card-hover" data-aos="fade-up">
+          <span class="card-icon" style="background:var(--warning-bg); color:var(--warning)"><i class="fa-solid fa-hand-holding-dollar"></i></span>
+          <h3 class="card-title mt-4">Tax &amp; revenue services</h3>
+          <p class="card-text mt-1">Pay property or water tax and download payment receipts.</p>
+          <span class="card-link">Start service <i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+      </div>
+
+      <p id="serviceEmpty" hidden class="empty-state"><i class="fa-solid fa-magnifying-glass"></i> No services match your search or filter. Try clearing them and searching again.</p>
+      <nav id="servicePagination" class="pagination" aria-label="Services pages"></nav>
+
+      <section aria-labelledby="need-heading" class="mt-12">
+        <h2 id="need-heading" class="mb-4">What you'll need, at a glance</h2>
+        <div class="card card-flush table-scroll">
+          <table class="data-table">
+            <thead><tr><th>Service</th><th>Documents needed</th><th>Typical time</th><th>Fee</th></tr></thead>
+            <tbody>
+              <tr><td>Income certificate</td><td>Photo ID, address proof, income proof</td><td>5&ndash;7 days</td><td>Free</td></tr>
+              <tr><td>Identity and address</td><td>Photo ID, one new address proof</td><td>3&ndash;5 days</td><td>Free</td></tr>
+              <tr><td>Business registration</td><td>Photo ID, address proof, business plan or premises proof</td><td>7&ndash;10 days</td><td>Varies by license</td></tr>
+              <tr><td>Passport &amp; travel documents</td><td>Photo ID, address proof, birth certificate</td><td>10&ndash;15 days</td><td>Fee applies</td></tr>
+              <tr><td>Vehicle registration renewal</td><td>Registration certificate, insurance, pollution certificate</td><td>3&ndash;5 days</td><td>Fee applies</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="mt-3 text-xs" style="color:var(--gray-500)">Exact requirements can vary slightly by state. When in doubt, start the application &mdash; you'll be told if anything else is needed.</p>
+      </section>
+    </div>
+
+    <aside>
+      <div class="sidebar-card" data-aos="fade-up">
+        <h2>Quick links</h2>
+        <div class="sidebar-links">
+          <a href="application-status.html"><i class="fa-solid fa-list-check"></i> Track an application</a>
+          <a href="document-verification.html"><i class="fa-solid fa-file-circle-check"></i> Document verification</a>
+          <a href="schemes.html"><i class="fa-solid fa-hand-holding-dollar"></i> Government schemes</a>
+          <a href="staff-login.html"><i class="fa-solid fa-id-badge"></i> Staff login</a>
+        </div>
+      </div>
+      <div class="sidebar-card" data-aos="fade-up" data-aos-delay="80">
+        <h2>Related</h2>
+        <div class="sidebar-links">
+          <a href="jobs.html"><i class="fa-solid fa-briefcase"></i> Jobs in government</a>
+          <a href="representatives.html"><i class="fa-solid fa-people-group"></i> My representatives</a>
+          <a href="tourism.html"><i class="fa-solid fa-earth-asia"></i> Travel &amp; tourism</a>
+        </div>
+      </div>
+      <div class="sidebar-card help-card" data-aos="fade-up" data-aos-delay="160">
+        <h2>Need help?</h2>
+        <p>Call our helpline or chat with support &mdash; Monday to Friday, 9:00 AM to 5:30 PM.</p>
+        <a href="help.html" class="btn btn-gold btn-sm mt-3"><i class="fa-solid fa-headset"></i> Contact support</a>
+      </div>
+    </aside>
+  </div>
+
+  <section aria-labelledby="services-faq" class="mt-12">
+    <h2 id="services-faq" class="mb-4">Frequently asked questions</h2>
+    <div class="card faq-widget">
+      <label for="faqSearch" class="sr-only">Search frequently asked questions</label>
+      <input type="search" id="faqSearch" class="form-control faq-widget-search" placeholder="Search FAQs — e.g. account, upload, fee…">
+      <div class="faq-list">
+        <details class="faq-item" open>
+          <summary>Do I need to create an account to apply? <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></summary>
+          <div class="faq-panel"><div class="faq-panel-inner">No account is required for this demo &mdash; just fill in the application and keep your reference number to track it later.</div></div>
+        </details>
+        <details class="faq-item">
+          <summary>Can I apply for more than one service at a time? <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></summary>
+          <div class="faq-panel"><div class="faq-panel-inner">Yes. Each application gets its own reference number, so you can track them separately on the Track application page.</div></div>
+        </details>
+        <details class="faq-item">
+          <summary>What file formats can I upload? <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></summary>
+          <div class="faq-panel"><div class="faq-panel-inner">PDF, JPG, and PNG are accepted, up to 5&nbsp;MB per file. Scan documents clearly and avoid glare or cropped edges.</div></div>
+        </details>
+        <details class="faq-item">
+          <summary>Is my information kept private? <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></summary>
+          <div class="faq-panel"><div class="faq-panel-inner">Your details are only used to process your application and are shared solely with the verifying officer.</div></div>
+        </details>
+        <details class="faq-item">
+          <summary>Is there a fee to use any service? <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></summary>
+          <div class="faq-panel"><div class="faq-panel-inner">Most certificates are free. Where a fee applies (business licences, passports), it's shown clearly before you submit.</div></div>
+        </details>
+      </div>
+      <p class="faq-no-results empty-state mt-3"><i class="fa-solid fa-magnifying-glass"></i> No FAQs match your search.</p>
+    </div>
+  </section>
+
+  <section class="panel-navy cta-row mt-12" data-aos="fade-up">
+    <div><p class="eyebrow on-navy">Already applied?</p><h2 class="mt-1">Check your application status</h2><p class="mt-2 text-on-navy text-sm">You will need your application reference number.</p></div>
+    <a href="application-status.html" class="btn btn-white"><i class="fa-solid fa-magnifying-glass"></i> Track an application</a>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container-gov footer-grid">
+    <div>
+      <div class="flex items-center"><img src="images/stackly-logo-white.webp" alt="Stackly" class="footer-brand-logo"></div>
+      <p class="mt-3 text-sm" style="line-height:var(--lh-normal)">A single place to apply for, track, and manage government services online.</p>
+      <p class="mt-4 text-sm font-semibold" style="color:#fff">Helpline: 1800 123 4567</p>
+      <p class="text-xs" style="color:var(--gov-gold)">Monday&ndash;Friday, 9:00 AM&ndash;5:30 PM</p>
+      <div class="footer-social" role="group" aria-label="Social media">
+        <a href="404.html" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="404.html" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="404.html" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="404.html" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+    </div>
+    <div><h2>Explore</h2><ul class="footer-links"><li><a href="home.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="application-status.html">Track application</a></li><li><a href="about.html">About</a></li><li><a href="help.html">Help</a></li></ul></div>
+    <div><h2>More</h2><ul class="footer-links"><li><a href="schemes.html">Government schemes</a></li><li><a href="jobs.html">Jobs in government</a></li><li><a href="representatives.html">My representatives</a></li><li><a href="tourism.html">Travel &amp; tourism</a></li><li><a href="document-verification.html">Document verification</a></li></ul></div>
+    <div><h2>Account &amp; support</h2><ul class="footer-links"><li><a href="staff-login.html">Staff login</a></li><li><a href="about.html#accessibility">Accessibility statement</a></li><li><a href="help.html">Contact support</a></li><li><a href="help.html">Report an issue</a></li></ul></div>
+  </div>
+  <div style="border-top:1px solid rgba(255,255,255,.1)"><div class="container-gov text-xs" style="padding-block:var(--space-4); color:var(--gov-gold)">Photo: Rashtrapati Bhavan, New Delhi by IM3847, <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license">CC BY-SA 4.0</a>, via Wikimedia Commons.</div></div>
+  <div class="footer-bottom"><div class="container-gov footer-bottom-inner"><p>Citizen Services Portal is a demonstration project built for practice purposes &mdash; not an official government website.</p><p>Last updated: September 2026</p></div></div>
+</footer>
+
+<script src="listing-common.js"></script>
+<script>
+  initListing({
+    gridSelector: '#servicesGrid', cardSelector: '.listing-card', searchInputSelector: '#serviceSearch',
+    filterBarSelector: '#serviceFilters', countSelector: '#serviceCount', emptyStateSelector: '#serviceEmpty',
+    paginationSelector: '#servicePagination', pageSize: 6, itemLabel: 'service',
+  });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>AOS.init({ duration: 500, once: true, offset: 60, disable: window.matchMedia('(prefers-reduced-motion: reduce)').matches });</script>
+<script src="portal-common.js"></script>
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Help and Contact | Citizen Services Portal</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<div class="utility-bar">
+  <div class="container-gov flex items-center justify-between gap-4" style="height:36px">
+    <div class="flex items-center gap-3">
+      <button id="a11yToggle" type="button" aria-expanded="false" aria-controls="a11yPanel" class="flex items-center gap-2"><i class="fa-solid fa-universal-access"></i> Accessibility</button>
+      <span class="divider-v" aria-hidden="true"></span>
+      <button type="button" class="flex items-center gap-2"><i class="fa-solid fa-globe"></i> English <i class="fa-solid fa-chevron-down"></i></button>
+    </div>
+    <div class="flex items-center gap-3">
+      <a href="staff-login.html"><i class="fa-solid fa-id-badge"></i> Staff Login</a>
+      <span class="divider-v" aria-hidden="true"></span>
+      <a id="headerSearch" href="services.html?focus=search" class="flex items-center gap-2"><i class="fa-solid fa-magnifying-glass"></i> Search</a>
+    </div>
+  </div>
+  <div id="a11yPanel" hidden class="a11y-panel">
+    <div class="container-gov flex flex-wrap items-center gap-4" style="padding-block:var(--space-3)">
+      <span class="text-xs font-semibold" style="text-transform:uppercase; letter-spacing:.05em; color:#7E97B8">Text size</span>
+      <span class="flex items-center gap-1" role="group" aria-label="Text size">
+        <button type="button" data-fontsize="dec" class="a11y-size-btn" aria-label="Decrease text size">A-</button>
+        <button type="button" data-fontsize="reset" class="a11y-size-btn" aria-label="Reset text size">A</button>
+        <button type="button" data-fontsize="inc" class="a11y-size-btn" aria-label="Increase text size">A+</button>
+      </span>
+      <a href="about.html#accessibility" class="text-sm font-semibold" style="color:var(--gov-gold); margin-left:auto">Full accessibility statement &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<header class="navbar">
+  <div class="container-gov navbar-row">
+    <a href="home.html" class="navbar-brand">
+      <img src="images/stackly-logo-white.webp" alt="Stackly" class="navbar-brand-logo">
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primaryNav"><i class="fa-solid fa-bars"></i></button>
+    <nav id="primaryNav" aria-label="Primary" class="primary-nav">
+      <a href="home.html" class="nav-link">Home</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="application-status.html" class="nav-link">Track application</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="help.html" aria-current="page" class="nav-link active">Help</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <video class="page-hero__video" autoplay muted loop playsinline poster="images/india-flag-sky-poster.webp" aria-label="The national flag of India waving">
+    <source src="images/india-flag-sky.mp4" type="video/mp4">
+  </video>
+  <div class="page-hero__overlay" aria-hidden="true"></div>
+  <div class="container-gov">
+    <nav class="breadcrumb on-navy" aria-label="Breadcrumb"><a href="home.html">Home</a><span class="sep">/</span><span class="current">Help</span></nav>
+    <p class="eyebrow on-navy" data-aos="fade-up">Support centre</p>
+    <h1 data-aos="fade-up" data-aos-delay="60">How can we help?</h1>
+    <p class="lead mt-2" data-aos="fade-up" data-aos-delay="120">Find a quick answer or send the support team a question about an application, document, or service centre visit.</p>
+  </div>
+</section>
+
+<main id="main-content" class="container-gov" style="padding-block:var(--space-10)">
+
+  <figure class="mb-10" style="border-radius:var(--radius-lg); overflow:hidden; position:relative" data-aos="fade-up">
+    <img src="images/help-passport-kendra.webp" alt="Entrance of a Post Office Passport Seva Kendra, a citizen service centre" style="width:100%; height:16rem; object-fit:cover" loading="lazy">
+    <figcaption style="position:absolute; inset-inline:0; bottom:0; background:linear-gradient(to top, rgba(0,0,0,.6), transparent); color:#fff; font-size:var(--fs-xs); padding:var(--space-2) var(--space-4)">A Post Office Passport Seva Kendra &middot; photo by Ministry of Communications (India), <a href="https://creativecommons.org/licenses/by/4.0/" style="color:#fff; text-decoration:underline" rel="license">CC BY 4.0</a></figcaption>
+  </figure>
+
+  <section aria-labelledby="steps-heading" class="mb-12">
+    <h2 id="steps-heading">Applying for a service, step by step</h2>
+    <ol class="grid-auto-md mt-5">
+      <li class="card"><span class="step-badge">1</span><h3 class="mt-3 font-semibold text-sm" style="color:var(--gray-900)">Choose a service</h3><p class="mt-1 text-xs card-text">Find the right service on the Services page and check what you'll need before you start.</p></li>
+      <li class="card"><span class="step-badge">2</span><h3 class="mt-3 font-semibold text-sm" style="color:var(--gray-900)">Submit your details</h3><p class="mt-1 text-xs card-text">Fill in the application and upload clear scans or photos of your supporting documents.</p></li>
+      <li class="card"><span class="step-badge">3</span><h3 class="mt-3 font-semibold text-sm" style="color:var(--gray-900)">Get a reference number</h3><p class="mt-1 text-xs card-text">Save the acknowledgement receipt &mdash; its reference number is how you'll track progress.</p></li>
+      <li class="card"><span class="step-badge">4</span><h3 class="mt-3 font-semibold text-sm" style="color:var(--gray-900)">Track and receive</h3><p class="mt-1 text-xs card-text">Check status anytime on Track application. You'll be notified once a decision is issued.</p></li>
+    </ol>
+  </section>
+
+  <section aria-labelledby="topics-heading" class="mb-12">
+    <h2 id="topics-heading">Popular help topics</h2>
+    <div class="grid-auto-md mt-5">
+      <a href="services.html" class="card card-hover tile"><span class="card-icon"><i class="fa-solid fa-file-signature"></i></span><div><h3 class="font-semibold text-sm" style="color:var(--gray-900)">Starting an application</h3><p class="mt-1 text-xs card-text">Which service to pick and what to prepare first.</p></div></a>
+      <a href="application-status.html" class="card card-hover tile"><span class="card-icon" style="background:var(--warning-bg); color:var(--warning)"><i class="fa-solid fa-clock-rotate-left"></i></span><div><h3 class="font-semibold text-sm" style="color:var(--gray-900)">Tracking status</h3><p class="mt-1 text-xs card-text">Understanding each stage and typical wait times.</p></div></a>
+      <a href="services.html" class="card card-hover tile"><span class="card-icon" style="background:#CFFAFE; color:#0E7490"><i class="fa-solid fa-file-arrow-up"></i></span><div><h3 class="font-semibold text-sm" style="color:var(--gray-900)">Document uploads</h3><p class="mt-1 text-xs card-text">Accepted formats, size limits, and common upload errors.</p></div></a>
+      <a href="about.html#accessibility" class="card card-hover tile"><span class="card-icon" style="background:var(--success-bg); color:var(--success)"><i class="fa-solid fa-universal-access"></i></span><div><h3 class="font-semibold text-sm" style="color:var(--gray-900)">Accessibility</h3><p class="mt-1 text-xs card-text">Text size, screen readers, and reporting a barrier.</p></div></a>
+    </div>
+  </section>
+
+  <section aria-labelledby="forms-heading" class="card mb-12">
+    <h2 id="forms-heading" style="font-size:var(--fs-xl)">Downloadable forms</h2>
+    <p class="mt-1 text-sm" style="color:var(--gray-500)">For applicants who'd rather fill in a paper form and submit it at a service centre.</p>
+    <ul class="mt-4">
+      <li class="flex items-center justify-between gap-3" style="padding-block:var(--space-3); border-top:1px solid var(--gray-200)"><span class="text-sm" style="color:var(--gray-700)">Income certificate application (Form&nbsp;IC-1)</span><a href="services.html" class="text-sm font-semibold shrink-0" style="color:var(--gov-blue)">View online instead</a></li>
+      <li class="flex items-center justify-between gap-3" style="padding-block:var(--space-3); border-top:1px solid var(--gray-200)"><span class="text-sm" style="color:var(--gray-700)">Identity &amp; address correction (Form&nbsp;IA-2)</span><a href="services.html" class="text-sm font-semibold shrink-0" style="color:var(--gov-blue)">View online instead</a></li>
+      <li class="flex items-center justify-between gap-3" style="padding-block:var(--space-3); border-top:1px solid var(--gray-200)"><span class="text-sm" style="color:var(--gray-700)">Pension &amp; welfare enrolment (Form&nbsp;PW-3)</span><a href="services.html" class="text-sm font-semibold shrink-0" style="color:var(--gov-blue)">View online instead</a></li>
+    </ul>
+    <p class="mt-3 text-xs" style="color:var(--gray-400)">Paper forms are also available at any service centre &mdash; applying online is usually faster to process.</p>
+  </section>
+
+  <div class="grid-2 mb-12">
+    <section>
+      <div class="card faq-widget mb-6">
+        <h2 class="mb-3" style="font-size:var(--fs-xl)">Common questions</h2>
+        <label for="faqSearch" class="sr-only">Search frequently asked questions</label>
+        <input type="search" id="faqSearch" class="form-control faq-widget-search" placeholder="Search questions — e.g. reference number, fee, rejected…">
+        <div class="faq-list">
+          <details class="faq-item" open>
+            <summary>Where can I find my reference number? <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></summary>
+            <div class="faq-panel"><div class="faq-panel-inner">It is printed on your acknowledgement receipt and included in the confirmation message sent after you submit an application.</div></div>
+          </details>
+          <details class="faq-item">
+            <summary>How long does document verification take? <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></summary>
+            <div class="faq-panel"><div class="faq-panel-inner">Most submissions are reviewed within five working days. A service officer may contact you if more information is needed.</div></div>
+          </details>
+          <details class="faq-item">
+            <summary>Can I edit an application after submission? <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></summary>
+            <div class="faq-panel"><div class="faq-panel-inner">Use the contact form to ask for a correction. Include your reference number so the team can locate your record.</div></div>
+          </details>
+          <details class="faq-item">
+            <summary>What documents do I need to scan or photograph? <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></summary>
+            <div class="faq-panel"><div class="faq-panel-inner">Most services need a photo ID, an address proof, and any certificate specific to that service. Keep files under 5&nbsp;MB in PDF, JPG, or PNG format.</div></div>
+          </details>
+          <details class="faq-item">
+            <summary>Is there a fee to apply? <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></summary>
+            <div class="faq-panel"><div class="faq-panel-inner">Most certificate and status services are free. Business registration and some licenses carry a fee, shown before you submit.</div></div>
+          </details>
+          <details class="faq-item">
+            <summary>What if my application is rejected? <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></summary>
+            <div class="faq-panel"><div class="faq-panel-inner">You'll see the reason on the Track application page. You can usually correct the issue and resubmit at no extra cost.</div></div>
+          </details>
+        </div>
+        <p class="faq-no-results empty-state mt-3"><i class="fa-solid fa-magnifying-glass"></i> No questions match your search.</p>
+      </div>
+
+      <div class="card" style="background:var(--gov-blue-light); border-color:#D6E4F5">
+        <h2 style="font-size:var(--fs-xl); color:var(--gov-navy)">Service centre hours</h2>
+        <p class="mt-2 text-sm card-text">Monday to Friday, 9:00 AM to 5:30 PM</p>
+        <p class="mt-1 text-sm card-text">Saturday, 9:00 AM to 1:00 PM</p>
+        <p class="mt-1 text-sm card-text">Closed on public holidays</p>
+        <p class="mt-3 text-sm card-text">Walk-ins are welcome, but booking ahead means a shorter wait &mdash; bring your reference number and one photo ID.</p>
+        <p class="mt-3 text-sm font-semibold" style="color:var(--gov-blue)">Helpline: 1800 123 4567</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="flex items-start justify-between gap-3">
+        <div><h2 style="font-size:var(--fs-xl)">Send a support request</h2><p class="mt-1 text-sm" style="color:var(--gray-500)">We usually respond within two working days.</p></div>
+        <span class="card-icon"><i class="fa-solid fa-envelope"></i></span>
+      </div>
+      <form id="supportForm" class="mt-6" style="display:flex; flex-direction:column; gap:var(--space-4)">
+        <div><label for="name" class="form-label">Full name</label><input id="name" required class="form-control" autocomplete="name"></div>
+        <div><label for="email" class="form-label">Email address</label><input id="email" required type="email" class="form-control" autocomplete="email"></div>
+        <div>
+          <label for="topic" class="form-label">What do you need help with?</label>
+          <select id="topic" class="form-control"><option>Application status</option><option>Document verification</option><option>Account access</option><option>Service centre visit</option></select>
+        </div>
+        <div><label for="message" class="form-label">Message</label><textarea id="message" required rows="4" class="form-control" placeholder="Include your reference number if you have one."></textarea></div>
+        <button class="btn btn-primary btn-block" type="submit">Send request</button>
+      </form>
+      <div id="success" hidden class="form-success-box mt-5" role="status"><i class="fa-solid fa-circle-check"></i> <span><strong>Request received.</strong> Your support reference is <span id="ticket" class="font-bold"></span>. Keep it for your records.</span></div>
+    </section>
+  </div>
+
+  <section aria-labelledby="centre-heading" class="card card-flush" style="overflow:hidden; display:grid; grid-template-columns:1fr; align-items:stretch">
+    <img src="images/aadhaar-seva-kendra.webp" alt="An Aadhaar Seva Kendra citizen enrolment and service centre" style="width:100%; height:12rem; object-fit:cover">
+    <div style="padding:var(--space-6)">
+      <h2 id="centre-heading" style="font-size:var(--fs-xl)">Prefer to visit in person?</h2>
+      <p class="mt-2 text-sm card-text" style="line-height:var(--lh-normal)">Common Service Centres and Seva Kendras across the country can help you apply, scan documents, and check status if you don't have internet access at home. Look for the nearest centre through your state's district administration office, or call the helpline below and we'll point you to one.</p>
+      <p class="mt-3 text-sm font-semibold" style="color:var(--gov-blue)">Helpline: 1800 123 4567</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container-gov footer-grid">
+    <div>
+      <div class="flex items-center"><img src="images/stackly-logo-white.webp" alt="Stackly" class="footer-brand-logo"></div>
+      <p class="mt-3 text-sm" style="line-height:var(--lh-normal)">A single place to apply for, track, and manage government services online.</p>
+      <p class="mt-4 text-sm font-semibold" style="color:#fff">Helpline: 1800 123 4567</p>
+      <p class="text-xs" style="color:var(--gov-gold)">Monday&ndash;Friday, 9:00 AM&ndash;5:30 PM</p>
+      <div class="footer-social" role="group" aria-label="Social media">
+        <a href="404.html" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="404.html" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="404.html" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="404.html" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+    </div>
+    <div><h2>Explore</h2><ul class="footer-links"><li><a href="home.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="application-status.html">Track application</a></li><li><a href="about.html">About</a></li><li><a href="help.html">Help</a></li></ul></div>
+    <div><h2>More</h2><ul class="footer-links"><li><a href="schemes.html">Government schemes</a></li><li><a href="jobs.html">Jobs in government</a></li><li><a href="representatives.html">My representatives</a></li><li><a href="tourism.html">Travel &amp; tourism</a></li><li><a href="document-verification.html">Document verification</a></li></ul></div>
+    <div><h2>Account &amp; support</h2><ul class="footer-links"><li><a href="staff-login.html">Staff login</a></li><li><a href="about.html#accessibility">Accessibility statement</a></li><li><a href="help.html">Contact support</a></li><li><a href="help.html">Report an issue</a></li></ul></div>
+  </div>
+  <div style="border-top:1px solid rgba(255,255,255,.1)"><div class="container-gov text-xs" style="padding-block:var(--space-4); color:var(--gov-gold)">Photos: Post Office Passport Seva Kendra by Ministry of Communications (India), <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>; Aadhaar Seva Kendra by Suyash.dwivedi, <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license">CC BY-SA 4.0</a>, via Wikimedia Commons.</div></div>
+  <div class="footer-bottom"><div class="container-gov footer-bottom-inner"><p>Citizen Services Portal is a demonstration project built for practice purposes &mdash; not an official government website.</p><p>Last updated: September 2026</p></div></div>
+</footer>
+
+<script>
+document.getElementById('supportForm').addEventListener('submit', event => {
+  event.preventDefault();
+  document.getElementById('ticket').textContent = 'SUP-' + Math.floor(100000 + Math.random() * 900000);
+  document.getElementById('success').hidden = false;
+  event.target.reset();
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>AOS.init({ duration: 500, once: true, offset: 60, disable: window.matchMedia('(prefers-reduced-motion: reduce)').matches });</script>
+<script src="portal-common.js"></script>
+</body>
+</html>
